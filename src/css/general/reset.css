@@ -20,7 +20,7 @@ ul {
 }
 
 a {
-  color: inherit;
+  color: var(--colorTextDark);
   text-decoration: none;
   transition: color var(--cubic-transition);
 }
@@ -56,4 +56,9 @@ body {
   font-weight: 400;
   color: var(--colorTextDark);
   background-color: var(--light);
+}
+
+.swiper {
+  width: 600px;
+  height: 300px;
 }
