@@ -8,14 +8,3 @@
   justify-content: flex-end;
   gap: 40px;
 }
-
-.nav-link {
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  line-height: 1.5;
-}
-
-.nav-link:hover,
-.nav-link:focus {
-  color: #747bff;
-}
