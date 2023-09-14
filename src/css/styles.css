@@ -17,6 +17,8 @@
 @import url('./partials/popular-recipes.css');
 @import url('./partials/categories.css');
 @import url('./partials/pagination.css');
+@import url('./partials/modal-order.css');
+@import url('./partials/popup.css');
 
 /*
 BREAKPOINTS
