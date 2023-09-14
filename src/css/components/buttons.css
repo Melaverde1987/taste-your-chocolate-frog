@@ -1,9 +1,15 @@
 .btn {
-  padding: 14px 28px;
+  padding: 10px 20px;
   border-radius: 15px;
   border: 1px solid transparent;
   font-size: 14px;
   font-weight: 500;
+}
+
+@media only screen and (min-width: 768px) {
+  .btn {
+    padding: 14px 28px;
+  }
 }
 
 .btn-primary {
