@@ -1,3 +1,58 @@
 .filters {
-  color: red;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 16px;
+}
+
+@media only screen and (min-width: 1200px) {
+  .filters {
+    flex-wrap: nowrap;
+  }
+}
+
+.filter-item {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.filters .filter-search:not(:placeholder-shown) {
+  padding-left: 48px;
+  background-image: url(../img/svg/search-green.svg);
+  background-repeat: no-repeat;
+  background-position: 18px center;
+}
+
+.filters .filter-search::placeholder {
+  padding-left: 30px;
+  background-image: url(../img/svg/search.svg);
+  background-repeat: no-repeat;
+  background-position: 0 center;
+}
+
+.filters .filter-select {
+  max-width: 100%;
+}
+
+.filters .filter-search {
+  max-width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  .filters .filter-search {
+    max-width: 243px;
+  }
+}
+
+.filter-item.ingredients-select {
+  max-width: 100%;
+  width: 100%;
+  flex-grow: 2;
+}
+
+@media only screen and (min-width: 768px) {
+  .filter-item.ingredients-select {
+    max-width: 188px;
+    /*width: 188px;*/
+  }
 }
