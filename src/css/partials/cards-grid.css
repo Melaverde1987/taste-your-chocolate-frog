@@ -112,6 +112,7 @@
 .pag-wrap {
   display: flex;
   width: 100%;
+  gap: 14px;
 }
 
 .pag-btn {
@@ -126,10 +127,10 @@
 
 .btns-back {
   display: flex;  
+  gap: 4px;
 }
 
-.pag-start-btn,
-.pag-forward-btn {
+.pag-start-btn {
   background-color: var(--colorTextDark);
   }
 
@@ -164,7 +165,7 @@
 
 .btns-pages{
   display: flex;
-  gap: 8px;
+  gap: 9px;
 }
 
 .pag-page-btn {
@@ -176,4 +177,10 @@
 }
 .btns-forward{
   display: flex;
+  gap: 4px;
+}
+.pag-forward-btn{
+  background-color: var(--colorPrimary);
+  transform: rotate(180deg);
+  
 }
