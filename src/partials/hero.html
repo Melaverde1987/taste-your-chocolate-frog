@@ -1,3 +1,4 @@
+<!------------------------------------ HERO section -------------------------------------->
 <section class="hero">
   <div class="container hero-container">
     <div class="hero-title">
@@ -6,30 +7,56 @@
         <span class="hero-title-accent">Tasty Treats'</span> Customizable
         Masterclass
       </h1>
-      <p class="hero-title-text last-child">
+      <p class="hero-title-text">
         TastyTreats - Customize Your Meal with Ingredient Options and
         Step-by-Step Video Guides.
       </p>
+      <button class="hero-btn-order btn btn-primary" type="button">
+        Order now
+      </button>
     </div>
-    <button class="hero-btn-order btn btn-primary" type="button">
-      Order now
-    </button>
-  </div>
-  <div class="hero-swiper">
-    <div class="chief">
-      <img class="chief-photo" src="/src/img/1-Chief.png" alt="Chief" />
-    </div>
-    <div class="meal">
-      <img class="meal-photo" src="/src/img/2-Meal.png" alt="Meal" />
-      <h2 class="meal-title"></h2>
-      <p class="meal-cuisine"></p>
-    </div>
-    <div class="cuisine-preview">
-      <img
-        class="cuisine-preview-photo"
-        src="/src/img/3-Preview.png"
-        alt="Preview"
-      />
+
+    <!-- Second block with swiper photo -->
+    <div class="hero-card">
+      <div class="chief">
+        <picture class="chief-photo">
+          <source
+            srcset="https://tasty-treats-backend.p.goit.global/HestonChan.webp"
+            type="image/webp"
+          />
+          <source
+            srcset="https://tasty-treats-backend.p.goit.global/HestonChan.png"
+            type="image/jpeg"
+          />
+          <img
+            src="https://tasty-treats-backend.p.goit.global/HestonChan.png"
+            alt="Chief"
+          />
+        </picture>
+        <!-- <img
+          class="chief-photo"
+          src="https://tasty-treats-backend.p.goit.global/HestonChan.png"
+          alt="Chief"
+        /> -->
+      </div>
+      <div class="meal">
+        <img
+          class="meal-photo"
+          src="https://tasty-treats-backend.p.goit.global/previewDish1.png"
+          alt="Meal"
+        />
+        <!-- h2 (topic: name) -->
+        <h2 class="meal-name">Grilled, smoky, delicious barbecue</h2>
+        <!-- p (topic: area) -->
+        <p class="meal-area">Spanish</p>
+      </div>
+      <div class="cuisine-preview">
+        <img
+          class="cuisine-preview-photo"
+          src="https://tasty-treats-backend.p.goit.global/imgDish1.png"
+          alt="Preview"
+        />
+      </div>
     </div>
   </div>
 </section>

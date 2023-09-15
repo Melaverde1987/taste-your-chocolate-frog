@@ -14,7 +14,7 @@
   font-size: 26px;
   font-style: normal;
   font-weight: 600;
-  line-height: 120%; /* 31.2px */
+  line-height: 1.2; /* 31.2px */
   text-transform: uppercase;
 }
 
@@ -28,7 +28,6 @@
 }
 
 .hero-title-text {
-  margin-bottom: 28px;
   color: #050505;
   font-family: Inter;
   font-size: 14px;
@@ -38,5 +37,104 @@
 }
 
 .hero-btn-order {
+  margin-top: 28px;
   margin-bottom: 48px;
+}
+
+.hero-card {
+  height: 280px;
+  /* display: inline-flex;
+  align-items: flex-start; */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.chief {
+  flex-shrink: 0;
+  /* background-image: url(https://tasty-treats-backend.p.goit.global/previewDish1.png),
+    lightgray 50% / cover no-repeat; */
+  width: 80px;
+  height: inherit;
+  object-fit: cover;
+  overflow: hidden;
+  border-radius: 15px;
+  border: 1px solid rgba(155, 181, 55, 0.3);
+  background: #050505;
+  object-fit: cover;
+  overflow-y: auto;
+}
+.chief-photo {
+  /* display: block;
+  height: 100%; */
+}
+.meal {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: center;
+  /* gap: 4px; */
+  width: 200px;
+  height: inherit;
+  overflow: hidden;
+  border-radius: 15px;
+  border: 1px solid rgba(155, 181, 55, 0.3);
+  background: #050505;
+  object-fit: cover;
+  overflow-y: hidden;
+}
+.meal-photo {
+  width: 157px;
+  height: 142px;
+  flex-shrink: 0;
+  flex-shrink: 0;
+  margin-bottom: 20px;
+}
+.meal-name {
+  width: 157px;
+  color: rgba(248, 248, 248, 0.6);
+  text-align: center;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 14px; /* 140% */
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.meal-area {
+  color: rgba(248, 248, 248, 0.2);
+  text-align: center;
+  font-size: 8px;
+  font-weight: 400;
+  line-height: 12px; /* 150% */
+}
+
+.cuisine-preview {
+  width: 222px;
+  height: inherit;
+  overflow: hidden;
+  border-radius: 15px;
+  border: 1px solid rgba(155, 181, 55, 0.3);
+  background: #050505;
+  object-fit: cover;
+  overflow-y: auto;
+}
+
+/* tablet */
+@media only screen and (min-width: 768px) {
+  .hero-title h1 {
+    max-width: 446px;
+  }
+  .hero-title-text {
+    max-width: 408px;
+  }
+  .hero-btn-order {
+    margin-top: 32px;
+    margin-bottom: 64px;
+  }
+}
+
+/* desktop */
+@media only screen and (min-width: 1200px) {
+  .hero-container {
+    display: flex;
+  }
 }
