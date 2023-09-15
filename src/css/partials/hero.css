@@ -1,15 +1,11 @@
 /**
-  |============================
-  | HERO Section
-  |============================
+  |==================================|
+  | HERO Section (Dev by AndriyZuMa) |
+  |==================================|
 **/
-/* .hero {
-  color: green;
-} */
 
 .hero-title {
   color: #050505;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-family: Inter;
   font-size: 26px;
   font-style: normal;
@@ -55,13 +51,12 @@
     lightgray 50% / cover no-repeat; */
   width: 80px;
   height: inherit;
-  object-fit: cover;
   overflow: hidden;
   border-radius: 15px;
   border: 1px solid rgba(155, 181, 55, 0.3);
   background: #050505;
   object-fit: cover;
-  overflow-y: auto;
+  overflow-x: hidden;
 }
 .chief-photo {
   /* display: block;
@@ -72,20 +67,19 @@
   flex-direction: column;
   flex-shrink: 0;
   align-items: center;
-  /* gap: 4px; */
-  width: 200px;
+  width: 202px;
   height: inherit;
+  justify-content: center;
   overflow: hidden;
   border-radius: 15px;
   border: 1px solid rgba(155, 181, 55, 0.3);
   background: #050505;
   object-fit: cover;
-  overflow-y: hidden;
+  overflow-x: hidden;
 }
 .meal-photo {
   width: 157px;
   height: 142px;
-  flex-shrink: 0;
   flex-shrink: 0;
   margin-bottom: 20px;
 }
@@ -108,33 +102,59 @@
 }
 
 .cuisine-preview {
-  width: 222px;
+  width: 202px;
   height: inherit;
   overflow: hidden;
   border-radius: 15px;
   border: 1px solid rgba(155, 181, 55, 0.3);
   background: #050505;
   object-fit: cover;
-  overflow-y: auto;
+  overflow-x: hidden;
 }
 
-/* tablet */
+/* mobile */
+@media only screen and (max-width: 767px) {
+  .hero-title {
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+}
+
+/* tablet break-point*/
 @media only screen and (min-width: 768px) {
+  .hero-title {
+    font-size: 36px;
+  }
   .hero-title h1 {
     max-width: 446px;
   }
   .hero-title-text {
     max-width: 408px;
+    font-size: 16px;
+    line-height: 24px;
   }
   .hero-btn-order {
     margin-top: 32px;
     margin-bottom: 64px;
   }
+  .hero-card {
+    height: 444px;
+    gap: 16px;
+  }
+  .chief {
+    width: 137px;
+  }
+  .meal,
+  .cuisine-preview {
+    width: 353px;
+  }
 }
 
-/* desktop */
+/* desktop break-point*/
 @media only screen and (min-width: 1200px) {
   .hero-container {
     display: flex;
+  }
+  .hero-card {
+    margin-left: 21px;
   }
 }
