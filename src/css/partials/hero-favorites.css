@@ -1,3 +1,42 @@
-.hero {
-  color: yellow;
+/* mobile default */
+.hero-favorites {
+  display: block;
+  margin: 20px auto;
 }
+
+.favorites-loading {
+  width: 68px;
+  height: 58px;
+  margin: 60px auto 30px;
+}
+
+.favorites-description {
+  color: var(--black);
+  text-align: center;
+  font-size: 14px;
+}
+
+/* tablet */
+
+@media only screen and (min-width: 768px) {
+  .favorites-loading {
+    width: 97px;
+    height: 83px;
+  }
+  .favorites-description {
+    display: block;
+    width: 481px;
+    height: 72px;
+    margin: 20px auto;
+
+    color: var(--black);
+    text-align: center;
+    font-size: 16px;
+  }
+}
+
+/* desktop
+
+@media only screen and (min-width: 1200px) {
+} */
+
