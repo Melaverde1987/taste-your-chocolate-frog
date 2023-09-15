@@ -16,8 +16,8 @@
       <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M28 24h-24"></path>
       </symbol>
       <symbol id="cross-close" viewBox="0 0 32 32">
-      <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.5556" d="M24 8l-16 16"></path>
-      <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.5556" d="M8 8l16 16"></path>
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M24 8l-16 16"></path>
+      <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M8 8l16 16"></path>
       </symbol>
       <symbol id="cross-close-modal" viewBox="0 0 32 32">
       <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M24 8l-16 16"></path>
@@ -34,6 +34,10 @@
       </symbol>
       <symbol id="slider-one-arrow-right" viewBox="0 0 32 32">
       <path d="M17.867 16.947c0.125-0.124 0.224-0.271 0.292-0.434s0.103-0.337 0.103-0.513-0.035-0.35-0.103-0.513c-0.068-0.163-0.167-0.31-0.292-0.434l-6.12-6.107c-0.125-0.124-0.224-0.271-0.292-0.434s-0.103-0.337-0.103-0.513c0-0.176 0.035-0.35 0.103-0.513s0.167-0.31 0.292-0.434c0.25-0.248 0.588-0.388 0.94-0.388s0.69 0.139 0.94 0.388l6.12 6.12c0.749 0.75 1.17 1.767 1.17 2.827s-0.421 2.077-1.17 2.827l-6.12 6.12c-0.248 0.246-0.584 0.385-0.933 0.387-0.175 0.001-0.349-0.033-0.512-0.099s-0.31-0.164-0.435-0.288c-0.125-0.124-0.224-0.271-0.292-0.434s-0.103-0.337-0.103-0.513 0.035-0.35 0.103-0.513c0.068-0.163 0.167-0.31 0.292-0.434l6.12-6.107z"></path>
-    </symbol>
+      </symbol>
+      <symbol id="switch" viewBox="0 0 50 32" width="46" height="20">
+      <path fill="#cecdcd" style="fill: var(--color1, #cecdcd)" d="M13.176 6.902h16.314c3.465 0 6.274 2.809 6.274 6.274s-2.809 6.275-6.274 6.275h-16.314c-3.465 0-6.274-2.809-6.274-6.274s2.809-6.274 6.274-6.274z"></path>
+      <path fill="#f8f8f8" style="fill: var(--color2, #f8f8f8)" d="M19.074 13.177c0 3.257-2.641 5.898-5.898 5.898s-5.898-2.641-5.898-5.898c0-3.257 2.641-5.898 5.898-5.898s5.898 2.641 5.898 5.898z"></path>
+      </symbol>
   </defs>
 </svg>
