@@ -1,15 +1,25 @@
-.cards-grid {
-  color: blue;
-}
-
 /* +++++++++++ list cards +++++++++++*/
 
 .list-recipes {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  /* flex-direction: column; */
   gap: 24px;
   margin-bottom: 40px;
 }
+
+@media screen and (min-width: 768px) {
+  .list-recipes {
+    gap: 16px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .list-recipes {
+    gap: 20px;
+  }
+}
+
 .item-recipes {
   position: relative;
   overflow: hidden;
@@ -113,6 +123,14 @@
   display: flex;
   width: 100%;
   gap: 14px;
+  justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+  .pag-wrap{
+    gap: 24px;
+    
+  }
 }
 
 .pag-btn {
@@ -128,6 +146,12 @@
 .btns-back {
   display: flex;  
   gap: 4px;
+}
+
+@media screen and (min-width: 768px) {
+  .btns-back{
+    gap: 8px;
+  }
 }
 
 .pag-start-btn {
@@ -165,7 +189,23 @@
 
 .btns-pages{
   display: flex;
-  gap: 9px;
+  gap: 8px;
+}
+
+@media screen and (min-width: 768px) {
+  .btns-pages{
+    gap: 10px;
+  }
+}
+
+.additional-btn{
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .additional-btn{
+    display: flex;
+  }
 }
 
 .pag-page-btn {
@@ -179,6 +219,13 @@
   display: flex;
   gap: 4px;
 }
+
+@media screen and (min-width: 768px) {
+  .btns-forward{
+    gap: 8px;
+  }
+}
+
 .pag-forward-btn{
   background-color: var(--colorPrimary);
   transform: rotate(180deg);
