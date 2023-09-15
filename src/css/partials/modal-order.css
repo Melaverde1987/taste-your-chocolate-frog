@@ -1,3 +1,91 @@
 .modal-order {
-  color: brown;
+    position: absolute;
+    background-color: var(--white);
+    width: 440px;
+    height: 632px;
+    padding:30px 30px;
+    border-radius:15px;
+    transition: opacity 300ms linear, transform 500ms linear;
+}
+@media screen and (min-width: 768px) {
+    .modal-order {
+        width: 440px;
+        height: 632px;
+
+        padding: 40px;
+    }
+}
+
+@media screen and (max-width: 1279px) and (orientation: landscape) {
+    .modal-order {
+        top: 90%;
+    }
+}
+
+/* ORDER NOW */
+.title-order {
+    display: block;
+    text-transform: uppercase;
+    font-size: 18px;
+    line-height: 22px;
+    margin-bottom:22px;
+}
+
+/* Label */
+.field-order {
+    display: block;
+    margin-bottom: 10px;
+}
+.field-order:last-of-type {
+    margin-bottom: 40px;
+}
+
+/* name,phnumber,email,comment */
+.sp-order {
+    display: block;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 500;
+    color: rgba(5, 5, 5, 0.5);
+    margin-bottom: 4px;
+}
+
+/* input */
+.input-order {
+    width: 100%;
+    height: 48px;
+    border-radius:15px;
+    border: 1px solid rgba(5, 5, 5, 0.2);
+    padding: 14px, 169px, 14px, 18px;
+
+    font-size: 14px;
+    line-height:18px;
+
+    transition: border-color 250ms linear;
+}
+
+@media screen and (min-width: 768px) {
+    .input-order {
+        height: 48px;
+    }
+}
+
+/* textarea */
+.textarea-order {
+    height: 100px;
+    resize: none;
+}
+
+/* Btn SEND */
+.send-btn-order {
+    width: 100%;
+    color: var(--white);
+    background-color: var(--colorPrimary);
+
+    font-weight: 500;
+    font-size:14px;
+    line-height: 16.94px;
+    padding: 15px;
+    border: none;
+    border-radius: 15px;
 }
