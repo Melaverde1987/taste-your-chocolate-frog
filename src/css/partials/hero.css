@@ -4,7 +4,8 @@
   |==================================|
 **/
 
-.hero-title {
+.hero-title h1 {
+  margin-bottom: 14px;
   color: #050505;
   font-family: Inter;
   font-size: 26px;
@@ -13,14 +14,10 @@
   line-height: 1.2; /* 31.2px */
   text-transform: uppercase;
 }
-
 .hero-title-accent {
   color: #9bb537;
   font-style: italic;
   font-weight: 400;
-}
-.hero-title h1 {
-  margin-bottom: 14px;
 }
 
 .hero-title-text {
@@ -146,15 +143,16 @@
 /* tablet break-point*/
 @media only screen and (min-width: 768px) {
   .hero-title {
-    font-size: 36px;
+    /*  */
   }
   .hero-title h1 {
-    max-width: 446px;
+    font-size: 36px;
+    width: 446px;
   }
   .hero-title-text {
     max-width: 408px;
     font-size: 16px;
-    line-height: 24px;
+    line-height: 1.5;
   }
   .hero-btn-order {
     margin-top: 32px;
@@ -201,6 +199,6 @@
     display: flex;
   }
   .hero-card {
-    margin-left: 21px;
+    margin-left: 32px;
   }
 }
