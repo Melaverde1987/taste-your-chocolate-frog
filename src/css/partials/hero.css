@@ -47,6 +47,7 @@
   align-items: center;
   gap: 8px;
   overflow-y: hidden;
+  overflow-x: visible;
 }
 .chief {
   flex-shrink: 0;
@@ -80,8 +81,12 @@
   overflow: hidden;
   border-radius: 15px;
   border: 1px solid rgba(155, 181, 55, 0.3);
-  background: #050505;
-  background-image: url('./src/img/hero-home/BG-Ellipse.svg');
+  background-color: #050505;
+  background-image: url('../img/hero-home/BG-Ellipse.svg');
+  /* background-size: 124px 124px; */
+  background-size: 137px 137px;
+  background-repeat: no-repeat;
+  background-position: center;
   object-fit: cover;
   overflow-x: hidden;
 }
@@ -113,18 +118,22 @@
   position: relative;
   width: 202px;
   height: inherit;
-  overflow: hidden;
+  /* overflow: hidden; */
   border-radius: 15px;
   border: 1px solid rgba(155, 181, 55, 0.3);
-  background: #050505;
+  /* background: #050505; */
+  overflow-x: visible;
+  overflow-y: visible;
+  z-index: 2;
   /* object-fit: cover; */
 }
 .cuisine-preview-photo {
+  display: block;
+  background: url('https://tasty-treats-backend.p.goit.global/imgDish1.png');
   height: 255px;
   position: absolute;
   top: 0px;
   left: 0px;
-  overflow-x: auto;
 }
 
 /* mobile */
@@ -160,6 +169,25 @@
   }
   .chief-photo {
     height: 450px;
+  }
+  .dish {
+    background-size: 370px 370px;
+  }
+  .dish-photo {
+    width: 304px;
+    height: 271px;
+    flex-shrink: 0;
+    margin-bottom: 32px;
+  }
+  .dish-name {
+    width: auto;
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .dish-area {
+    width: 48px;
+    font-size: 12px;
+    line-height: 14px;
   }
   .dish,
   .cuisine-preview {
