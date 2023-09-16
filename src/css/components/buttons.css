@@ -24,6 +24,7 @@
 }
 
 .btn-outline {
+  background-color: transparent;
   color: var(--colorTextDark);
   border: 1px solid var(--colorPrimary);
   transition: color var(--cubic-transition),
