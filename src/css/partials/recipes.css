@@ -1,7 +1,7 @@
 .recipes {
   padding-block: 100px;
   .container {
-    display: flex;
+    display: block;
     column-gap: 60px;
   }
 }
