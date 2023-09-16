@@ -1,3 +1,204 @@
-.hero {
-  color: green;
+/**
+  |==================================|
+  | HERO Section (Dev by AndriyZuMa) |
+  |==================================|
+**/
+
+.hero-title h1 {
+  margin-bottom: 14px;
+  color: #050505;
+  font-family: Inter;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.2; /* 31.2px */
+  text-transform: uppercase;
+}
+.hero-title-accent {
+  color: #9bb537;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.hero-title-text {
+  color: #050505;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; /* 128.571% */
+}
+
+.hero-btn-order {
+  margin-top: 28px;
+  margin-bottom: 48px;
+}
+
+.hero-card {
+  height: 280px;
+  /* position: relative; */
+  /* margin-left: 20px; */
+  /* display: inline-flex;
+  align-items: flex-start; */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-y: hidden;
+  overflow-x: visible;
+}
+.chief {
+  flex-shrink: 0;
+  /* display: inline-block; */
+  display: flex;
+  /* background-image: url(https://tasty-treats-backend.p.goit.global/previewDish1.png),
+    lightgray 50% / cover no-repeat; */
+  width: 80px;
+  height: inherit;
+  overflow: hidden;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 1px solid rgba(155, 181, 55, 0.3);
+  background: #050505;
+}
+.chief-photo {
+  /* position: absolute; */
+  /* width: 100px; */
+  height: 255px;
+  overflow: hidden;
+  /* margin-left: -40%; */
+}
+.dish {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: center;
+  width: 202px;
+  height: inherit;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 15px;
+  border: 1px solid rgba(155, 181, 55, 0.3);
+  background-color: #050505;
+  background-image: url('../img/hero-home/BG-Ellipse.svg');
+  /* background-size: 124px 124px; */
+  background-size: 137px 137px;
+  background-repeat: no-repeat;
+  background-position: center;
+  object-fit: cover;
+  overflow-x: hidden;
+}
+.dish-photo {
+  width: 157px;
+  height: 142px;
+  flex-shrink: 0;
+  margin-bottom: 20px;
+}
+.dish-name {
+  width: 157px;
+  color: rgba(248, 248, 248, 0.6);
+  text-align: center;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 14px; /* 140% */
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.dish-area {
+  color: rgba(248, 248, 248, 0.2);
+  text-align: center;
+  font-size: 8px;
+  font-weight: 400;
+  line-height: 12px; /* 150% */
+}
+
+.cuisine-preview {
+  position: relative;
+  width: 202px;
+  height: inherit;
+  /* overflow: hidden; */
+  border-radius: 15px;
+  border: 1px solid rgba(155, 181, 55, 0.3);
+  /* background: #050505; */
+  overflow-x: visible;
+  overflow-y: visible;
+  z-index: 2;
+  /* object-fit: cover; */
+}
+.cuisine-preview-photo {
+  display: block;
+  background: url('https://tasty-treats-backend.p.goit.global/imgDish1.png');
+  height: 255px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+/* mobile */
+@media only screen and (max-width: 767px) {
+  .hero-title {
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+}
+
+/* tablet break-point*/
+@media only screen and (min-width: 768px) {
+  .hero-title {
+    /*  */
+  }
+  .hero-title h1 {
+    font-size: 36px;
+    width: 446px;
+  }
+  .hero-title-text {
+    max-width: 408px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .hero-btn-order {
+    margin-top: 32px;
+    margin-bottom: 64px;
+  }
+  .hero-card {
+    height: 444px;
+    gap: 16px;
+  }
+  .chief {
+    width: 137px;
+  }
+  .chief-photo {
+    height: 450px;
+  }
+  .dish {
+    background-size: 370px 370px;
+  }
+  .dish-photo {
+    width: 304px;
+    height: 271px;
+    flex-shrink: 0;
+    margin-bottom: 32px;
+  }
+  .dish-name {
+    width: auto;
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .dish-area {
+    width: 48px;
+    font-size: 12px;
+    line-height: 14px;
+  }
+  .dish,
+  .cuisine-preview {
+    width: 353px;
+  }
+}
+
+/* desktop break-point*/
+@media only screen and (min-width: 1200px) {
+  .hero-container {
+    display: flex;
+  }
+  .hero-card {
+    margin-left: 32px;
+  }
 }
