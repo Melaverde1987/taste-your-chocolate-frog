@@ -61,7 +61,7 @@ MOBILE MENU
 }
 .mobile-menu-basket {
   stroke: var(--black);
-  fill: var(--white);
+  fill: transparent;
 }
 .svg-modal {
   stroke: #f8f8f8;
