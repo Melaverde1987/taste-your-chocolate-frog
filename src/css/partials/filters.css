@@ -1,21 +1,22 @@
 .filters {
   display: flex;
   flex-wrap: wrap;
-  column-gap: 16px;
+  column-gap: 14px;
+  row-gap: 14px;
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 768px) {
   .filters {
-    flex-wrap: nowrap;
+    row-gap: 16px;
+    column-gap: 16px;
   }
 }
 
-.filter-item {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-
+/*
+====================
+INPUT & PLACEHILDER
+=====================
+*/
 .filters .filter-search:not(:placeholder-shown) {
   padding-left: 48px;
   background-image: url(../img/svg/search-green.svg);
@@ -30,29 +31,70 @@
   background-position: 0 center;
 }
 
-.filters .filter-select {
-  max-width: 100%;
+/*
+===================
+FILTER ELEMENTS
+===================
+*/
+
+.filter-item {
+  display: flex;
+  flex-direction: column;
 }
 
-.filters .filter-search {
-  max-width: 100%;
-}
-
-@media only screen and (min-width: 768px) {
-  .filters .filter-search {
-    max-width: 243px;
-  }
-}
-
-.filter-item.ingredients-select {
+.filters .filter-item.search {
   max-width: 100%;
   width: 100%;
-  flex-grow: 2;
 }
 
 @media only screen and (min-width: 768px) {
-  .filter-item.ingredients-select {
-    max-width: 188px;
-    /*width: 188px;*/
+  .filters .filter-item.search {
+    max-width: 278px;
   }
+}
+
+.filters .filter-item.time {
+  max-width: 160px;
+  width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  .filters .filter-item.time {
+    max-width: 125px;
+  }
+}
+
+.filters .filter-item.area {
+  max-width: 160px;
+  width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  .filters .filter-item.area {
+    max-width: 141px;
+  }
+}
+
+.filters .filter-item.ingredients {
+  max-width: 188px;
+  width: 100%;
+}
+
+.filters .reset-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.filters .reset-container .reset-filters {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: rgba(5, 5, 5, 0.5);
+  column-gap: 4px;
+}
+
+.filters .reset-container .reset-filters svg {
+  fill: var(--colorPrimary);
+  stroke: var(--colorPrimary);
 }

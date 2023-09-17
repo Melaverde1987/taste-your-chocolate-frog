@@ -11,7 +11,7 @@
     />
   </div>
 
-  <div class="filter-item">
+  <div class="filter-item time">
     <label for="time-select">Time</label>
     <select class="filter-select" name="time-select" id="time-select">
       <option class="filter-select-option" value="1">40 min</option>
@@ -19,15 +19,16 @@
     </select>
   </div>
 
-  <div class="filter-item">
-    <label for="filter-search">Area</label>
+  <div class="filter-item area">
+    <label for="area-select">Area</label>
     <select class="filter-select" name="area-select" id="area-select">
       <option class="filter-select-option" value="1">French</option>
       <option class="filter-select-option" value="2">Italian</option>
     </select>
   </div>
-  <div class="filter-item ingredients-select">
-    <label for="filter-search">Ingredients</label>
+
+  <div class="filter-item ingredients">
+    <label for="ingredients-select">Ingredients</label>
     <select
       class="filter-select"
       name="ingredients-select"
@@ -36,5 +37,14 @@
       <option class="filter-select-option" value="1">Tomato</option>
       <option class="filter-select-option" value="2">Cucumber</option>
     </select>
+  </div>
+
+  <div class="reset-container">
+    <button type="button" class="reset-filters">
+      <svg width="16" height="16">
+        <use href="./img/sprite.svg#cross-close-modal"></use>
+      </svg>
+      Reset the filter
+    </button>
   </div>
 </div>
