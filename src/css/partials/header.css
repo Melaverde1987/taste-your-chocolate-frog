@@ -1,9 +1,22 @@
 .header {
-  padding: 20px 0;
+  padding: 27px 0;
 }
 
- .header-wrraper {
-  display: none;}
+@media only screen and (min-width: 768px) {
+  .header {
+    padding: 31px 0;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .header {
+    padding: 43px 0;
+  }
+}
+
+.header-wrraper {
+  display: none;
+}
 
 /* 
 =============
@@ -21,21 +34,21 @@ MOBILE MENU
   top: 0;
   right: 0;
   width: 50vw;
-  height: 100vh; 
-  background:var(--colorPrimary);
+  height: 100vh;
+  background: var(--colorPrimary);
   z-index: 999;
   transform: translateX(100%);
   transition: transform 250ms ease-in-out;
 }
-.mobile-wrraper{
+.mobile-wrraper {
   display: flex;
   align-items: center;
   padding: 0px 20px;
   justify-content: space-between;
 }
 
-.mobile-menu-burger{
-  stroke: var(--black);  
+.mobile-menu-burger {
+  stroke: var(--black);
 }
 .menu-toggle-burger {
   margin-left: auto;
@@ -46,18 +59,18 @@ MOBILE MENU
   width: 32px;
   height: 32px;
 }
-.mobile-menu-basket{
-  stroke:var(--black);
-  fill:var(--white);
+.mobile-menu-basket {
+  stroke: var(--black);
+  fill: var(--white);
 }
-.svg-modal{
-  stroke: #F8F8F8;
+.svg-modal {
+  stroke: #f8f8f8;
   width: 16px;
   height: 16px;
 }
 .menu-toggle-close {
   position: absolute;
-  background-color:transparent;
+  background-color: transparent;
 
   width: 32px;
   height: 32px;
@@ -90,7 +103,7 @@ MOBILE MENU
   flex-direction: column;
   margin: 200px auto 0px auto;
 }
-.mobile-right-part{
+.mobile-right-part {
   display: flex;
   gap: 10px;
   justify-content: end;
@@ -109,11 +122,11 @@ MOBILE MENU
 }
 
 .mobile-menu-item:hover,
-.mobile-menu-item:focus{
-color: var(--black);
+.mobile-menu-item:focus {
+  color: var(--black);
 }
 
-.icon-switch{
+.icon-switch {
   margin-top: auto;
   margin-left: 20px;
 }
@@ -123,23 +136,22 @@ color: var(--black);
     display: none;
   }
   .nav-list {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-.mobile-wrraper{
-  display: none;
-}
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .mobile-wrraper {
+    display: none;
+  }
 
-.desktop-right-part {
-  display: flex;
-  align-items: center;
-  gap: 5px;
+  .desktop-right-part {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .header-wrraper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
-.header-wrraper{
-display: flex;
-align-items: center;
-justify-content: space-between;
-}
-}
-
