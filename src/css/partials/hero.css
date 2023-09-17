@@ -118,19 +118,17 @@
   /* overflow: hidden; */
   border-radius: 15px;
   border: 1px solid rgba(155, 181, 55, 0.3);
-  /* background: #050505; */
+  background: #050505;
   overflow-x: visible;
   overflow-y: visible;
   z-index: 2;
   /* object-fit: cover; */
 }
 .cuisine-preview-photo {
-  display: block;
-  background: url('https://tasty-treats-backend.p.goit.global/imgDish1.png');
   height: 255px;
-  position: absolute;
-  top: 0px;
-  left: 0px;
+  /* position: absolute; */
+  /* top: 0px; */
+  /* left: 0px; */
 }
 
 /* mobile */
