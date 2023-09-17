@@ -1,4 +1,4 @@
-import { fetchCards } from './API/grid-cards-api';
+import { fetchCards } from './grid-cards-api';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const elements = {
