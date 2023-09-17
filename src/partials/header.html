@@ -11,25 +11,33 @@
       </ul>
     </nav>
 
-    <svg class="mobile-logo" width="83" height="18">
-      <use href="./img/sprite.svg#logo"></use>
-    </svg>
+    <a href="./index.html" aria-label="logo">
+      <svg class="mobile-logo" width="83" height="18">
+        <use href="./img/sprite.svg#logo"></use>
+      </svg>
+    </a>
 
     <ul class="desktop-right-part">
       <li>
-        <a href="tel:+380730000000">
+        <a
+          href="tel:+380730000000"
+          aria-label="basket icon"
+          class="basket-link"
+        >
           <svg class="mobile-menu-basket" width="24" height="24">
             <use href="./img/sprite.svg#basket"></use>
           </svg>
         </a>
       </li>
       <li>
-        <img
-          class="icon-switch"
-          width="46px"
-          height="20px"
-          src="./img/switch.png"
-        />
+        <button type="button" aria-label="switch theme">
+          <img
+            class="icon-switch"
+            width="46px"
+            height="20px"
+            src="./img/switch.png"
+          />
+        </button>
       </li>
     </ul>
   </div>

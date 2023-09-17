@@ -18,6 +18,10 @@
   display: none;
 }
 
+.basket-link {
+  display: block;
+}
+
 /* 
 =============
 MOBILE MENU
