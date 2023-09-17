@@ -1,0 +1,77 @@
+label {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.28;
+  color: rgba(5, 5, 5, 0.5);
+  margin-bottom: 8px;
+}
+
+input,
+.filters .filter-select {
+  padding: 14px 18px;
+  border-radius: 15px;
+  border: 1px solid rgba(5, 5, 5, 0.2);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.25;
+  background: transparent;
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(5, 5, 5, 0.5);
+}
+
+input {
+  color: var(--colorTextDark);
+}
+
+input::placeholder {
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(5, 5, 5, 0.5);
+}
+
+textarea {
+  color: var(--colorTextDark);
+  padding: 14px 18px;
+}
+
+textarea::placeholder {
+  padding: 14px 18px;
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(5, 5, 5, 0.5);
+}
+.ss-content .ss-list .ss-option.filter-select-option {
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(5, 5, 5, 0.5);
+  background: var(--white);
+  padding: 8px 18px;
+}
+
+.filter-select-option.ss-selected {
+  background-color: transparent !important;
+  color: var(--colorTextDark) !important;
+}
+
+.ss-content .ss-list .ss-option:hover,
+.ss-content .ss-list .ss-option:focus {
+  background-color: transparent !important;
+  color: var(--colorTextDark) !important;
+}
+
+.ss-main .ss-arrow {
+  opacity: 0.7;
+}
+
+.filter-select.ss-open-below {
+  border-radius: 15px !important;
+  border: 1px solid rgba(5, 5, 5, 0.2);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.ss-main:focus {
+  box-shadow: 0 0 5px var(--colorPrimary) !important;
+}

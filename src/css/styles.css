@@ -4,6 +4,7 @@
 @import url('./general/helpers.css');
 
 @import url('./components/buttons.css');
+@import url('./components/forms.css');
 @import url('./fonts.css');
 
 @import url('./partials/header.css');
@@ -13,6 +14,7 @@
 @import url('./partials/aside.css');
 @import url('./partials/cards.css');
 @import url('./partials/cards-grid.css');
+@import url('./partials/slim-select.css');
 @import url('./partials/filters.css');
 @import url('./partials/popular-recipes.css');
 @import url('./partials/categories.css');

@@ -1,3 +1,100 @@
 .filters {
-  color: red;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 14px;
+  row-gap: 14px;
+}
+
+@media only screen and (min-width: 768px) {
+  .filters {
+    row-gap: 16px;
+    column-gap: 16px;
+  }
+}
+
+/*
+====================
+INPUT & PLACEHILDER
+=====================
+*/
+.filters .filter-search:not(:placeholder-shown) {
+  padding-left: 48px;
+  background-image: url(../img/svg/search-green.svg);
+  background-repeat: no-repeat;
+  background-position: 18px center;
+}
+
+.filters .filter-search::placeholder {
+  padding-left: 30px;
+  background-image: url(../img/svg/search.svg);
+  background-repeat: no-repeat;
+  background-position: 0 center;
+}
+
+/*
+===================
+FILTER ELEMENTS
+===================
+*/
+
+.filter-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.filters .filter-item.search {
+  max-width: 100%;
+  width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  .filters .filter-item.search {
+    max-width: 278px;
+  }
+}
+
+.filters .filter-item.time {
+  max-width: 160px;
+  width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  .filters .filter-item.time {
+    max-width: 125px;
+  }
+}
+
+.filters .filter-item.area {
+  max-width: 160px;
+  width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  .filters .filter-item.area {
+    max-width: 141px;
+  }
+}
+
+.filters .filter-item.ingredients {
+  max-width: 188px;
+  width: 100%;
+}
+
+.filters .reset-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.filters .reset-container .reset-filters {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: rgba(5, 5, 5, 0.5);
+  column-gap: 4px;
+}
+
+.filters .reset-container .reset-filters svg {
+  fill: var(--colorPrimary);
+  stroke: var(--colorPrimary);
 }

@@ -1,3 +1,123 @@
 .modal-order {
-  color: brown;
+  position: fixed;
+  overflow-y: auto;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 100;
+  background-color: rgba(69, 64, 73, 0.3);
+}
+
+.modal-order.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.inner-container {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  background-color: var(--white);
+  width: 335px;
+  padding: 28px 20px;
+  border-radius: 15px;
+  transition: opacity 300ms linear, transform 500ms linear;
+}
+@media screen and (min-width: 768px) {
+  .inner-container {
+    width: 440px;
+    padding: 40px;
+  }
+}
+
+/* ORDER NOW */
+.title-order {
+  display: block;
+  text-transform: uppercase;
+  font-size: 18px;
+  line-height: 22px;
+  margin-bottom: 22px;
+  font-weight: 600;
+}
+
+/* Label */
+.field-order {
+  display: block;
+  margin-bottom: 10px;
+}
+.field-order:last-of-type {
+  margin-bottom: 40px;
+}
+
+/* name,phnumber,email,comment */
+.sp-order {
+  display: block;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 500;
+  color: rgba(5, 5, 5, 0.5);
+  margin-bottom: 4px;
+}
+
+/* input */
+.input-order {
+  width: 100%;
+  height: 48px;
+  border-radius: 15px;
+  border: 1px solid rgba(5, 5, 5, 0.2);
+  padding: 14px, 169px, 14px, 18px;
+
+  font-size: 14px;
+  line-height: 18px;
+
+  transition: border-color 250ms linear;
+}
+
+@media screen and (min-width: 768px) {
+  .input-order {
+    height: 48px;
+  }
+}
+
+/* textarea */
+.textarea-order {
+  height: 100px;
+  resize: none;
+}
+
+/* Btn SEND */
+.send-btn-order {
+  width: 100%;
+  padding: 15px;
+}
+
+.modal-order svg {
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+.close-btn {
+  background: none;
+  padding: 0;
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 20px;
+  height: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .close-btn {
+    top: 16px;
+    right: 16px;
+    width: 24px;
+    height: 24px;
+  }
 }
