@@ -31,7 +31,11 @@
   }
 }
 
-.icon-favorite-recipes {
+.wrap-recipes {
+  height: 100%;
+}
+
+.button-favorite-recipes {
   position: absolute;
   top: 0;
   right: 0;
@@ -56,7 +60,7 @@
 }
 .img-recipes {
   width: 335px;
-  height: 335px;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -71,17 +75,26 @@
 
 .title-recipes {
   text-transform: uppercase;
-
   font-weight: 600;
   font-size: 14px;
   line-height: 1.28;
   margin-bottom: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 .description-recipes {
   font-weight: 400;
   font-size: 12px;
   line-height: 1.33;
   margin-bottom: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 .thumb-btn-rating {
   display: flex;
@@ -93,7 +106,6 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 1.29;
-  flex-wrap: wrap;
   align-items: center;
 }
 .wrap-stars-rating {

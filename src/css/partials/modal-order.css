@@ -72,18 +72,11 @@
   height: 48px;
   border-radius: 15px;
   border: 1px solid rgba(5, 5, 5, 0.2);
-  padding: 14px, 169px, 14px, 18px;
-
+  padding: 14px 169px 14px 18px;
   font-size: 14px;
   line-height: 18px;
 
   transition: border-color 250ms linear;
-}
-
-@media screen and (min-width: 768px) {
-  .input-order {
-    height: 48px;
-  }
 }
 
 /* textarea */
