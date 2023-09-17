@@ -29,7 +29,7 @@ async function defaultData() {
       <div class="wrap-recipes">
         <button type="button" class="button-favorite-recipes">
             <svg class="icon-favorite-recipes" width="22" height="22">
-              <use href="/sprite.svg#heart-favorite"></use>
+              <use href="./sprite.svg#heart-favorite"></use>
             </svg>
         </button>
         <img
