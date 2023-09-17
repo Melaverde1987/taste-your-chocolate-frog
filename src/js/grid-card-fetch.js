@@ -5,24 +5,27 @@ const elements = {
   cards: document.querySelector('.list-recipes'),
 };
 
-try {
-  const result = await fetchCards();
-  //console.log(result.results);
-  elements.cards.innerHTML = createMarkupGridCard(result.results);
-} catch {
-  Notify.failure('Oops! Something went wrong! Try reloading the page!');
-}
+defaultData();
 
-function createMarkupGridCard(arr) {
-  return arr
-    .map(
-      ({
-        _id,
-        title,
-        description,
-        rating,
-        thumb,
-      }) => `<li class="item-recipes" id="${_id}">
+async function defaultData() {
+  try {
+    const result = await fetchCards();
+    //console.log(result.results);
+    elements.cards.innerHTML = createMarkupGridCard(result.results);
+  } catch {
+    Notify.failure('Oops! Something went wrong! Try reloading the page!');
+  }
+
+  function createMarkupGridCard(arr) {
+    return arr
+      .map(
+        ({
+          _id,
+          title,
+          description,
+          rating,
+          thumb,
+        }) => `<li class="item-recipes" id="${_id}">
       <div class="wrap-recipes">
         <button type="button" class="button-favorite-recipes">
             <svg class="icon-favorite-recipes" width="22" height="22">
@@ -70,6 +73,7 @@ function createMarkupGridCard(arr) {
         </div>
       </div>
     </li>`
-    )
-    .join('');
+      )
+      .join('');
+  }
 }
