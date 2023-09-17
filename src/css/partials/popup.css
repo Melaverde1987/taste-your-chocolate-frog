@@ -1,7 +1,31 @@
-.close-window {
+.popup {
+  position: fixed;
+  overflow-y: auto;
+  padding: 20px 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 100;
+  background-color: rgba(69, 64, 73, 0.3);
+}
+
+.popup.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.close-button {
   position: absolute;
   top: 14px;
   right: 20px;
+  padding: 0;
+  background: transparent;
+  width: 20px;
+  height: 20px;
 }
 
 .current-recipe-img {
@@ -22,7 +46,6 @@
   font-weight: 600;
   line-height: 1.3;
 }
-
 
 @media screen and (min-width: 768px) {
   .current-recipe-name {
@@ -54,6 +77,11 @@
   margin-right: 16px;
 }
 
+@media screen and (min-width: 768px) {
+  .current-star {
+    margin-right: 6px;
+  }
+}
 
 .current-information {
   display: flex;
@@ -65,11 +93,10 @@
 .current-cucing-time {
   color: var(--colorTextGray);
   font-family: Inter;
-  font-size: 18px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: 1.28;
-
 }
 
 .current-ingredients-item {
@@ -125,7 +152,7 @@
 
 .current-type-dish-tab {
   display: flex;
-  gap: 8px;
+  gap: 4px;
   margin-right: auto;
 }
 
@@ -145,18 +172,17 @@
 }
 
 .current-recipe {
-  color: rgba(5, 5, 5, 0.80);
+  color: rgba(5, 5, 5, 0.8);
   font-family: Inter;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 1.28;
-
 }
 
 .current-recipe {
   margin-top: 24px;
-  color: rgba(5, 5, 5, 0.80);
+  color: rgba(5, 5, 5, 0.8);
   font-family: Inter;
   font-size: 14px;
   font-style: normal;
@@ -168,7 +194,6 @@
   margin-top: 40px;
   display: flex;
   gap: 14px;
-
 }
 
 .custumer-choice-text {
@@ -185,12 +210,14 @@
   padding-bottom: 40px;
   padding-top: 40px;
   position: relative;
+  max-width: 335px;
 }
 
 @media screen and (min-width: 768px) {
   .current-vrapper {
     padding-top: 32px;
     padding-bottom: 32px;
+    max-width: 531px;
   }
 }
 
