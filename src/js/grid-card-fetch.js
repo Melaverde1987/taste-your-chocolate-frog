@@ -25,7 +25,7 @@ async function defaultData() {
           description,
           rating,
           thumb,
-        }) => `<li class="item-recipes" id="${_id}">
+        }) => `<li class="item-recipes">
       <div class="wrap-recipes">
         <button type="button" class="button-favorite-recipes">
             <svg class="icon-favorite-recipes" width="22" height="22">
@@ -66,6 +66,7 @@ async function defaultData() {
               type="button"
               class="btn btn-primary button-recipes"
               data-modal-popup-open
+              id="${_id}"
             >
               See recipe
             </button>
