@@ -4,7 +4,7 @@
 
 .btn-categories {
   border-color: rgba(5, 5, 5, 0.2);
-  background-color:transparent;
+  background-color: transparent;
   color: rgba(5, 5, 5, 0.5);
   height: 50px;
   font-size: 18px;
@@ -14,53 +14,48 @@
   font-weight: 500;
 }
 
-
-.btn-categories:hover, .btn-categories:focus {
+.btn-categories:hover,
+.btn-categories:focus {
   border: none;
   background-color: rgba(155, 181, 55, 1);
   color: rgba(248, 248, 248, 1);
-  ;
-
 }
 
-.categories-block{
+.categories-block {
   width: 326px;
   height: 198px;
 }
 
-.categories-element{
+.categories-element {
   margin-bottom: 24px;
-
 }
 
-.categories-element-text{
-color: rgba(5, 5, 5, 0.3);
-font-size: 14px;
-line-height: 18px;
-font-weight: 500;
+.categories-element-text {
+  color: rgba(5, 5, 5, 0.3);
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 500;
 }
 
-.categories-list:last-child{
+.categories-list:last-child {
   margin-bottom: 0px;
 }
 
-
 @media only screen and (min-width: 768px) {
-  .categories-element-text{
+  .categories-element-text {
     font-size: 16px;
     line-height: 20px;
-    }
+  }
 
-    .categories-block{
-      width: 176px;
-      height: 416px;
-    }
+  .categories-block {
+    width: 176px;
+    height: 416px;
+  }
 }
 
 @media only screen and (min-width: 1200px) {
-  .categories-block{
+  .categories-block {
     width: 235px;
-
   }
 }
 /* 
