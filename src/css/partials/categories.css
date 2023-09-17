@@ -1,24 +1,13 @@
 .categories {
-  color: greenyellow;
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+  align-items: flex-start;
 }
 
-.btn-categories {
-  border-color: rgba(5, 5, 5, 0.2);
-  background-color: transparent;
-  color: rgba(5, 5, 5, 0.5);
-  height: 50px;
+.categories .btn-outline-gray {
   font-size: 18px;
-  text-align: center;
-  position: relative;
-  margin-bottom: 30px;
-  font-weight: 500;
-}
-
-.btn-categories:hover,
-.btn-categories:focus {
-  border: none;
-  background-color: rgba(155, 181, 55, 1);
-  color: rgba(248, 248, 248, 1);
+  padding: 14px 28px;
 }
 
 .categories-block {
@@ -42,6 +31,9 @@
 }
 
 @media only screen and (min-width: 768px) {
+  .categories {
+    row-gap: 30px;
+  }
   .categories-element-text {
     font-size: 16px;
     line-height: 20px;
@@ -54,6 +46,9 @@
 }
 
 @media only screen and (min-width: 1200px) {
+  .categories {
+    row-gap: 42px;
+  }
   .categories-block {
     width: 235px;
   }

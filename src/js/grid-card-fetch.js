@@ -5,11 +5,39 @@ const elements = {
   cards: document.querySelector('.list-recipes'),
 };
 
-defaultData();
+let currentlimit = 6;
+
+setCardsLimit();
+
+function setCardsLimit() {
+  if (window.screen.width >= 768 && window.screen.width < 1200) {
+    currentlimit = 8;
+    defaultData();
+  } else if (window.screen.width >= 1200) {
+    currentlimit = 9;
+    defaultData();
+  }
+  setCardsLimitResizer();
+}
+
+function setCardsLimitResizer() {
+  window.addEventListener('resize', function () {
+    if (window.screen.width >= 768 && window.screen.width < 1200) {
+      currentlimit = 8;
+      defaultData();
+    } else if (window.screen.width >= 1200) {
+      currentlimit = 9;
+      defaultData();
+    } else {
+      currentlimit = 6;
+      defaultData();
+    }
+  });
+}
 
 async function defaultData() {
   try {
-    const result = await fetchCards();
+    const result = await fetchCards(currentlimit);
     //console.log(result.results);
     elements.cards.innerHTML = createMarkupGridCard(result.results);
   } catch {

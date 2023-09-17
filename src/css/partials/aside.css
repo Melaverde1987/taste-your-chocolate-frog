@@ -1,10 +1,14 @@
 .aside {
   flex-basis: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
 }
 
 @media only screen and (min-width: 768px) {
   .aside {
     flex-basis: 176px;
+    row-gap: 64px;
   }
 }
 

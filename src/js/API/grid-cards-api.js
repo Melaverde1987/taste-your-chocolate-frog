@@ -3,10 +3,10 @@ import axios from 'axios';
 
 const GRID_CARDS_ENDPOINT = '/recipes';
 
-const fetchCards = async () => {
+const fetchCards = async currentlimit => {
   const params = new URLSearchParams({
     page: 1,
-    limit: 9,
+    limit: currentlimit,
   });
 
   const response = await axios.get(
