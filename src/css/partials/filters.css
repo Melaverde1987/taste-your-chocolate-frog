@@ -19,14 +19,14 @@ INPUT & PLACEHILDER
 */
 .filters .filter-search:not(:placeholder-shown) {
   padding-left: 48px;
-  background-image: url(../img/svg/search-green.svg);
+  background-image: url('/svg/search-green.svg');
   background-repeat: no-repeat;
   background-position: 18px center;
 }
 
 .filters .filter-search::placeholder {
   padding-left: 30px;
-  background-image: url(../img/svg/search.svg);
+  background-image: url('/svg/search.svg');
   background-repeat: no-repeat;
   background-position: 0 center;
 }
