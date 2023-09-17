@@ -7,3 +7,4 @@ import './hero-fetch.js';
 import './popular-recipes-fetch.js';
 import './popup-fetch.js';
 import './filters-fetch.js';
+import './categories-fetch.js';
