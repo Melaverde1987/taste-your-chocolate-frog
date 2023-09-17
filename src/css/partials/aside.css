@@ -1,3 +1,15 @@
 .aside {
-  width: calc(30% - 30px);
+  flex-basis: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  .aside {
+    flex-basis: 176px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .aside {
+    flex-basis: 235px;
+  }
 }

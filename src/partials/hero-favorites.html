@@ -1,25 +1,41 @@
 <section class="hero hero-favorites container">
-     <picture>
-                <source
-                  media="(min-width: 1200px)"
-                  srcset="../img/hero-favorites/card@1x_desktop.jpg 1x, ../img/hero-favorites/card@2x_desktop.jpg  2x"
-                />
-                <source
-                  media="(min-width: 768px)"
-                  srcset="../img/hero-favorites/card@1x_tablet.jpg 1x, ../img/hero-favorites/card@2x_tablet.jpg 2x"
-                />
-                <source
-                  media="(max-width: 767px)"
-                  srcset="../img/hero-favorites/card@1x_mobile.jpg 1x, ../img/hero-favorites/card@2x_mobile.jpg  2x"
-                />
-                <img
-                  class="hero-favorites"
-                  src="../img/hero-favorites/card@1x_desktop.jpg"
-                  alt="Picture of tasty dish"
-                  loading="lazy"
-                />
-              </picture>
-    <img class="favorites-loading" src="../img/hero-favorites/elements.png" alt="icon of loading"></img>
-    <p class="favorites-description">It appears that you haven't added any recipes to your favorites yet. To get started, you can add recipes that you like to your favorites for easier access in the future.   
-    </p>
+  <picture>
+    <source
+      media="(min-width: 1200px)"
+      srcset="
+        ./img/hero-favorites/card@1x_desktop.jpg 1x,
+        ./img/hero-favorites/card@2x_desktop.jpg 2x
+      "
+    />
+    <source
+      media="(min-width: 768px)"
+      srcset="
+        ./img/hero-favorites/card@1x_tablet.jpg 1x,
+        ./img/hero-favorites/card@2x_tablet.jpg 2x
+      "
+    />
+    <source
+      media="(max-width: 767px)"
+      srcset="
+        ./img/hero-favorites/card@1x_mobile.jpg 1x,
+        ./img/hero-favorites/card@2x_mobile.jpg 2x
+      "
+    />
+    <img
+      class="hero-favorites"
+      src="./img/hero-favorites/card@1x_desktop.jpg"
+      alt="Picture of tasty dish"
+      loading="lazy"
+    />
+  </picture>
+  <img
+    class="favorites-loading"
+    src="./img/hero-favorites/elements.png"
+    alt="icon of loading"
+  />
+  <p class="favorites-description">
+    It appears that you haven't added any recipes to your favorites yet. To get
+    started, you can add recipes that you like to your favorites for easier
+    access in the future.
+  </p>
 </section>

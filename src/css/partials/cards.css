@@ -1,3 +1,15 @@
 .cards {
-  width: calc(70% - 30px);
+  flex-basis: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  .cards {
+    flex-basis: 496px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .cards {
+    flex-basis: 782px;
+  }
 }

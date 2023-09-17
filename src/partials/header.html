@@ -1,5 +1,5 @@
 <header class="header">
-  <div class="container">
+  <div class="container header-wrraper">
     <nav class="nav">
       <ul class="nav-list">
         <li class="nav-item">
@@ -9,19 +9,27 @@
           <a href="./favorites.html" class="nav-link">Favorites</a>
         </li>
       </ul>
-
-      <button
-        class="menu-toggle js-open-menu"
-        aria-expanded="false"
-        aria-controls="mobile-menu"
-        aria-label="mobile-menu"
-        type="button"
-      >
-        <svg class="icon" width="40" height="40">
-          <use href="./img/sprite.svg#burger"></use>
-        </svg>
-      </button>
     </nav>
+
+    <svg class="mobile-logo" width="83" height="18">
+      <use href="./img/sprite.svg#logo"></use>
+    </svg>
+
+    <ul class="desktop-right-part">
+      <li>
+        <svg class="mobile-menu-basket" width="24" height="24">
+          <use href="./img/sprite.svg#basket"></use>
+        </svg>
+      </li>
+      <li>
+        <img
+          class="icon-switch"
+          width="46px"
+          height="20px"
+          src="./img/switch.png"
+        />
+      </li>
+    </ul>
   </div>
 
   <!--
@@ -29,21 +37,60 @@
     MOBILE MENU
     =============
   -->
-  <div class="menu-container js-menu-container" id="mobile-menu">
-    <button
-      type="button"
-      class="menu-toggle js-close-menu"
-      aria-label="close-mobile-menu"
-    >
-      <svg class="close-icon" width="16" height="16">
-        <use href="./img/sprite.svg#close"></use>
-      </svg>
-    </button>
+  <!-- Mobile menu burger -->
+  <div class="mobile-wrraper">
+    <svg class="mobile-logo" width="83" height="18">
+      <use href="./img/sprite.svg#logo"></use>
+    </svg>
+    <div class="mobile-burger-menu">
+      <ul class="mobile-right-part">
+        <li>
+          <svg class="mobile-menu-basket" width="24" height="24">
+            <use href="./img/sprite.svg#basket"></use>
+          </svg>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="menu-toggle-burger js-open-menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <svg class="mobile-menu-burger" width="32" height="32">
+              <use href="./img/sprite.svg#burger"></use>
+            </svg>
+          </button>
+        </li>
+      </ul>
+    </div>
 
-    <ul class="mobile-menu">
-      <li class="mobile-item">
-        <a href="./index.html" class="mobile-link">Home</a>
-      </li>
-    </ul>
+    <div class="menu-container js-menu-container" id="mobile-menu">
+      <button type="button" class="menu-toggle-close js-close-menu">
+        <svg class="modal-menu-close" width="16" height="16">
+          <use
+            class="svg-modal"
+            width="16"
+            height="16"
+            href="./img/sprite.svg#cross-close-modal"
+          ></use>
+        </svg>
+      </button>
+
+      <ul class="mobile-menu">
+        <li><a class="link mobile-menu-item" href="./index.html">Home</a></li>
+        <li>
+          <a class="link mobile-menu-item" href="./favorites.html">Favorites</a>
+        </li>
+      </ul>
+      <!-- <svg class="" width="46px" height="20px">
+        <use class="svg-switch" href="../img/sprite.svg#switch"></use>
+        </svg> -->
+      <img
+        class="icon-switch"
+        width="46px"
+        height="20px"
+        src="./img/switch.png"
+      />
+    </div>
   </div>
 </header>

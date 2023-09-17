@@ -1,1 +1,38 @@
-<div class="modal-order">Order now</div>
+<div class="modal-order is-hidden" data-order-popup>
+  <div class="inner-container">
+    <button class="close-btn" type="button" data-order-popup-close>
+      <svg class="order-cls-icon" width="20" height="20">
+        <use href="./img/sprite.svg#icon-x"></use>
+      </svg>
+    </button>
+
+    <p class="title-order">Order now</p>
+
+    <form class="form-order">
+      <label class="field-order">
+        <span class="sp-order">Name</span>
+        <input type="text" name="name" class="input-order" />
+      </label>
+      <label class="field-order">
+        <span class="sp-order">Phone number</span>
+        <input type="tel" name="phoneNumber" class="input-order" />
+      </label>
+      <label class="field-order">
+        <span class="sp-order">Email</span>
+        <input type="email" name="email" class="input-order" />
+      </label>
+      <label class="field-order">
+        <span class="sp-order">Comment</span>
+        <textarea name="comment" class="textarea-order input-order"></textarea>
+      </label>
+      <button
+        type="submit"
+        name="submit"
+        class="btn btn-primary send-btn-order"
+        disabled
+      >
+        Send
+      </button>
+    </form>
+  </div>
+</div>
