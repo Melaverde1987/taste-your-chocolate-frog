@@ -3,21 +3,9 @@
 .list-recipes {
   display: flex;
   flex-wrap: wrap;
-  /* flex-direction: column; */
-  gap: 24px;
+  row-gap: 20px;
+  column-gap: 16px;
   margin-bottom: 40px;
-}
-
-@media screen and (min-width: 768px) {
-  .list-recipes {
-    gap: 16px;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .list-recipes {
-    gap: 20px;
-  }
 }
 
 .item-recipes {
@@ -25,7 +13,22 @@
   overflow: hidden;
   border-radius: 8px;
   color: var(--light);
-  max-width: 335px;
+  max-width: 100%;
+  height: 335px;
+}
+
+@media only screen and (min-width: 768px) {
+  .item-recipes {
+    max-width: 240px;
+    height: 264px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .item-recipes {
+    max-width: 250px;
+    height: 287px;
+  }
 }
 
 .icon-favorite-recipes {
@@ -35,7 +38,6 @@
   stroke: var(--light);
   fill: transparent;
   opacity: 50%;
-
   z-index: 2;
   width: 22px;
   height: 22px;
@@ -62,8 +64,7 @@
   position: absolute;
   bottom: 0;
   left: 0;
-
-  width: 335px;
+  width: 100%;
   padding: 16px;
   z-index: 2;
 }
@@ -127,9 +128,8 @@
 }
 
 @media screen and (min-width: 768px) {
-  .pag-wrap{
+  .pag-wrap {
     gap: 24px;
-    
   }
 }
 
@@ -145,19 +145,19 @@
 }
 
 .btns-back {
-  display: flex;  
+  display: flex;
   gap: 4px;
 }
 
 @media screen and (min-width: 768px) {
-  .btns-back{
+  .btns-back {
     gap: 8px;
   }
 }
 
 .pag-start-btn {
   background-color: var(--colorTextDark);
-  }
+}
 
 .pag-arrow {
   align-items: center;
@@ -188,23 +188,23 @@
   transform: rotate(180deg);
 }
 
-.btns-pages{
+.btns-pages {
   display: flex;
   gap: 8px;
 }
 
 @media screen and (min-width: 768px) {
-  .btns-pages{
+  .btns-pages {
     gap: 10px;
   }
 }
 
-.additional-btn{
+.additional-btn {
   display: none;
 }
 
 @media screen and (min-width: 768px) {
-  .additional-btn{
+  .additional-btn {
     display: flex;
   }
 }
@@ -216,19 +216,18 @@
   color: var(--colorTextDark);
   border: 1px solid rgba(5, 5, 5, 0.3);
 }
-.btns-forward{
+.btns-forward {
   display: flex;
   gap: 4px;
 }
 
 @media screen and (min-width: 768px) {
-  .btns-forward{
+  .btns-forward {
     gap: 8px;
   }
 }
 
-.pag-forward-btn{
+.pag-forward-btn {
   background-color: var(--colorPrimary);
   transform: rotate(180deg);
-  
 }
