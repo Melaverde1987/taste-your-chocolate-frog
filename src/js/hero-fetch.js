@@ -1,4 +1,5 @@
 import { fetchEvents } from './API/hero-api';
+import { swiper } from './swiper';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const elements = {
@@ -10,10 +11,9 @@ async function heroData() {
   try {
     const result = await fetchEvents();
     // console.log(result);
-    // console.dir(elements.heroCard);
     elements.heroCard.innerHTML = createMarkupEvents(result);
+    // swiper();
   } catch {
-    // console.dir(elements.heroCard);
     Notify.failure('Oops! Something went wrong! Try reloading the page!');
   }
   // Відмальовка HTML колекції
@@ -29,7 +29,8 @@ async function heroData() {
             imgWebpUrl: imgWebpUrlTopic,
             previewWebpUrl,
           },
-        }) => `<div class="chief">
+        }) => `<div class="swiper-wrapper">
+        <div class="chief">
         <img
           class="chief-photo"
           src="${imgWebpUrl}"
@@ -45,12 +46,13 @@ async function heroData() {
         <h2 class="dish-name">${nameTopic}</h2>
         <p class="dish-area">${area}</p>
       </div>
-      < class="cuisine-preview">
+      <div class="cuisine-preview">
         <img
           class="cuisine-preview-photo"
           src="${imgWebpUrlTopic}"
           alt="Preview"
-        />`
+        />
+      </div>`
       )
       .join('');
   }
