@@ -46,19 +46,19 @@ async function defaultData() {
             <p class="rating-recipes">${rating}</p>
             <div class="wrap-stars-rating">
               <svg class="icon-rating-recipes">
-                <use href="./img/sprite.svg#rating-star"></use>
+                <use href="./sprite.svg#rating-star"></use>
               </svg>
               <svg class="icon-rating-recipes">
-                <use href="./img/sprite.svg#rating-star"></use>
+                <use href="./sprite.svg#rating-star"></use>
               </svg>
               <svg class="icon-rating-recipes">
-                <use href="./img/sprite.svg#rating-star"></use>
+                <use href="./sprite.svg#rating-star"></use>
               </svg>
               <svg class="icon-rating-recipes">
-                <use href="./img/sprite.svg#rating-star"></use>
+                <use href="./sprite.svg#rating-star"></use>
               </svg>
               <svg class="icon-rating-recipes">
-                <use href="./img/sprite.svg#rating-star"></use>
+                <use href="./sprite.svg#rating-star"></use>
               </svg>
             </div>
 
