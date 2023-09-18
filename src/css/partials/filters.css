@@ -17,6 +17,11 @@
 INPUT & PLACEHILDER
 =====================
 */
+
+.filters .filter-search{
+  padding-left: 48px;
+}
+
 .filters .filter-search:not(:placeholder-shown) {
   padding-left: 48px;
   background-image: url('/svg/search-green.svg');
@@ -25,11 +30,24 @@ INPUT & PLACEHILDER
 }
 
 .filters .filter-search::placeholder {
-  padding-left: 30px;
-  background-image: url('/svg/search.svg');
+  /* padding-left: 30px; */
+  /* background-image: url('/svg/search.svg'); */
   background-repeat: no-repeat;
   background-position: 0 center;
 }
+
+.search-icon{
+position: absolute;
+fill: var(--colorTextGray);
+bottom: 16px;
+left: 20px;
+}
+
+
+.filter-search:focus +.search-icon{  
+  fill: var(--colorPrimary)
+  }
+
 
 /*
 ===================
@@ -38,6 +56,7 @@ FILTER ELEMENTS
 */
 
 .filter-item {
+  position: relative;
   display: flex;
   flex-direction: column;
 }
@@ -97,4 +116,8 @@ FILTER ELEMENTS
 .filters .reset-container .reset-filters svg {
   fill: var(--colorPrimary);
   stroke: var(--colorPrimary);
+}
+
+.js-reset-filters{
+  visibility: hidden;
 }
