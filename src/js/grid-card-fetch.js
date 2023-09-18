@@ -42,21 +42,15 @@ async function defaultData() {
     elements.cards.innerHTML = createMarkupGridCard(result.results);
   } catch {
     Notify.failure('Oops! Something went wrong! Try reloading the page!');
-  }  
+  }
 }
 
 function createMarkupGridCard(arr) {
   return arr
     .map(
-      ({
-        _id,
-        title,
-        description,
-        rating,
-        thumb,
-      }) => `<li class="item-recipes">
+      ({ _id, title, description, rating, thumb }) => `<li class="item-recipes">
     <div class="wrap-recipes">
-      <button type="button" class="button-favorite-recipes">
+      <button type="button" class="button-favorite-recipes" name="${_id}">
           <svg class="icon-favorite-recipes" width="22" height="22">
             <use href="./sprite.svg#heart-favorite"></use>
           </svg>
@@ -107,4 +101,9 @@ function createMarkupGridCard(arr) {
     .join('');
 }
 
-export {createMarkupGridCard, setCardsLimit, setCardsLimitResizer, defaultData};
+export {
+  createMarkupGridCard,
+  setCardsLimit,
+  setCardsLimitResizer,
+  defaultData,
+};
