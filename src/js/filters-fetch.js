@@ -5,7 +5,7 @@ cardsWithFiltersData();
 async function cardsWithFiltersData() {
   try {
     const result = await fetchCardsWithFilters();
-    console.log(result);
+
     //elements.cards.innerHTML = createMarkupPopular(result);
   } catch {
     Notify.failure('Oops! Something went wrong! Try reloading the page!');

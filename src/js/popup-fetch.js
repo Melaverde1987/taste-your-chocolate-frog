@@ -7,6 +7,7 @@ popupData();
 async function popupData() {
   try {
     const result = await fetchPopup();
+    console.log(result);
     currentRecipe.innerHTML = createMarkupPopup(result);
     // elements.cards.innerHTML = createMarkupPopup(result);
   } catch {
@@ -23,7 +24,7 @@ async function popupData() {
           instructions,
           rating,
           ingredients,
-        }) => `<div class="popup is-hidden" data-modal-popup>
+        }) => `<div class="popup" data-modal-popup>
   <div class="container current-vrapper">
     <button type="button" data-modal-popup-close class="close-button">
       <svg class="close-window" width="20" height="20">
