@@ -1,24 +1,26 @@
 import { fetchCardsWithFilters } from './API/filters-api';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-// import Notiflix from 'notiflix';
+import { debounce } from "debounce";
 import { createMarkupGridCard, defaultData } from './grid-card-fetch';
 import SlimSelect from 'slim-select';
 // import 'slim-select/dist/slimselect.css';
 
-const searchInput = document.querySelector('.filter-search');
+
 let currentlimit = 6;
+
 const elements = {
   cards: document.querySelector('.list-recipes'),
+  searchInput:document.querySelector('.filter-search'),
   resetButton: document.querySelector('.js-reset-filters'),
 };
 
-searchInput.addEventListener('input', debounce(getQueryNameRecipes, 1000));
+elements.searchInput.addEventListener('input', debounce(getQueryNameRecipes, 1000));
 
 function getQueryNameRecipes(e) {
   const inpunValue = e.target.value.trim();
   console.log(inpunValue);
   if (inpunValue === '') {
-    searchInput.innerHTML = '';
+    elements.searchInput.innerHTML = '';
     elements.cards.innerHTML = defaultData(); // якщо написав і стер то вертається дефолтна розмітка
     elements.resetButton.classList.add('js-reset-filters');
     Notify.info('Your query is empty. Please try again');
@@ -29,14 +31,16 @@ function getQueryNameRecipes(e) {
   cardsWithFiltersData(inpunValue, currentlimit);
 }
 
-// selectClass.forEach(item => {
-//   new SlimSelect({
-//     select: item,
-//     settings: {
-//       showSearch: false,
-//     },
-//   });
-// });
+elements.resetButton.addEventListener('click', clearSearchInput);
+
+function clearSearchInput(e){
+  if(e.target){
+    
+    elements.searchInput.value = ''
+    elements.cards.innerHTML = defaultData();
+    elements.resetButton.classList.add('js-reset-filters');
+  }
+}
 
 async function cardsWithFiltersData(nameRecipe, currentlimit) {
   try {
@@ -53,6 +57,8 @@ async function cardsWithFiltersData(nameRecipe, currentlimit) {
     console.log(filterRecipes);
 
 if (filterRecipes.length === 0){
+  elements.cards.innerHTML = defaultData();
+  // elements.resetButton.classList.add('js-reset-filters');
   Notify.warning('Nothing was found for your request!');
 return;
 }
@@ -69,3 +75,13 @@ return;
     Notify.failure('Oops! Something went wrong! Try reloading the page!');
   }
 }
+
+
+// selectClass.forEach(item => {
+  // new SlimSelect({
+  //   select: elements.allFilters,
+  //   settings: {
+  //     showSearch: false,
+  //   },
+  // });
+// });
