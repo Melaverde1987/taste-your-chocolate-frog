@@ -109,16 +109,31 @@
   align-items: center;
 }
 .wrap-stars-rating {
+  display: flex;
+  gap: 3px;
   margin-left: 4px;
 }
+
+@media only screen and (min-width: 768px) {
+  .wrap-stars-rating {
+    gap: 1px;
+  }
+}
+
 .icon-rating-recipes {
   fill: var(--light);
-
   opacity: 10%;
   opacity: 100%;
   align-items: center;
-  width: 14px;
-  height: 14px;
+  width: 18px;
+  height: 18px;
+}
+
+@media only screen and (min-width: 768px) {
+  .icon-rating-recipes {
+    width: 14px;
+    height: 14px;
+  }
 }
 
 .button-recipes {
@@ -128,6 +143,12 @@
   border-radius: 8px;
   padding: 8px 14px;
   margin-left: auto;
+}
+
+@media only screen and (min-width: 768px) {
+  .button-recipes {
+    padding: 8px 10px;
+  }
 }
 
 /* +++++++++++ pagination +++++++++++++*/
