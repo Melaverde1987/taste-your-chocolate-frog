@@ -95,7 +95,11 @@
   fill: currentColor;
   stroke: currentColor;
 }
-
+.btn:disabled {
+  background-color: gray;
+  color: #fff;
+  cursor: not-allowed;
+}
 .close-btn {
   background: none;
   padding: 0;
