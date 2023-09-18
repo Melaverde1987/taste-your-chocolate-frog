@@ -57,7 +57,7 @@ async function cardsWithFiltersData(nameRecipe, currentlimit) {
     console.log(filterRecipes);
 
 if (filterRecipes.length === 0){
-  elements.cards.innerHTML = defaultData();
+  elements.cards.innerHTML = defaultData(); 
   // elements.resetButton.classList.add('js-reset-filters');
   Notify.warning('Nothing was found for your request!');
 return;
