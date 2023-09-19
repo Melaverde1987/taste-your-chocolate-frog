@@ -7,7 +7,6 @@ popupData();
 async function popupData() {
   try {
     const result = await fetchPopup();
-    console.log(result);
     currentRecipe.innerHTML = createMarkupPopup(result);
     // elements.cards.innerHTML = createMarkupPopup(result);
   } catch {
@@ -15,112 +14,86 @@ async function popupData() {
   }
 
   function createMarkupPopup(arr) {
-    return arr
-      .map(
-        ({
-          title,
-          youtube,
-          tags,
-          instructions,
-          rating,
-          ingredients,
-        }) => `<div class="popup" data-modal-popup>
-  <div class="container current-vrapper">
-    <button type="button" data-modal-popup-close class="close-button">
+    return `<button type="button" data-modal-popup-close class="close-button">
       <svg class="close-window" width="20" height="20">
         <use href="./img/sprite.svg#cross-close-modal"></use>
       </svg>
     </button>
-    <h2 class="current-recipe-name-tablet">${title}</h2>
+    <h2 class="current-recipe-name-tablet">${arr.title}</h2>
     <img
-      class="current-recipe-img"
-      src="./img/pop-up/pop-up-recept-tab.jpg"
-      alt="${title}"
-    />
-    <h2 class="current-recipe-name">${title}</h2>
-    <div class="current-information">
-      <ul class="current-type-dish-tab">
-        <li class="current-type-item">
-          <p class="type-item-text">${tags}</p>
-        </li>
-        <li class="current-type-item"><p class="type-item-text">${tags}</p></li>
-        <li class="current-type-item"><p class="type-item-text">${tags}</p></li>
-      </ul>
-      <p class="current-rating">${rating}</p>
-      <ul class="current-star">
-        <li class="current-star-color">
-          <svg class="star-icon" width="18" height="18">
-            <use href="./img/sprite.svg#rating-star"></use>
-          </svg>
-        </li>
-        <li class="current-star-color">
-          <svg class="star-icon" width="18" height="18">
-            <use href="./img/sprite.svg#rating-star"></use>
-          </svg>
-        </li>
-        <li class="current-star-color">
-          <svg class="star-icon" width="18" height="18">
-            <use href="./img/sprite.svg#rating-star"></use>
-          </svg>
-        </li>
-        <li class="current-star-color">
-          <svg class="star-icon" width="18" height="18">
-            <use href="./img/sprite.svg#rating-star"></use>
-          </svg>
-        </li>
-        <li class="current-star-color">
-          <svg class="star-icon" width="18" height="18">
-            <use href="./img/sprite.svg#rating-star"></use>
-          </svg>
-        </li>
-      </ul>
-      <p class="current-cucing-time">40 min</p>
+   class="current-recipe-img"
+  src="./img/pop-up/pop-up-recept-tab.jpg"
+  alt="${arr.title}"
+ />
+ <h2 class="current-recipe-name">${arr.title}</h2>
+ <div class="current-information">
+ <ul class="current-type-dish-tab">
+   ${arr.tags
+     .map(
+       item =>
+         ` <li class="current-type-item"><p class="type-item-text">#${item}</p></li>`
+     )
+     .join('')} 
+  </ul>
+  <p class="current-rating">${arr.rating}</p>
+  <ul class="current-star">
+     <li class="current-star-color">
+       <svg class="star-icon" width="18" height="18">
+         <use href="./img/sprite.svg#rating-star"></use>
+       </svg>
+     </li>
+     <li class="current-star-color">
+       <svg class="star-icon" width="18" height="18">
+         <use href="./img/sprite.svg#rating-star"></use>
+       </svg>
+     </li>
+     <li class="current-star-color">
+       <svg class="star-icon" width="18" height="18">
+        <use href="./img/sprite.svg#rating-star"></use>
+       </svg>
+     </li>
+     <li class="current-star-color">
+       <svg class="star-icon" width="18" height="18">
+         <use href="./img/sprite.svg#rating-star"></use>
+       </svg>
+     </li>
+     <li class="current-star-color">
+       <svg class="star-icon" width="18" height="18">
+         <use href="./img/sprite.svg#rating-star"></use>
+       </svg>
+     </li>
+   </ul>
+   <p class="current-cucing-time">${arr.time} min</p>
     </div>
     <ul class="current-ingredients-list">
-      <li class="current-ingredients-item border">
-        <p class="current-ingredients-name">${ingredients[0].name}</p>
-        <p class="current-ingredients-quantity">${ingredients[0].measure}</p>
-      </li>
-
-      <li class="current-ingredients-item border">
-        <p class="current-ingredients-name">${ingredients[1].name}</p>
-        <p class="current-ingredients-quantity">${ingredients[1].measure}</p>
-      </li>
-      <li class="current-ingredients-item border">
-        <p class="current-ingredients-name"></p>
-        <p class="current-ingredients-quantity">1 large</p>
-      </li>
-      <li class="current-ingredients-item border">
-        <p class="current-ingredients-name">${ingredients[2].name}</p>
-        <p class="current-ingredients-quantity">${ingredients[2].measure}</p>
-      </li>
-      <li class="current-ingredients-item border">
-        <p class="current-ingredients-name">${ingredients[3].name}</p>
-        <p class="current-ingredients-quantity">${ingredients[3].measure}</p>
-      </li>
-      <li class="current-ingredients-item border">
-        <p class="current-ingredients-name">${ingredients[4].name}</p>
-        <p class="current-ingredients-quantity">${ingredients[4].measure}</p>
-      </li>
-    </ul>
-    <ul class="current-type-dish">
-      <li class="current-type-item">
-        <p class="type-item-text">${tags}</p>
-      </li>
-      <li class="current-type-item"><p class="type-item-text">${tags}</p></li>
-      <li class="current-type-item"><p class="type-item-text">${tags}</p></li>
-    </ul>
-    <p class="current-recipe">
-      ${instructions}
-    </p>
-    <div class="custumer-choice">
-      <a href="" class="btn btn-primary custumer-choice-text">Add to favorite</a
-      ><a href="" class="btn btn-outline custumer-choice-text">Give a rating</a>
-    </div>
-  </div>
-</div>
-`
-      )
-      .join('');
+  ${arr.ingredients
+    .map(
+      ({ measure, name }) => `<li class="current-ingredients-item border">
+     <p class="current-ingredients-name">${name}</p>
+     <p class="current-ingredients-quantity">${measure}</p>
+  </li>
+ `
+    )
+    .join('')} 
+ </ul>
+   <ul class="current-type-dish">
+   ${arr.tags
+     .map(
+       item =>
+         ` <li class="current-type-item"><p class="type-item-text">#${item}</p></li>`
+     )
+     .join('')} 
+ </ul>
+ <p class="current-recipe">
+   ${arr.instructions}
+ </p>
+ <div class="custumer-choice">
+   <a href="" class="btn btn-primary custumer-choice-text">Add to favorite</a
+   ><a href="" class="btn btn-outline custumer-choice-text">Give a rating</a></div>
+ </div>`;
   }
 }
+
+const openModalBtn = document.querySelector('.btn-primary');
+
+console.log(openModalBtn);
