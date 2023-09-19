@@ -42,7 +42,6 @@ function addToFavorites(event) {
 // Функция для отрисовки карточек из Local Storage
 function renderFavoriteRecipes() {
   const favoritesContainer = document.getElementById('favorites-container');
-  favoritesContainer.innerHTML = ''; // Очищаем контейнер
 
   // Получаем текущий список карточек из Local Storage
   const storedFavorites =
