@@ -1,5 +1,6 @@
 import { fetchPopup } from './API/popup-api';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import sprite from '../img/sprite.svg';
 
 const currentRecipe = document.querySelector('.current-vrapper');
 const cardsGrid = document.querySelector('.cards-grid');
@@ -12,10 +13,7 @@ cardsGrid.addEventListener('click', popupData);
 //popupData();
 async function popupData(evt) {
   if (evt.target.classList.contains('button-recipes')) {
-    popup.classList.remove('is-hidden');
-
     const { id } = evt.target;
-    //console.log(id);
 
     popup.addEventListener('click', evt => {
       if (evt.target.classList.contains('close-button')) {
@@ -27,6 +25,7 @@ async function popupData(evt) {
       const result = await fetchPopup(id);
       console.log(result);
       currentRecipe.innerHTML = createMarkupPopup(result);
+      popup.classList.remove('is-hidden');
       // elements.cards.innerHTML = createMarkupPopup(result);
     } catch {
       Notify.failure('Oops! Something went wrong! Try reloading the page!');
@@ -36,7 +35,7 @@ async function popupData(evt) {
   function createMarkupPopup(arr) {
     return `<button type="button" data-modal-popup-close class="close-button">
       <svg class="close-window" width="20" height="20">
-        <use href="./img/sprite.svg#cross-close-modal"></use>
+        <use href="${sprite}#cross-close-modal"></use>
       </svg>
     </button>
     <h2 class="current-recipe-name-tablet">${arr.title}</h2>
