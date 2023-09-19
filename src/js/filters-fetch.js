@@ -56,11 +56,6 @@ function clearSearchInput(e) {
 
 async function cardsWithFiltersData(nameRecipe, currentlimit) {
   try {
-<<<<<<< HEAD
-    const result = await fetchCardsWithFilters();
-
-    //elements.cards.innerHTML = createMarkupPopular(result);
-=======
     if (window.screen.width >= 768 && window.screen.width < 1200) {
       currentlimit = 8;
     } else if (window.screen.width >= 1200) {
@@ -88,7 +83,6 @@ async function cardsWithFiltersData(nameRecipe, currentlimit) {
     // при реалізації пагінації можна опрацьювати filterRecipes після splice
 
     elements.cards.innerHTML = createMarkupGridCard(recipesOnPage);
->>>>>>> main
   } catch {
     Notify.failure('Oops! Something went wrong! Try reloading the page!');
   }

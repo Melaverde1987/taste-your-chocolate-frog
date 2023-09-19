@@ -2,15 +2,35 @@ import { fetchPopup } from './API/popup-api';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const currentRecipe = document.querySelector('.current-vrapper');
+const cardsGrid = document.querySelector('.cards-grid');
+const popup = document.querySelector('[data-modal-popup]');
+const btnOpen = document.querySelectorAll('[data-modal-popup-open]');
+const btnClose = document.querySelectorAll('[data-modal-popup-close]');
 
-popupData();
-async function popupData() {
-  try {
-    const result = await fetchPopup();
-    currentRecipe.innerHTML = createMarkupPopup(result);
-    // elements.cards.innerHTML = createMarkupPopup(result);
-  } catch {
-    Notify.failure('Oops! Something went wrong! Try reloading the page!');
+cardsGrid.addEventListener('click', popupData);
+
+//popupData();
+async function popupData(evt) {
+  if (evt.target.classList.contains('button-recipes')) {
+    popup.classList.remove('is-hidden');
+
+    const { id } = evt.target;
+    //console.log(id);
+
+    popup.addEventListener('click', evt => {
+      if (evt.target.classList.contains('close-button')) {
+        popup.classList.add('is-hidden');
+      }
+    });
+
+    try {
+      const result = await fetchPopup(id);
+      console.log(result);
+      currentRecipe.innerHTML = createMarkupPopup(result);
+      // elements.cards.innerHTML = createMarkupPopup(result);
+    } catch {
+      Notify.failure('Oops! Something went wrong! Try reloading the page!');
+    }
   }
 
   function createMarkupPopup(arr) {
@@ -22,7 +42,7 @@ async function popupData() {
     <h2 class="current-recipe-name-tablet">${arr.title}</h2>
     <img
    class="current-recipe-img"
-  src="./img/pop-up/pop-up-recept-tab.jpg"
+  src="${arr.thumb}"
   alt="${arr.title}"
  />
  <h2 class="current-recipe-name">${arr.title}</h2>
@@ -96,4 +116,4 @@ async function popupData() {
 
 const openModalBtn = document.querySelector('.btn-primary');
 
-console.log(openModalBtn);
+//console.log(openModalBtn);

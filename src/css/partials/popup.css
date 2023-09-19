@@ -232,4 +232,5 @@
 
 .close-window {
   stroke: var(--colorTextDark);
+  pointer-events: none;
 }
