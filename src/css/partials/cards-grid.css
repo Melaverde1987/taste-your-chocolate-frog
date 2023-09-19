@@ -127,10 +127,15 @@
 .icon-rating-recipes {
   fill: var(--light);
   opacity: 10%;
-  opacity: 100%;
+  /* opacity: 100%; */
   align-items: center;
   width: 18px;
   height: 18px;
+}
+
+.star{
+  opacity: 100%;
+  fill: var(--orange);
 }
 
 @media only screen and (min-width: 768px) {
@@ -149,11 +154,6 @@
   margin-left: auto;
 }
 
-@media only screen and (min-width: 768px) {
-  .button-recipes {
-    padding: 8px 10px;
-  }
-}
 
 /* +++++++++++ pagination +++++++++++++*/
 
@@ -225,6 +225,10 @@
   transform: rotate(180deg);
 }
 
+.js-arrow{
+  pointer-events: none;
+}
+
 .btns-pages {
   display: flex;
   gap: 8px;
@@ -236,9 +240,11 @@
   }
 }
 
-.additional-btn {
+/* .additional-btn {
   display: none;
-}
+} */
+
+
 
 @media screen and (min-width: 768px) {
   .additional-btn {
@@ -264,7 +270,8 @@
   }
 }
 
-.pag-forward-btn {
+.pag-forward-btn,
+.pag-end-btn {
   background-color: var(--colorPrimary);
   transform: rotate(180deg);
 }
