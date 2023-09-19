@@ -1,4 +1,4 @@
-import './slim-select.js';
+/*import './slim-select.js';*/
 import './swiper.js';
 import './mobile-menu.js';
 import './popup.js';
@@ -8,3 +8,4 @@ import './popular-recipes-fetch.js';
 import './popup-fetch.js';
 import './filters-fetch.js';
 import './categories-fetch.js';
+import './favorites.js';
