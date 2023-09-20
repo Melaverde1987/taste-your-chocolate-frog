@@ -3,6 +3,14 @@
   | HERO Section (Dev by AndriyZuMa) |
   |==================================|
 **/
+
+:root {
+  --swiper-pagination-color: #9bb537;
+  --swiper-pagination-bullet-inactive-color: #000;
+  --swiper-pagination-bullet-inactive-opacity: 0.2;
+  --swiper-pagination-bottom: -6px;
+}
+
 .hero {
   padding-top: 64px;
 }
@@ -130,11 +138,17 @@
 
 .swiper-pagination {
   /* --swiper-pagination-color: #9bb537; */
-  background-color: #9bb537;
+  /* background-color: #050505; */
+  /* --swiper-pagination-bullet-inactive-color: #050505; */
+}
+.swiper-horizontal
+  > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
+.swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+  left: 225px;
 }
 
 .swiper-pagination-bullet-active {
-  background-color: #9bb537;
+  /* background-color: #9bb537; */
 }
 
 /* mobile */
