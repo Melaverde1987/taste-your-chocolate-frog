@@ -16,4 +16,17 @@ const fetchPopular = async () => {
   return response.data;
 };
 
-export { fetchPopular };
+const POPUP_ENDPOINT = '/recipes';
+
+const fetchByID = async id => {
+  let ID = id;
+
+  const response = await axios.get(`${BASE_URL}${POPUP_ENDPOINT}/${ID}`);
+  return response.data;
+};
+
+
+
+
+
+export { fetchPopular, fetchByID };
