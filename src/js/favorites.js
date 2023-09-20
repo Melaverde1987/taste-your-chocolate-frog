@@ -72,4 +72,3 @@ function renderFavoriteRecipes() {
     favoritesContainer.innerHTML += cardHTML;
   });
 }
-

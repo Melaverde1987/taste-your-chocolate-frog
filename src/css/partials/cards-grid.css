@@ -48,6 +48,10 @@
   margin: 16px;
 }
 
+.icon-favorite-recipes.active {
+  fill: var(--light);
+}
+
 .wrap-recipes:after {
   content: '';
   display: block;
