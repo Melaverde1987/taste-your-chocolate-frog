@@ -48,7 +48,7 @@ function createMarkupPopular(arr) {
       alt="${title}"
     />
     <div class="popular-card">
-      <h3 class="popular-title">"${title}"</h3>
+      <h3 class="popular-title">${title}</h3>
       <p class="popular-text">
         ${description}
       </p>
