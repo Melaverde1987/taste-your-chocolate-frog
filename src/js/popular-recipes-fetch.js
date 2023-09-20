@@ -73,7 +73,7 @@ async function popularData() {
     Notify.failure('Oops! Something went wrong! Try reloading the page!');
   }
 
-  return { getLi: getLi, result: result };
+  return { getLi: getLi /*result: result*/ };
 }
 
 popularData();
