@@ -1,5 +1,28 @@
-:root {
-  --swiper-pagination-color: #9bb537;
-  --swiper-pagination-bullet-inactive-color: #050505;
-  /* --swiper-pagination-bottom: 12px; */
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.swiper-pagination-bullet-active-next-next {
+  background-color: #000;
+}
+.swiper-pagination-bullet:not(.swiper-pagination-bullet-active) {
+  background-color: #000; /* Інший колір для неактивних крапок */
+}
+
+/* tablet break-point*/
+@media only screen and (min-width: 768px) {
+  .swiper-horizontal
+    > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
+  .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+    transform: translateX(-100%);
+  }
+}
+/* desktop break-point*/
+@media only screen and (min-width: 1200px) {
+  .swiper-horizontal
+    > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
+  .swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+    transform: translateX(220%);
+  }
 }
