@@ -6,7 +6,7 @@ const elements = {
   heroCard: document.querySelector('.hero-card'),
   swiperWrapper: document.querySelector('.swiper-wrapper'),
 };
-console.log(elements);
+//console.log(elements);
 
 if (elements.heroCard) {
   heroData();

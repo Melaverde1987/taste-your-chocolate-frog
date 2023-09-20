@@ -53,7 +53,7 @@
 .hero-card {
   /*height: 280px;*/
   height: 100%;
-  width: 100%;
+  width: calc(100% + 20px);
   overflow: hidden;
 }
 
@@ -179,7 +179,8 @@
   }
   .hero-card {
     /*height: 442px;*/
-    margin-right: -32px;
+    /*margin-right: -32px;*/
+    width: calc(100% + 32px);
   }
 
   .swiper-item {
@@ -232,6 +233,6 @@
   }
 
   .hero-card {
-    margin-right: -72px;
+    /*margin-right: -72px;*/
   }
 }
