@@ -6,9 +6,9 @@ import axios from 'axios';
 const HERO_ENDPOINT = '/events';
 
 // Початковий запрос
-const fetchEvents = async findData => {
+const fetchEvents = async () => {
   const response = await axios.get(`${BASE_URL}${HERO_ENDPOINT}`);
-  //console.log(response.data);
+  //   console.log(response.data);
   return response.data;
 };
 
