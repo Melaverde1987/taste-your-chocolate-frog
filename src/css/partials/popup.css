@@ -74,15 +74,14 @@
   display: flex;
   gap: 5px;
   margin-left: 6px;
-
 }
 
 .current-star-color {
-  fill: rgba(5, 5, 5, 0.10);
+  fill: rgba(5, 5, 5, 0.1);
 }
 
 .active-star {
-  fill: #EEA10C;
+  fill: #eea10c;
 }
 
 @media screen and (min-width: 768px) {
@@ -241,4 +240,5 @@
 
 .close-window {
   stroke: var(--colorTextDark);
+  pointer-events: none;
 }
