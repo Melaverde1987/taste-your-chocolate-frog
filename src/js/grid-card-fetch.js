@@ -189,8 +189,7 @@ function markupRatingStars(roundRating) {
   }
 }
 
-
-export {  
+export {
   createMarkupGridCard,
   setCardsLimit,
   setCardsLimitResizer,
