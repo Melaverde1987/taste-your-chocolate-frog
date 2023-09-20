@@ -1,84 +1,75 @@
-// Добавляем обработчик события для каждой карточки
-const favoriteButtons = document.querySelectorAll('.button-favorite-recipes');
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { createMarkupGridCard } from "./grid-card-fetch";
 
-favoriteButtons.forEach(button => {
-  button.addEventListener('click', addToFavorites);
+document.addEventListener('DOMContentLoaded', function () {
+  // Находим элементы с кнопкой "В избранное"
+  const favoriteButtons = document.querySelectorAll('.button-favorite-recipes');
+
+  // Добавляем обработчик события для каждой кнопки
+  favoriteButtons.forEach(button => {
+    button.addEventListener('click', toggleFavorite);
+  });
+
+  function toggleFavorite(event) {
+    const buttonFavorite = event.currentTarget;
+    const card = buttonFavorite.closest('.item-recipes');
+    const _id = buttonFavorite.getAttribute('id');
+
+    // Закрашиваем или снимаем заливку для иконки
+    buttonFavorite.classList.toggle('filled-heart');
+
+    // Получаем данные из локального хранилища (если они есть)
+    const storedFavorites =
+      JSON.parse(localStorage.getItem('favoriteRecipes')) || [];
+
+    // Проверяем, есть ли уже такая карточка в избранном
+    const existingIndex = storedFavorites.findIndex(
+      recipe => recipe._id === _id
+    );
+
+    if (existingIndex !== -1) {
+      // Если карточка уже в избранном, удаляем её
+      storedFavorites.splice(existingIndex, 1);
+    } else {
+      // Создаем объект для представления карточки в избранном
+      const title = card.querySelector('.title-recipes').textContent;
+      const description = card.querySelector('.description-recipes').textContent;
+      const rating = card.querySelector('.rating-recipes').textContent;
+      const thumb = card.querySelector('.img-recipes').src;
+
+      const favoriteRecipe = {
+        _id,
+        title,
+        description,
+        rating,
+        thumb,
+      };
+
+      // Иначе добавляем карточку в избранные
+      storedFavorites.push(favoriteRecipe);
+    }
+
+    // Сохраняем обновленный массив в локальное хранилище
+    localStorage.setItem('favoriteRecipes', JSON.stringify(storedFavorites));
+    console.log(storedFavorites);
+    Notify.success('Recipe added to favorites!');
+  }
 });
 
-function addToFavorites(event) {
-  // Получаем родительский элемент карточки
-  const card = event.target.closest('.item-recipes');
+renderFavoriteRecipes();
 
-  // Извлекаем данные из карточки
-  const title = card.querySelector('.title-recipes').textContent;
-  const description = card.querySelector('.description-recipes').textContent;
-  const rating = card.querySelector('.rating-recipes').textContent;
-  const thumb = card.querySelector('.img-recipes').src;
-  const id = event.target.getAttribute('name'); // Получаем атрибут name
-
-  // Создаем объект, представляющий данную карточку
-  const favoriteRecipe = {
-    title,
-    description,
-    rating,
-    thumb,
-    id,
-  };
+function renderFavoriteRecipes() {
+  const favoritesContainer = document.getElementById('favorites-container');
+  // favoritesContainer.innerHTML = ''; // Очищаем контейнер
 
   // Получаем текущий список карточек из Local Storage
   const storedFavorites =
     JSON.parse(localStorage.getItem('favoriteRecipes')) || [];
 
-  // Добавляем новую карточку в список
-  storedFavorites.push(favoriteRecipe);
-
-  // Обновляем список карточек в Local Storage
-  localStorage.setItem('favoriteRecipes', JSON.stringify(storedFavorites));
-
-    // Перерисовываем карточки уже на странице Favorites
-    
-  renderFavoriteRecipes();
-}
-// Функция для отрисовки карточек из Local Storage
-function renderFavoriteRecipes() {
-  const favoritesContainer = document.getElementById('favorites-container');
-
-  // Получаем текущий список карточек из Local Storage
-  const storedFavorites =
-        JSON.parse(localStorage.getItem('favoriteRecipes')) || [];
-    
-    console.log(storedFavorites);
-
-  // Отрисовываем каждую карточку
+    // Отрисовываем каждую карточку
   storedFavorites.forEach(recipe => {
-    const cardHTML = createCardHTML(recipe);
+    const cardHTML = createMarkupGridCard(recipe); // Передаем отдельный объект
     favoritesContainer.innerHTML += cardHTML;
   });
 }
 
-// Функция для создания HTML-разметки карточки
-function createCardHTML(recipe) {
-  return `
-    <li class="item-recipes">
-      <div class="wrap-recipes">
-        <button type="button" class="button-favorite-recipes" name="${recipe.id}">
-          <svg class="icon-favorite-recipes" width="22" height="22">
-            <use href="./sprite.svg#heart-favorite"></use>
-          </svg>
-        </button>
-        <img class="img-recipes" src="${recipe.thumb}" alt="${recipe.title}" width="335" height="335">
-        <div class="thumb-desc-recipes">
-          <h3 class="title-recipes">${recipe.title}</h3>
-          <p class="description-recipes">${recipe.description}</p>
-          <div class="thumb-btn-rating">
-            <p class="rating-recipes">${recipe.rating}</p>
-            <!-- Другие элементы разметки -->
-          </div>
-        </div>
-      </div>
-    </li>
-  `;
-}
-
-// Инициализируем отрисовку карточек при загрузке страницы
-renderFavoriteRecipes();
