@@ -8,7 +8,11 @@ const elements = {
 };
 console.log(elements);
 
-heroData();
+if (elements.heroCard) {
+  heroData();
+}
+
+//heroData();
 async function heroData() {
   try {
     const result = await fetchEvents();
