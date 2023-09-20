@@ -6,6 +6,7 @@ const elements = {
 };
 
 let currentlimit = 6;
+let currentPage = 2;
 
 setCardsLimit();
 
@@ -37,8 +38,7 @@ function setCardsLimitResizer() {
 
 async function defaultData() {
   try {
-    const result = await fetchCards(currentlimit);
-    // console.log(result.results);
+    const result = await fetchCards(currentPage, currentlimit);
     elements.cards.innerHTML = createMarkupGridCard(result.results);
   } catch {
     Notify.failure('Oops! Something went wrong! Try reloading the page!');
@@ -49,8 +49,8 @@ function createMarkupGridCard(arr) {
   return arr
     .map(({ _id, title, description, rating, thumb }) => {
       const roundRating = Math.round(rating);
-       const ratingNumber = rating.toFixed(1);       
-         return `<li class="item-recipes">
+      const ratingNumber = rating.toFixed(1);
+      return `<li class="item-recipes">
             <div class="wrap-recipes">
               <button type="button" class="button-favorite-recipes" name="${_id}">
                   <svg class="icon-favorite-recipes" width="22" height="22">
@@ -84,15 +84,12 @@ function createMarkupGridCard(arr) {
               </div>
             </div>
           </li>`;
-      
     })
     .join('');
 }
 
-
-
-function markupRatingStars(roundRating){
-  switch(roundRating){
+function markupRatingStars(roundRating) {
+  switch (roundRating) {
     case 1:
       return `<svg class="icon-rating-recipes star">
       <use href="./sprite.svg#rating-star"></use>
@@ -190,11 +187,10 @@ function markupRatingStars(roundRating){
       <use href="./sprite.svg#rating-star"></use>
     </svg>`;
   }
-};
+}
 
 
-
-export {
+export {  
   createMarkupGridCard,
   setCardsLimit,
   setCardsLimitResizer,

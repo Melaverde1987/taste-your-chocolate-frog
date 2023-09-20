@@ -181,6 +181,11 @@
   cursor: pointer;
 }
 
+/* .pag-btn:focus-within{
+  background-color: rgba(230, 25, 25, 0.7);
+  outline: none;
+} */
+
 .btns-back {
   display: flex;
   gap: 4px;
@@ -192,9 +197,26 @@
   }
 }
 
-.pag-start-btn {
+.pag-start-btn,
+.pag-back-btn {
   background-color: var(--colorTextDark);
 }
+
+.pag-start-btn:hover,
+.pag-back-btn:hover
+/* ,
+.pag-start-btn:focus,
+.pag-back-btn:focus */
+{
+  background-color: rgba(5, 5, 5, 0.7);
+  outline: none;
+}
+
+.pag-start-btn:active,
+.pag-back-btn:active{
+  border: none;
+  background-color: rgba(5, 5, 5, 0.);
+  }
 
 .pag-arrow {
   align-items: center;
@@ -205,6 +227,10 @@
   transform: rotate(180deg);
 }
 
+/* .pag-arrow:hover{
+  fill: white;
+} */
+
 .pag-arrow1 {
   margin-right: -25px;
 }
@@ -213,7 +239,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--colorTextDark);
+  
 }
 
 .pag-back-arrow {
@@ -259,6 +285,21 @@
   color: var(--colorTextDark);
   border: 1px solid rgba(5, 5, 5, 0.3);
 }
+
+.pag-page-btn:hover
+/* ,
+.pag-page-btn:focus */
+{
+background-color: rgba(155, 181, 55, 0.6);
+border: none;
+outline: none;
+}
+
+.pag-page-btn:active{
+  border: none;
+  background-color: rgba(155, 181, 55, 0.4);
+  }
+
 .btns-forward {
   display: flex;
   gap: 4px;
@@ -274,4 +315,29 @@
 .pag-end-btn {
   background-color: var(--colorPrimary);
   transform: rotate(180deg);
+}
+
+.pag-forward-btn:hover,
+.pag-end-btn:hover
+/* ,
+.pag-forward-btn:focus,
+.pag-end-btn:focus */
+{
+  background-color: rgba(155, 181, 55, 0.7);
+  outline:none;
+}
+
+.pag-forward-btn:active,
+.pag-end-btn:active{
+  border: none;
+  background-color: rgba(155, 181, 55, 0.4);
+  }
+
+.btns-forward .js-arrow{
+  fill: var(--colorTextDark);
+}
+
+.btn-active{
+  background-color: var(--colorPrimary);
+  border:none;
 }
