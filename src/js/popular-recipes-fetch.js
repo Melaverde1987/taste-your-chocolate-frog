@@ -2,7 +2,6 @@ import { fetchPopular, fetchByID } from './API/popular-recipes-api';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import sprite from '../img/sprite.svg';
 
-
 const elements = document.querySelector('.popular-list');
 const popup = document.querySelector('[data-modal-popup]');
 const currentRecipe = document.querySelector('.current-vrapper');
@@ -13,8 +12,7 @@ async function handalClick(evt) {
   if (evt.target.classList.contains('img-popular')) {
     const { id } = evt.target;
 
-    console.log('id', id)
-
+    console.log('id', id);
 
     popup.addEventListener('click', evt => {
       if (evt.target.classList.contains('close-button')) {
@@ -26,10 +24,8 @@ async function handalClick(evt) {
 
     try {
       const response = await fetchByID(id);
-      console.log('response', response)
-      currentRecipe.innerHTML = createMarkupPopup(response)
-
-
+      console.log('response', response);
+      currentRecipe.innerHTML = createMarkupPopup(response);
     } catch (error) {}
   }
 }
@@ -82,7 +78,6 @@ async function popularData() {
 
 popularData();
 
-
 function createMarkupPopup(arr) {
   return `<button type="button" data-modal-popup-close class="close-button">
     <svg class="close-window" width="20" height="20">
@@ -109,27 +104,27 @@ alt="${arr.title}"
 <ul class="current-star">
    <li class="current-star-color">
      <svg class="star-icon" width="18" height="18">
-       <use href="./img/sprite.svg#rating-star"></use>
+       <use href="${sprite}#rating-star"></use>
      </svg>
    </li>
    <li class="current-star-color">
      <svg class="star-icon" width="18" height="18">
-       <use href="./img/sprite.svg#rating-star"></use>
+       <use href="${sprite}#rating-star"></use>
      </svg>
    </li>
    <li class="current-star-color">
      <svg class="star-icon" width="18" height="18">
-      <use href="./img/sprite.svg#rating-star"></use>
+      <use href="${sprite}#rating-star"></use>
      </svg>
    </li>
    <li class="current-star-color">
      <svg class="star-icon" width="18" height="18">
-       <use href="./img/sprite.svg#rating-star"></use>
+       <use href="${sprite}#rating-star"></use>
      </svg>
    </li>
    <li class="current-star-color">
      <svg class="star-icon" width="18" height="18">
-       <use href="./img/sprite.svg#rating-star"></use>
+       <use href="${sprite}#rating-star"></use>
      </svg>
    </li>
  </ul>
@@ -162,8 +157,3 @@ ${arr.ingredients
  ><a href="" class="btn btn-outline custumer-choice-text">Give a rating</a></div>
 </div>`;
 }
-
-
-
-
-
