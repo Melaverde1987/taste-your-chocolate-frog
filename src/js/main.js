@@ -1,4 +1,4 @@
-import './slim-select.js';
+/*import './slim-select.js';*/
 import './swiper.js';
 import './mobile-menu.js';
 import './popup.js';

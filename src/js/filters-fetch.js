@@ -1,4 +1,8 @@
-import { fetchCardsWithFilters } from './API/filters-api';
+import {
+  fetchCardsWithFilters,
+  fetchAreas,
+  fetchIngredients,
+} from './API/filters-api';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { debounce } from 'debounce';
 import { createMarkupGridCard, defaultData } from './grid-card-fetch';
@@ -11,6 +15,9 @@ const elements = {
   cards: document.querySelector('.list-recipes'),
   searchInput: document.querySelector('.filter-search'),
   resetButton: document.querySelector('.js-reset-filters'),
+  selectTimeButton: document.querySelector('#time-select'),
+  selectAreaButton: document.querySelector('#area-select'),
+  selectIngredientsButton: document.querySelector('#ingredients-select'),
 };
 
 if (elements.searchInput) {
@@ -89,3 +96,102 @@ async function cardsWithFiltersData(nameRecipe, currentlimit) {
 //   },
 // });
 // });
+
+/*
+====================
+SELECT TIME
+====================
+*/
+
+if (elements.selectTimeButton) {
+  let selectTime = [];
+  let startTime = 5;
+  const step = 5;
+  for (let i = 0; startTime <= 120; i++) {
+    selectTime.push(startTime);
+    startTime += step;
+  }
+  console.log(selectTime);
+  elements.selectTimeButton.innerHTML = createMarkupSelectTime(selectTime);
+  new SlimSelect({
+    select: elements.selectTimeButton,
+    settings: {
+      showSearch: false,
+    },
+  });
+}
+
+function createMarkupSelectTime(arr) {
+  return arr
+    .map(
+      time =>
+        `<option class="filter-select-option" value="${time}">${time} min</option>`
+    )
+    .join('');
+}
+
+/*
+====================
+SELECT AREA
+====================
+*/
+if (elements.selectAreaButton) {
+  selectAreaData();
+}
+
+async function selectAreaData() {
+  try {
+    const result = await fetchAreas();
+    elements.selectAreaButton.innerHTML = createMarkupSelectArea(result);
+    new SlimSelect({
+      select: elements.selectAreaButton,
+      settings: {
+        showSearch: false,
+      },
+    });
+  } catch {
+    Notify.failure('Oops! Filters went wrong! Try reloading the page!');
+  }
+}
+
+function createMarkupSelectArea(arr) {
+  return arr
+    .map(
+      ({ _id, name }) =>
+        `<option class="filter-select-option" value=">${name}">${name}</option>`
+    )
+    .join('');
+}
+
+/*
+====================
+SELECT INGREDIENTS
+====================
+*/
+if (elements.selectIngredientsButton) {
+  selectIngredientsData();
+}
+async function selectIngredientsData() {
+  try {
+    const result = await fetchIngredients();
+    elements.selectIngredientsButton.innerHTML =
+      createMarkupSelectIngredients(result);
+    new SlimSelect({
+      select: elements.selectIngredientsButton,
+      settings: {
+        showSearch: false,
+      },
+    });
+  } catch {
+    Notify.failure('Oops! Filters went wrong! Try reloading the page!');
+  }
+}
+
+function createMarkupSelectIngredients(arr) {
+  return arr
+    .map(
+      ({ _id, name }) =>
+        `<option class="filter-select-option" value="${name}">${name}</option>`
+    )
+    .join('');
+}
