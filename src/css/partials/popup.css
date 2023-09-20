@@ -133,7 +133,7 @@
 .current-type-item {
   border-radius: 35px;
   border: 1px solid var(--colorBorder);
-  padding: 8px 16px;
+  padding: 8px 6px;
   justify-content: center;
   align-items: center;
 }
@@ -232,4 +232,5 @@
 
 .close-window {
   stroke: var(--colorTextDark);
+  pointer-events: none;
 }
