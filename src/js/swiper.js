@@ -3,6 +3,7 @@ import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import '../css/partials/hero-swiper.css';
 
 const swiper = new Swiper('.swiper-hero', {
   // Optional parameters
@@ -13,7 +14,7 @@ const swiper = new Swiper('.swiper-hero', {
   spaceBetween: 20,
   pagination: {
     el: '.swiper-pagination',
-    clickable: true,
+    clickable: false,
     type: 'bullets',
     dynamicBullets: true,
   },
