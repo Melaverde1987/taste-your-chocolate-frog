@@ -215,7 +215,7 @@
 .pag-start-btn:active,
 .pag-back-btn:active{
   border: none;
-  background-color: rgba(5, 5, 5, 0.);
+  background-color: rgba(5, 5, 5, 0.5);
   }
 
 .pag-arrow {

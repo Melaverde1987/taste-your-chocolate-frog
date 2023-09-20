@@ -11,7 +11,7 @@ const elements = {
 const pages = 5;
 const quantMobbtn = 3; // кількість кнопок в моб варіанті
 
-let currentPage = 3;
+let currentPage = 1;
 let currentlimit = 6;
 
 quantityBtn(pages);
@@ -87,6 +87,11 @@ function handlerBattonArrow(e) {
     currentActiveBtn.nextSibling.classList.add('btn-active');
     currentActiveBtn.classList.remove('btn-active');
   }
+  if (e.target.classList.contains('pag-back-btn')) {
+    const currentActiveBtn = document.querySelector('.btn-active');
+    currentActiveBtn.previousSibling.classList.add('btn-active');
+    currentActiveBtn.classList.remove('btn-active');
+  }
 }
 
 function markupEndBattons(quantityPages) {
@@ -110,12 +115,4 @@ function markupEndBattons(quantityPages) {
   return endSetPages;
 }
 
-// function markupNextBatton(quantityPages){
 
-// const currentActiveBtn = document.querySelector('.btn-active');
-// console.log(currentActiveBtn.classList);
-// currentActiveBtn.nextSibling.classList.add('btn-active');
-// currentActiveBtn.classList.remove('btn-active');
-// console.log(currentActiveBtn.nextSibling.classList);
-
-// }
