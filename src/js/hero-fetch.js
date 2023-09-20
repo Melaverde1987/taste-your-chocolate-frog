@@ -36,29 +36,31 @@ async function heroData() {
             previewWebpUrl,
           },
         }) => `<div class="swiper-slide">
-          <div class="chief">
-          <img
-            class="chief-photo"
-            src="${imgWebpUrl}"
-            alt="${name}"
-          />
-        </div>
-        <div class="dish">
-          <img
-            class="dish-photo"
-            src="${previewWebpUrl}"
-            alt="dish"
-          />
-          <h2 class="dish-name">${nameTopic}</h2>
-          <p class="dish-area">${area}</p>
-        </div>
-        <div class="cuisine-preview">
-          <img
-            class="cuisine-preview-photo"
-            src="${imgWebpUrlTopic}"
-            alt="Preview"
-          />
-        </div>
+          <div class="swiper-item">
+            <div class="chief">
+              <img
+                class="chief-photo"
+                src="${imgWebpUrl}"
+                alt="${name}"
+              />
+            </div>
+            <div class="dish">
+              <img
+                class="dish-photo"
+                src="${previewWebpUrl}"
+                alt="dish"
+              />
+              <h2 class="dish-name">${nameTopic}</h2>
+              <p class="dish-area">${area}</p>
+            </div>
+            <div class="cuisine-preview">
+              <img
+                class="cuisine-preview-photo"
+                src="${imgWebpUrlTopic}"
+                alt="Preview"
+              />
+            </div>
+          </div>
         </div>`
       )
       .join('');

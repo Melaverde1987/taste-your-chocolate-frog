@@ -7,6 +7,11 @@
   padding-top: 64px;
 }
 
+.hero-container {
+  padding-bottom: 20px;
+  position: relative;
+}
+
 .hero-title h1 {
   margin-bottom: 14px;
   color: var(--colorTextDark);
@@ -38,6 +43,17 @@
 }
 /* Друга секція з картками */
 .hero-card {
+  /*height: 280px;*/
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.swiper-slide {
+  /*background-color: var(--light);*/
+}
+
+.swiper-item {
   height: 280px;
   display: flex;
   align-items: center;
@@ -52,7 +68,6 @@
   height: inherit;
   overflow: hidden;
   border-radius: 15px;
-  background: var(--colorTextDark);
 }
 .chief-photo {
   height: 100%;
@@ -140,17 +155,18 @@
     margin-bottom: 64px;
   }
   .hero-card {
-    height: 442px;
-    gap: 16px;
+    /*height: 442px;*/
     margin-right: -32px;
+  }
+
+  .swiper-item {
+    height: 442px;
   }
   .chief {
     width: 137px;
     min-width: 137px;
   }
-  .chief-photo {
-    height: 450px;
-  }
+
   .dish {
     width: 351px;
     min-width: 351px;
