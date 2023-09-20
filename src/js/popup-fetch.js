@@ -10,7 +10,6 @@ const btnClose = document.querySelectorAll('[data-modal-popup-close]');
 
 cardsGrid.addEventListener('click', popupData);
 
-//popupData();
 async function popupData(evt) {
   if (evt.target.classList.contains('button-recipes')) {
     const { id } = evt.target;
@@ -23,16 +22,16 @@ async function popupData(evt) {
 
     try {
       const result = await fetchPopup(id);
-      console.log(result);
       currentRecipe.innerHTML = createMarkupPopup(result);
       popup.classList.remove('is-hidden');
-      // elements.cards.innerHTML = createMarkupPopup(result);
     } catch {
       Notify.failure('Oops! Something went wrong! Try reloading the page!');
     }
   }
 
   function createMarkupPopup(arr) {
+    const roundRating = Math.round(arr.rating);
+
     return `<button type="button" data-modal-popup-close class="close-button">
       <svg class="close-window" width="20" height="20">
         <use href="${sprite}#cross-close-modal"></use>
@@ -56,31 +55,7 @@ async function popupData(evt) {
   </ul>
   <p class="current-rating">${arr.rating}</p>
   <ul class="current-star">
-     <li class="current-star-color">
-       <svg class="star-icon" width="18" height="18">
-         <use href="./img/sprite.svg#rating-star"></use>
-       </svg>
-     </li>
-     <li class="current-star-color">
-       <svg class="star-icon" width="18" height="18">
-         <use href="./img/sprite.svg#rating-star"></use>
-       </svg>
-     </li>
-     <li class="current-star-color">
-       <svg class="star-icon" width="18" height="18">
-        <use href="./img/sprite.svg#rating-star"></use>
-       </svg>
-     </li>
-     <li class="current-star-color">
-       <svg class="star-icon" width="18" height="18">
-         <use href="./img/sprite.svg#rating-star"></use>
-       </svg>
-     </li>
-     <li class="current-star-color">
-       <svg class="star-icon" width="18" height="18">
-         <use href="./img/sprite.svg#rating-star"></use>
-       </svg>
-     </li>
+     ${markupRatingStarsPop(roundRating)}
    </ul>
    <p class="current-cucing-time">${arr.time} min</p>
     </div>
@@ -113,6 +88,87 @@ async function popupData(evt) {
   }
 }
 
-const openModalBtn = document.querySelector('.btn-primary');
-
-//console.log(openModalBtn);
+function markupRatingStarsPop(roundRating) {
+  switch (roundRating) {
+    case 1:
+      return `<svg class="current-star-color active-star" width="14" height="14">
+      <use href="./sprite.svg#rating-star"></use>
+    </svg>
+    <svg class="current-star-color" width="14" height="14">
+      <use href="./sprite.svg#rating-star"></use>
+    </svg>
+    <svg class="current-star-color" width="14" height="14">
+      <use href="./sprite.svg#rating-star"></use>
+    </svg>
+    <svg class="current-star-color" width="14" height="14">
+      <use href="./sprite.svg#rating-star"></use>
+    </svg>
+    <svg class="current-star-color" width="14" height="14">
+      <use href="./sprite.svg#rating-star"></use>
+    </svg>`;
+    case 2:
+      return `<svg class="current-star-color active-star" width="14" height="14">
+      <use href="./sprite.svg#rating-star"></use>
+    </svg>
+    <svg class="current-star-color active-star" width="14" height="14">
+      <use href="./sprite.svg#rating-star"></use>
+    </svg>
+    <svg class="current-star-color" width="14" height="14">
+      <use href="./sprite.svg#rating-star"></use>
+    </svg>
+    <svg class="current-star-color" width="14" height="14">
+      <use href="./sprite.svg#rating-star"></use>
+    </svg>
+    <svg class="current-star-color" width="14" height="14">
+      <use href="./sprite.svg#rating-star"></use>
+    </svg>`;
+    case 3:
+      return `<svg class="current-star-color active-star" width="14" height="14">
+      <use href="./sprite.svg#rating-star"></use>
+    </svg>
+    <svg class="current-star-color active-star" width="14" height="14">
+      <use href="./sprite.svg#rating-star"></use>
+    </svg>
+    <svg class="current-star-color active-star" width="14" height="14">
+      <use href="./sprite.svg#rating-star"></use>
+    </svg>
+    <svg class="current-star-color" width="14" height="14">
+      <use href="./sprite.svg#rating-star"></use>
+    </svg>
+    <svg class="current-star-color" width="14" height="14">
+      <use href="./sprite.svg#rating-star"></use>
+    </svg>`;
+    case 4:
+      return `<svg class="current-star-color active-star" width="14" height="14">
+      <use href="./sprite.svg#rating-star"></use>
+    </svg>
+    <svg class="current-star-color active-star" width="14" height="14">
+      <use href="./sprite.svg#rating-star"></use>
+    </svg>
+    <svg class="current-star-color active-star" width="14" height="14">
+      <use href="./sprite.svg#rating-star"></use>
+    </svg>
+    <svg class="current-star-color active-star" width="14" height="14">
+      <use href="./sprite.svg#rating-star"></use>
+    </svg>
+    <svg class="current-star-color" width="14" height="14">
+      <use href="./sprite.svg#rating-star"></use
+    </svg>`;
+    case 5:
+      return `<svg class="current-star-color active-star" width="14" height="14">
+      <use href="./sprite.svg#rating-star"></use>
+    </svg>
+    <svg class="current-star-color active-star" width="14" height="14">
+      <use href="./sprite.svg#rating-star"></use>
+    </svg>
+    <svg class="current-star-color active-star" width="14" height="14">
+      <use href="./sprite.svg#rating-star"></use>
+    </svg>
+    <svg class="current-star-color active-star" width="14" height="14">
+      <use href="./sprite.svg#rating-star"></use>
+    </svg>
+    <svg class="current-star-color active-star" width="14" height="14">
+      <use href="./sprite.svg#rating-star"></use
+    </svg>`;
+  }
+}
