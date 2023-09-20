@@ -128,6 +128,15 @@
   height: 100%;
 }
 
+.swiper-pagination {
+  /* --swiper-pagination-color: #9bb537; */
+  background-color: #9bb537;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #9bb537;
+}
+
 /* mobile */
 /*
 @media only screen and (max-width: 767px) {
