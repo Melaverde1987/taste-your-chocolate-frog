@@ -231,3 +231,10 @@ input:checked + .slider:before {
     bottom: unset;
   }
 }
+
+.home-color {
+  color: var(--colorPrimary);
+}
+.fav-color {
+  color: var(--colorPrimary);
+}
