@@ -6,7 +6,7 @@ const elements = {
 };
 
 let currentlimit = 6;
-let currentPage = 2;
+let currentPage = 1;
 
 setCardsLimit();
 

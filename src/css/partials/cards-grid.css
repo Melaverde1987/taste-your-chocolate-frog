@@ -278,7 +278,7 @@
   }
 }
 
-.pag-page-btn {
+.pag-page-btn{
   font-weight: 600;
   font-size: 18px;
   line-height: 1.22;
@@ -340,4 +340,13 @@ outline: none;
 .btn-active{
   background-color: var(--colorPrimary);
   border:none;
+}
+
+.additional-btn:hover,
+.additional-btn:focus{
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.22;
+  color: var(--colorTextDark);
+  border: 1px solid rgba(5, 5, 5, 0.3);
 }
