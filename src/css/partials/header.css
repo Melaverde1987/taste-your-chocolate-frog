@@ -232,9 +232,7 @@ input:checked + .slider:before {
   }
 }
 
-.home-color {
-  color: var(--colorPrimary);
-}
+.home-color,
 .fav-color {
   color: var(--colorPrimary);
 }
