@@ -28,5 +28,8 @@
 
   function toggleModal() {
     refs.modal.classList.toggle('is-hidden');
+    refs.modal.classList.contains('is-hidden')
+      ? bodyScrollLock.enableBodyScroll(refs.openModalBtn)
+      : bodyScrollLock.disableBodyScroll(refs.openModalBtn);
   }
 })();
