@@ -125,16 +125,13 @@
 }
 
 .icon-rating-recipes {
-  fill: var(--light);
-  opacity: 10%;
-  /* opacity: 100%; */
+  fill: rgba(248, 248, 248, 0.1);
   align-items: center;
   width: 18px;
   height: 18px;
 }
 
-.star{
-  opacity: 100%;
+.icon-rating-recipes.star {
   fill: var(--orange);
 }
 
@@ -153,7 +150,6 @@
   padding: 8px 14px;
   margin-left: auto;
 }
-
 
 /* +++++++++++ pagination +++++++++++++*/
 
@@ -206,17 +202,16 @@
 .pag-back-btn:hover
 /* ,
 .pag-start-btn:focus,
-.pag-back-btn:focus */
-{
+.pag-back-btn:focus */ {
   background-color: rgba(5, 5, 5, 0.7);
   outline: none;
 }
 
 .pag-start-btn:active,
-.pag-back-btn:active{
+.pag-back-btn:active {
   border: none;
   background-color: rgba(5, 5, 5, 0.5);
-  }
+}
 
 .pag-arrow {
   align-items: center;
@@ -239,7 +234,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  
 }
 
 .pag-back-arrow {
@@ -251,7 +245,7 @@
   transform: rotate(180deg);
 }
 
-.js-arrow{
+.js-arrow {
   pointer-events: none;
 }
 
@@ -270,15 +264,13 @@
   display: none;
 } */
 
-
-
 @media screen and (min-width: 768px) {
   .additional-btn {
     display: flex;
   }
 }
 
-.pag-page-btn{
+.pag-page-btn {
   font-weight: 600;
   font-size: 18px;
   line-height: 1.22;
@@ -288,17 +280,16 @@
 
 .pag-page-btn:hover
 /* ,
-.pag-page-btn:focus */
-{
-background-color: rgba(155, 181, 55, 0.6);
-border: none;
-outline: none;
+.pag-page-btn:focus */ {
+  background-color: rgba(155, 181, 55, 0.6);
+  border: none;
+  outline: none;
 }
 
-.pag-page-btn:active{
+.pag-page-btn:active {
   border: none;
   background-color: rgba(155, 181, 55, 0.4);
-  }
+}
 
 .btns-forward {
   display: flex;
@@ -321,29 +312,28 @@ outline: none;
 .pag-end-btn:hover
 /* ,
 .pag-forward-btn:focus,
-.pag-end-btn:focus */
-{
+.pag-end-btn:focus */ {
   background-color: rgba(155, 181, 55, 0.7);
-  outline:none;
+  outline: none;
 }
 
 .pag-forward-btn:active,
-.pag-end-btn:active{
+.pag-end-btn:active {
   border: none;
   background-color: rgba(155, 181, 55, 0.4);
-  }
+}
 
-.btns-forward .js-arrow{
+.btns-forward .js-arrow {
   fill: var(--colorTextDark);
 }
 
-.btn-active{
+.btn-active {
   background-color: var(--colorPrimary);
-  border:none;
+  border: none;
 }
 
 .additional-btn:hover,
-.additional-btn:focus{
+.additional-btn:focus {
   font-weight: 600;
   font-size: 18px;
   line-height: 1.22;
