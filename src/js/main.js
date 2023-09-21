@@ -10,3 +10,4 @@ import './filters-fetch.js';
 import './categories-fetch.js';
 import './favorites.js';
 import './pagination.js';
+//import './scroll-lock.js';
