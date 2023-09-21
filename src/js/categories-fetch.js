@@ -30,6 +30,7 @@ async function categoriesData() {
     <button class="category-btn">${name}</button>
     </li>`
     ).join('');
+    
   }
 }
 
