@@ -125,8 +125,7 @@
 }
 
 .icon-rating-recipes {
-  fill: var(--light);
-  opacity: 10%;
+  fill: rgba(248, 248, 248, 0.1);
   opacity: 100%;
   align-items: center;
   width: 18px;
