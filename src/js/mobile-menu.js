@@ -20,7 +20,6 @@ const toggleMenu = () => {
     : 'enableBodyScroll';
   bodyScrollLock[scrollLockMethod](document.body);
 };
-
 openMenuBtn.addEventListener('click', toggleMenu);
 closeMenuBtn.addEventListener('click', toggleMenu);
 
@@ -31,3 +30,29 @@ window.matchMedia('(min-width: 768px)').addEventListener('change', e => {
   openMenuBtn.setAttribute('aria-expanded', false);
   bodyScrollLock.enableBodyScroll(document.body);
 });
+
+
+  // Close the mobile menu on wider screens if the device orientation changes
+  window.matchMedia('(min-width: 768px)').addEventListener('change', e => {
+    if (!e.matches) return;
+    mobileMenu.classList.remove('is-open');
+    openMenuBtn.setAttribute('aria-expanded', false);
+    bodyScrollLock.enableBodyScroll(document.body);
+  });
+})();
+
+
+
+// Получите текущий URL страницы
+const currentUrl = window.location.href;
+
+// Получите все ссылки в навигационном меню
+const navLinks = document.querySelectorAll('.nav-link');
+
+// Переберите ссылки и добавьте класс "active" к активной ссылке
+navLinks.forEach(link => {
+  if (link.href === currentUrl) {
+    link.classList.add('active');
+  }
+});
+
