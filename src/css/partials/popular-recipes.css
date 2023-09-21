@@ -34,6 +34,7 @@
 .img-popular {
   width: 64px;
   height: 64px;
+  cursor: pointer;
   margin-right: 16px;
   border-radius: 8px;
 }
@@ -47,6 +48,13 @@
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+}
+
+@media screen and (max-width: 767px) {
+  .pop-card {
+    height: 158px;
+    overflow: hidden;
+  }
 }
 
 @media screen and (min-width: 768px) {
