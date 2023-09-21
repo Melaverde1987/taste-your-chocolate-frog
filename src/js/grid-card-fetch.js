@@ -195,4 +195,3 @@ export {
   setCardsLimitResizer,
   defaultData,
 };
-
