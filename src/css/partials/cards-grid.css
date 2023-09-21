@@ -48,8 +48,14 @@
   margin: 16px;
 }
 
-.icon-favorite-recipes.active {
+.icon-favorite-recipes-active {
   fill: var(--light);
+  
+}
+
+.icon-favorite-recipes
+{
+pointer-events: none;
 }
 
 .wrap-recipes:after {
