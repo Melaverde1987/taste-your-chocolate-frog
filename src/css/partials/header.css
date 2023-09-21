@@ -1,6 +1,9 @@
 .header {
   padding: 27px 0;
 }
+.nav-link.active {
+  color: var(--colorPrimary);
+}
 
 @media only screen and (min-width: 768px) {
   .header {
@@ -230,9 +233,4 @@ input:checked + .slider:before {
     left: unset;
     bottom: unset;
   }
-}
-
-.home-color,
-.fav-color {
-  color: var(--colorPrimary);
 }
