@@ -11,8 +11,7 @@ const fetchCategories = async () => {
   const response = await axios.get(
     `${BASE_URL}${CATEGORIES_ENDPOINT}?${params}`
   );
-  //console.log(response.data);
   return response.data;
 };
 
-export { fetchCategories };
+export { fetchCategories};
