@@ -26,3 +26,23 @@
     bodyScrollLock.enableBodyScroll(document.body);
   });
 })();
+
+
+
+// Получите текущий URL страницы
+const currentUrl = window.location.href;
+
+// Получите все ссылки в навигационном меню
+const navLinks = document.querySelectorAll('.nav-link');
+
+// Переберите ссылки и добавьте класс "active" к активной ссылке
+navLinks.forEach(link => {
+  if (link.href === currentUrl) {
+    link.classList.add('active');
+  }
+});
+
+
+
+
+
