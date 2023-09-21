@@ -11,6 +11,9 @@ listRecipe.addEventListener('click', onClickFavorite);
 function onClickFavorite(evt) {
   if (evt.target.classList.contains('icon-favorite-recipes')) {
     const name = evt.target.getAttribute('name');
+
+    console.log(name);
+    
     const svgHeart = evt.target;
     svgHeart.classList.toggle('filled-heart');
 
