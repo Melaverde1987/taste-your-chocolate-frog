@@ -112,7 +112,10 @@ if (elements.selectTimeButton) {
     startTime += step;
   }
   console.log(selectTime);
-  elements.selectTimeButton.innerHTML = createMarkupSelectTime(selectTime);
+  elements.selectTimeButton.insertAdjacentHTML(
+    'beforeend',
+    createMarkupSelectTime(selectTime)
+  );
   new SlimSelect({
     select: elements.selectTimeButton,
     settings: {
@@ -142,7 +145,10 @@ if (elements.selectAreaButton) {
 async function selectAreaData() {
   try {
     const result = await fetchAreas();
-    elements.selectAreaButton.innerHTML = createMarkupSelectArea(result);
+    elements.selectAreaButton.insertAdjacentHTML(
+      'beforeend',
+      createMarkupSelectArea(result)
+    );
     new SlimSelect({
       select: elements.selectAreaButton,
       settings: {
@@ -174,8 +180,10 @@ if (elements.selectIngredientsButton) {
 async function selectIngredientsData() {
   try {
     const result = await fetchIngredients();
-    elements.selectIngredientsButton.innerHTML =
-      createMarkupSelectIngredients(result);
+    elements.selectIngredientsButton.insertAdjacentHTML(
+      'beforeend',
+      createMarkupSelectIngredients(result)
+    );
     new SlimSelect({
       select: elements.selectIngredientsButton,
       settings: {
