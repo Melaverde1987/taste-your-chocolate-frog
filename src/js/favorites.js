@@ -75,7 +75,6 @@ function renderFavoriteRecipes() {
     JSON.parse(localStorage.getItem('favoriteRecipes')) || [];
   
   console.log(storedFavorites);
-
   // Отрисовываем каждую карточку
   storedFavorites.forEach(recipe => { 
     const cardHTML = createMarkupGridCardLS(recipe);
