@@ -3,6 +3,13 @@
   | HERO Section (Dev by AndriyZuMa) |
   |==================================|
 **/
+
+:root {
+  --swiper-pagination-color: #9bb537;
+  --swiper-preloader-color: #000;
+  --swiper-pagination-bottom: -6px;
+}
+
 .hero {
   padding-top: 64px;
 }
@@ -45,7 +52,7 @@
 .hero-card {
   /*height: 280px;*/
   height: 100%;
-  width: 100%;
+  width: calc(100% + 20px);
   overflow: hidden;
 }
 
@@ -128,15 +135,6 @@
   height: 100%;
 }
 
-.swiper-pagination {
-  /* --swiper-pagination-color: #9bb537; */
-  background-color: #9bb537;
-}
-
-.swiper-pagination-bullet-active {
-  background-color: #9bb537;
-}
-
 /* mobile */
 /*
 @media only screen and (max-width: 767px) {
@@ -165,7 +163,8 @@
   }
   .hero-card {
     /*height: 442px;*/
-    margin-right: -32px;
+    /*margin-right: -32px;*/
+    width: calc(100% + 32px);
   }
 
   .swiper-item {
@@ -218,6 +217,6 @@
   }
 
   .hero-card {
-    margin-right: -72px;
+    /*margin-right: -72px;*/
   }
 }

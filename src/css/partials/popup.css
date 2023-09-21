@@ -74,7 +74,14 @@
   display: flex;
   gap: 5px;
   margin-left: 6px;
-  margin-right: 16px;
+}
+
+.current-star-color {
+  fill: rgba(5, 5, 5, 0.1);
+}
+
+.active-star {
+  fill: #eea10c;
 }
 
 @media screen and (min-width: 768px) {
@@ -97,6 +104,7 @@
   font-style: normal;
   font-weight: 500;
   line-height: 1.28;
+  margin-left: 5px;
 }
 
 .current-ingredients-item {

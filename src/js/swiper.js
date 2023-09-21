@@ -10,22 +10,11 @@ const swiper = new Swiper('.swiper-hero', {
   direction: 'horizontal',
   loop: true,
   slidesPerGroup: 1,
-  // effect: 'fade',
-  // fadeEffect: {
-  //   crossFade: true,
-  // },
-  // effect: 'flip',
-  // flipEffect: {
-  //   slideShadows: false,
-  // },
-  // virtual: {
-  //   enabled: true,
-  // },
   modules: [Pagination],
   spaceBetween: 20,
   pagination: {
     el: '.swiper-pagination',
-    clickable: true,
+    clickable: false,
     type: 'bullets',
     dynamicBullets: true,
   },
