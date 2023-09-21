@@ -7,7 +7,9 @@ const popup = document.querySelector('[data-modal-popup]');
 const currentRecipe = document.querySelector('.current-vrapper');
 const body = document.querySelector('body');
 
-elements.addEventListener('click', handalClick);
+if (elements) {
+  elements.addEventListener('click', handalClick);
+}
 
 async function handalClick(evt) {
   if (evt.target.classList.contains('img-popular')) {

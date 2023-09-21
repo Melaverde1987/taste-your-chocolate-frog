@@ -113,7 +113,7 @@ function handlerBattonPag(e) {
   if (e.target) {
     e.target.classList.add('btn-active');
     currentPage = Number(e.target.textContent);
-    console.dir(Number(e.target.textContent));
+    //console.dir(Number(e.target.textContent));
 
     // зміна розмітки
     defaultDataTest(currentPage, currentlimit);
@@ -311,38 +311,38 @@ function handlerBattonArrow(e) {
       }
     }
   }
- // =========================================================================
+  // =========================================================================
 
- if (e.target.classList.contains('pag-back-btn')) {
-  const currentActiveBtn = document.querySelector('.btn-active');
-  if (Number(currentActiveBtn.textContent) - 1 >= 1) {
-    currentActiveBtn.previousSibling.classList.add('btn-active');
+  if (e.target.classList.contains('pag-back-btn')) {
+    const currentActiveBtn = document.querySelector('.btn-active');
+    if (Number(currentActiveBtn.textContent) - 1 >= 1) {
+      currentActiveBtn.previousSibling.classList.add('btn-active');
 
-    currentActiveBtn.classList.remove('btn-active');
-    currentActiveBtn.previousSibling.classList.add('btn-active');
-    currentActiveBtn.classList.remove('btn-active');
-    const choosePage = Number(currentActiveBtn.textContent) - 1;
-    defaultDataTest(choosePage, currentlimit);
+      currentActiveBtn.classList.remove('btn-active');
+      currentActiveBtn.previousSibling.classList.add('btn-active');
+      currentActiveBtn.classList.remove('btn-active');
+      const choosePage = Number(currentActiveBtn.textContent) - 1;
+      defaultDataTest(choosePage, currentlimit);
 
-    console.log(elements.btnsPagesBox.firstChild.textContent);
-    console.log(currentActiveBtn.previousSibling.textContent);
-    if (Number(elements.btnsPagesBox.firstChild.textContent)-1 > 0) {
-      if (
-        Number(elements.btnsPagesBox.firstChild.textContent) ===
-        Number(currentActiveBtn.previousSibling.textContent)
-      ) {
-        elements.btnsPagesBox.innerHTML = btnPageMarkupBack();
+      //console.log(elements.btnsPagesBox.firstChild.textContent);
+      //console.log(currentActiveBtn.previousSibling.textContent);
+      if (Number(elements.btnsPagesBox.firstChild.textContent) - 1 > 0) {
+        if (
+          Number(elements.btnsPagesBox.firstChild.textContent) ===
+          Number(currentActiveBtn.previousSibling.textContent)
+        ) {
+          elements.btnsPagesBox.innerHTML = btnPageMarkupBack();
+        }
       }
     }
   }
-}
 }
 // ============================================================================
 
 function btnPageMarkupBack() {
   const currentActiveBtn = document.querySelector('.btn-active');
 
-  console.log(currentActiveBtn);
+  //console.log(currentActiveBtn);
 
   const arrBtn = [];
 
@@ -361,15 +361,9 @@ function btnPageMarkupBack() {
       `<button type="button" class="pag-page-btn pag-btn">${i}</button>`
     );
   }
-  console.log(arrBtn);
+  //console.log(arrBtn);
   return arrBtn.join('');
-};
-
-
-
-
-
-
+}
 
 function btnPageMarkupFront() {
   const currentActiveBtn = document.querySelector('.btn-active');
@@ -394,7 +388,6 @@ function btnPageMarkupFront() {
     }
   }
   return arrBtn.join('');
- 
 }
 
 function markupEndBattons(quantityPages) {
