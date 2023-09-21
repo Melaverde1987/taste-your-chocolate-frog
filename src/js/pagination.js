@@ -7,7 +7,7 @@ const elements = {
   pagWrap: document.querySelector('.js-pag-wrap'),
   btnsBack: document.querySelector('.btns-back'),
   btnsEnd: document.querySelector('.btns-forward'),
-  btnFin: document.querySelector('.pag-forward-btn')
+  btnFin: document.querySelector('.pag-forward-btn'),
 };
 
 const pages = 7; //кількість сторінок
@@ -43,7 +43,7 @@ function setCardsLimitResizerTest() {
       return quantMobbtn;
     } else if (window.screen.width >= 1200) {
       currentlimit = 9;
-      quantMobbtn= 4;
+      quantMobbtn = 4;
       defaultDataTest(currentPage, currentlimit);
       return quantMobbtn;
     } else {
@@ -54,8 +54,6 @@ function setCardsLimitResizerTest() {
     }
   });
 }
-
-
 
 elements.btnsPagesBox.addEventListener('click', handlerBattonPag);
 elements.pagWrap.addEventListener('click', handlerBattonArrow);
@@ -75,16 +73,17 @@ function markupBtnPagination(pages) {
         `<button type="button" class="pag-page-btn pag-btn">${i}</button>`
       );
       continue;
-    } else 
+    }
     // if (i === quantMobbtn && pages !== quantMobbtn) {
     //   arrBtn.push(
     //     `<button type="button" class="pag-page-btn pag-btn additional-btn">...</button>`
     //   );
     //   continue;
     // }
-    arrBtn.push(
-      `<button type="button" class="pag-page-btn pag-btn">${i}</button>`
-    );
+    else
+      arrBtn.push(
+        `<button type="button" class="pag-page-btn pag-btn">${i}</button>`
+      );
   }
   if (arrBtn.length <= quantMobbtn) {
     elements.btnsBack.classList.add('visually-hidden');
@@ -129,7 +128,6 @@ async function defaultDataTest(currentPage, currentlimit) {
     const result = await fetchCards(currentPage, currentlimit);
     cards.innerHTML = createMarkupGridCardPag(result.results);
     // pages = result.totalPages;
-   
   } catch {
     Notify.failure('Oops! Something went wrong! Try reloading the page!');
   }
@@ -285,38 +283,118 @@ function handlerBattonArrow(e) {
     const currentActiveBtn = document.querySelector('.btn-active');
     const choosePage = currentActiveBtn.textContent;
     defaultDataTest(choosePage, currentlimit);
-    
   }
   if (e.target.classList.contains('pag-start-btn')) {
     elements.btnsPagesBox.innerHTML = markupBtnPagination(pages);
     const currentActiveBtn = document.querySelector('.btn-active');
     const choosePage = currentActiveBtn.textContent;
     defaultDataTest(choosePage, currentlimit);
-   
   }
   if (e.target.classList.contains('pag-forward-btn')) {
     const currentActiveBtn = document.querySelector('.btn-active');
-       if (Number(currentActiveBtn.textContent) <= pages - 1) {
-      currentActiveBtn.nextSibling.classList.add('btn-active');
-      currentActiveBtn.classList.remove('btn-active');
-      const choosePage = Number(currentActiveBtn.textContent) + 1;
-      defaultDataTest(choosePage, currentlimit);
-      
-      btnPageMarkup (Number(currentActiveBtn.textContent), pages);
+    if (Number(currentActiveBtn.textContent) <= pages - 1) {
+      if (currentActiveBtn.nextSibling) {
+        currentActiveBtn.nextSibling.classList.add('btn-active');
+        currentActiveBtn.classList.remove('btn-active');
+      }
+      defaultDataTest(Number(currentActiveBtn.textContent) + 1, currentlimit);
+
+      btnPageMarkupFront(Number(currentActiveBtn.textContent), pages);
+
+      if (
+        Number(currentActiveBtn.textContent) ===
+        Number(elements.btnsPagesBox.lastChild.textContent) - 1
+      ) {
+        if (Number(elements.btnsPagesBox.lastChild.textContent) + 1 <= pages) {
+          elements.btnsPagesBox.innerHTML = btnPageMarkupFront();
+        }
+      }
     }
   }
-  if (e.target.classList.contains('pag-back-btn')) {
-    const currentActiveBtn = document.querySelector('.btn-active');  
-    if (Number(currentActiveBtn.textContent)-1 >= 1) {
-      currentActiveBtn.previousSibling.classList.add('btn-active');
-      currentActiveBtn.classList.remove('btn-active');
-      currentActiveBtn.previousSibling.classList.add('btn-active');
-      currentActiveBtn.classList.remove('btn-active');
-      const choosePage = Number(currentActiveBtn.textContent)-1;
-      defaultDataTest(choosePage, currentlimit);
-     
+ // =========================================================================
+
+ if (e.target.classList.contains('pag-back-btn')) {
+  const currentActiveBtn = document.querySelector('.btn-active');
+  if (Number(currentActiveBtn.textContent) - 1 >= 1) {
+    currentActiveBtn.previousSibling.classList.add('btn-active');
+
+    currentActiveBtn.classList.remove('btn-active');
+    currentActiveBtn.previousSibling.classList.add('btn-active');
+    currentActiveBtn.classList.remove('btn-active');
+    const choosePage = Number(currentActiveBtn.textContent) - 1;
+    defaultDataTest(choosePage, currentlimit);
+
+    console.log(elements.btnsPagesBox.firstChild.textContent);
+    console.log(currentActiveBtn.previousSibling.textContent);
+    if (Number(elements.btnsPagesBox.firstChild.textContent)-1 > 0) {
+      if (
+        Number(elements.btnsPagesBox.firstChild.textContent) ===
+        Number(currentActiveBtn.previousSibling.textContent)
+      ) {
+        elements.btnsPagesBox.innerHTML = btnPageMarkupBack();
+      }
     }
   }
+}
+}
+// ============================================================================
+
+function btnPageMarkupBack() {
+  const currentActiveBtn = document.querySelector('.btn-active');
+
+  console.log(currentActiveBtn);
+
+  const arrBtn = [];
+
+  for (
+    let i = Number(currentActiveBtn.textContent) - 1;
+    i <= Number(currentActiveBtn.textContent) - 1 + quantMobbtn - 1;
+    i += 1
+  ) {
+    if (i === Number(currentActiveBtn.textContent)) {
+      arrBtn.push(
+        `<button type="button" class="pag-page-btn pag-btn btn-active">${i}</button>`
+      );
+      continue;
+    }
+    arrBtn.push(
+      `<button type="button" class="pag-page-btn pag-btn">${i}</button>`
+    );
+  }
+  console.log(arrBtn);
+  return arrBtn.join('');
+};
+
+
+
+
+
+
+
+function btnPageMarkupFront() {
+  const currentActiveBtn = document.querySelector('.btn-active');
+  const nextElem = currentActiveBtn.nextSibling;
+  const arrBtn = [];
+  if (!nextElem) {
+    for (
+      let i = Number(currentActiveBtn.textContent) + 1 - quantMobbtn + 1;
+      i <= Number(currentActiveBtn.textContent) + 1;
+      i += 1
+    ) {
+      if (i === Number(currentActiveBtn.textContent)) {
+        arrBtn.push(
+          `<button type="button" class="pag-page-btn pag-btn btn-active">${i}</button>`
+        );
+        continue;
+      } else {
+        arrBtn.push(
+          `<button type="button" class="pag-page-btn pag-btn">${i}</button>`
+        );
+      }
+    }
+  }
+  return arrBtn.join('');
+ 
 }
 
 function markupEndBattons(quantityPages) {
@@ -338,25 +416,4 @@ function markupEndBattons(quantityPages) {
   );
   const endSetPages = arrBtn.join('');
   return endSetPages;
-}
-
-
-function btnPageMarkup (page, endPage){
-  const actualPage = page+1;
-  const arrBtn = [];
-console.log(actualPage);
-  for (let i = actualPage; i <= endPage; i += 1) {
-       arrBtn.push(
-        `<button type="button" class="pag-page-btn pag-btn">${i}</button>`)
-     console.log(arrBtn);
-  }
-   arrBtn.splice(
-    0,
-    1,
-    `<button type="button" class="pag-page-btn pag-btn btn-active">1</button>`
-  );
-  const visualBtn = pages - (pages - quantMobbtn);
-  const allBtn = arrBtn.slice(0, visualBtn);
-  
-  return allBtn.join('');
 }
