@@ -3,6 +3,9 @@ import { createMarkupGridCard } from './grid-card-fetch';
 
 const listRecipe = document.querySelector('.list-recipes');
 
+// Инициализируем массив избранных рецептов при загрузке страницы
+    const storedFavorites = [];
+    
 listRecipe.addEventListener('click', onClickFavorite);
 
 function onClickFavorite(evt) {
@@ -10,12 +13,8 @@ function onClickFavorite(evt) {
     const name = evt.target.getAttribute('name');
     const svgHeart = evt.target;
     svgHeart.classList.toggle('filled-heart');
-
-    const storedFavorites =
-      JSON.parse(localStorage.getItem('favoriteRecipes')) || [];
-
-    // Объявляем _id и присваиваем ему значение атрибута 'name'
-    const _id = name;
+    
+    const _id = name; // Присваиваем _id значение атрибута 'name'
 
     // Проверяем, есть ли уже такая карточка в избранном
     const existingIndex = storedFavorites.findIndex(
@@ -53,8 +52,11 @@ function onClickFavorite(evt) {
 
     // Сохраняем обновленный массив в локальное хранилище
     localStorage.setItem('favoriteRecipes', JSON.stringify(storedFavorites));
-    console.log(storedFavorites);
+
     Notify.success('Recipe added to favorites!');
+
+    // Выводим текущее состояние массива
+    console.log(storedFavorites);
   }
 }
 
