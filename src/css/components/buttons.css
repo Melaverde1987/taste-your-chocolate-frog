@@ -4,6 +4,7 @@
   border: 1px solid transparent;
   font-size: 14px;
   font-weight: 500;
+  outline-color: var(--colorBorder);
 }
 
 @media only screen and (min-width: 768px) {
@@ -19,7 +20,8 @@
   transition: color var(--cubic-transition);
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-primary:focus {
   color: var(--colorTextDark);
 }
 
@@ -31,7 +33,8 @@
     background-color var(--cubic-transition);
 }
 
-.btn-outline:hover {
+.btn-outline:hover,
+.btn-outline:focus {
   color: var(--white);
   background-color: var(--colorPrimary);
 }
@@ -44,7 +47,8 @@
     border-color var(--cubic-transition);
 }
 
-.btn-outline-gray:hover {
+.btn-outline-gray:hover,
+.btn-outline-gray:focus {
   color: var(--white);
   background-color: var(--colorPrimary);
   border-color: var(--colorPrimary);
