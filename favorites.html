@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/taste-your-chocolate-frog/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tasty Treats</title>
+    
+    <script type="module" crossorigin src="/taste-your-chocolate-frog/assets/favorites-197b98c6.js"></script>
+    <link rel="stylesheet" href="/taste-your-chocolate-frog/assets/favorites-40969c1b.css">
+  </head>
+  <body>
+    <header class="header">
+  <div class="container header-wrraper">
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a href="./index.html" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="./favorites.html" class="nav-link">Favorites</a>
+        </li>
+      </ul>
+    </nav>
+
+    <a href="./index.html" aria-label="logo">
+      <svg class="mobile-logo" width="83" height="18">
+        <use href="/taste-your-chocolate-frog/assets/sprite-a10621af.svg#logo"></use>
+      </svg>
+    </a>
+
+    <ul class="desktop-right-part">
+      <li>
+        <a
+          href="tel:+380730000000"
+          aria-label="basket icon"
+          class="basket-link"
+        >
+          <svg class="mobile-menu-basket" width="24" height="24">
+            <use href="/taste-your-chocolate-frog/assets/sprite-a10621af.svg#basket"></use>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <label class="switch">
+          <input type="checkbox" />
+          <span class="slider"></span>
+        </label>
+      </li>
+    </ul>
+  </div>
+
+  <!--
+    =============
+    MOBILE MENU
+    =============
+  -->
+  <!-- Mobile menu burger -->
+  <div class="mobile-wrraper container">
+    <svg class="mobile-logo" width="83" height="18">
+      <use href="/taste-your-chocolate-frog/assets/sprite-a10621af.svg#logo"></use>
+    </svg>
+    <div class="mobile-burger-menu">
+      <ul class="mobile-right-part">
+        <li>
+          <svg class="mobile-menu-basket" width="24" height="24">
+            <use href="/taste-your-chocolate-frog/assets/sprite-a10621af.svg#basket"></use>
+          </svg>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="menu-toggle-burger js-open-menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+            aria-label="mobile menu"
+          >
+            <svg class="mobile-menu-burger" width="32" height="32">
+              <use href="/taste-your-chocolate-frog/assets/sprite-a10621af.svg#burger"></use>
+            </svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <div class="menu-container js-menu-container" id="mobile-menu">
+      <button type="button" class="menu-toggle-close js-close-menu">
+        <svg class="modal-menu-close" width="16" height="16">
+          <use
+            class="svg-modal"
+            width="16"
+            height="16"
+            href="/taste-your-chocolate-frog/assets/sprite-a10621af.svg#cross-close-modal"
+          ></use>
+        </svg>
+      </button>
+
+      <ul class="mobile-menu">
+        <li><a class="link mobile-menu-item" href="./index.html">Home</a></li>
+        <li>
+          <a class="link mobile-menu-item" href="./favorites.html">Favorites</a>
+        </li>
+      </ul>
+      <!-- <svg class="" width="46px" height="20px">
+        <use class="svg-switch" href="../img/sprite.svg#switch"></use>
+        </svg> -->
+      <label class="switch">
+        <input type="checkbox" />
+        <span class="slider"></span>
+      </label>
+    </div>
+  </div>
+</header>
+
+    <section class="hero hero-favorites container">
+  <h2 class="visually-hidden">Hero Tasty Treats</h2>
+  <div id="favorites-container"></div>
+  <picture>
+    <source
+      media="(min-width: 1200px)"
+      srcset="/taste-your-chocolate-frog/assets/card@1x_desktop-946f9f3c.jpg 1x, /taste-your-chocolate-frog/assets/card@2x_desktop-5854b840.jpg 2x"
+    />
+    <source
+      media="(min-width: 768px)"
+      srcset="/taste-your-chocolate-frog/assets/card@1x_tablet-5cabf23f.jpg 1x, /taste-your-chocolate-frog/assets/card@2x_tablet-3a7e96d3.jpg 2x"
+    />
+    <source
+      media="(max-width: 767px)"
+      srcset="/taste-your-chocolate-frog/assets/card@1x_mobile-21742cc7.jpg 1x, /taste-your-chocolate-frog/assets/card@2x_mobile-80188cac.jpg 2x"
+    />
+    <img
+      class="hero-favorites"
+      src="/taste-your-chocolate-frog/assets/card@1x_desktop-946f9f3c.jpg"
+      alt="Picture of tasty dish"
+      loading="lazy"
+    />
+  </picture>
+  <!--
+  <img
+    class="favorites-loading"
+    src="./img/hero-favorites/elements.png"
+    alt="icon of loading"
+  />
+  <p class="favorites-description">
+    It appears that you haven't added any recipes to your favorites yet. To get
+    started, you can add recipes that you like to your favorites for easier
+    access in the future.
+  </p>
+--></section>
+
+    <div class="favorites-default">
+  <div class="container">
+    <img
+      class="favorites-loading"
+      src="data:image/png;base64,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"
+      alt="icon of loading"
+    />
+    <p class="favorites-description">
+      It appears that you haven't added any recipes to your favorites yet. To
+      get started, you can add recipes that you like to your favorites for
+      easier access in the future.
+    </p>
+  </div>
+</div>
+
+
+    <div class="container">
+      <div class="cards-grid-favorites">
+  <ul class="list-recipes-favorites"></ul>
+</div>
+
+    </div>
+
+    <!--<script defer src="./js/scroll-lock.js" crossorigin="anonymous"></script>-->
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/body-scroll-lock/3.1.5/bodyScrollLock.min.js"
+      integrity="sha512-HowizSDbQl7UPEAsPnvJHlQsnBmU2YMrv7KkTBulTLEGz9chfBoWYyZJL+MUO6p/yBuuMO/8jI7O29YRZ2uBlA=="
+      crossorigin="anonymous"
+    ></script>
+    
+  </body>
+</html>

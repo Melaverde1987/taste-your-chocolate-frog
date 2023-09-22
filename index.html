@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/taste-your-chocolate-frog/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tasty Treats</title>
+    
+    <script type="module" crossorigin src="/taste-your-chocolate-frog/assets/index-0842a296.js"></script>
+    <link rel="modulepreload" crossorigin href="/taste-your-chocolate-frog/assets/favorites-197b98c6.js">
+    <link rel="stylesheet" href="/taste-your-chocolate-frog/assets/favorites-40969c1b.css">
+    <link rel="stylesheet" href="/taste-your-chocolate-frog/assets/index-316f1e80.css">
+  </head>
+  <body>
+    <header class="header">
+  <div class="container header-wrraper">
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a href="./index.html" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="./favorites.html" class="nav-link">Favorites</a>
+        </li>
+      </ul>
+    </nav>
+
+    <a href="./index.html" aria-label="logo">
+      <svg class="mobile-logo" width="83" height="18">
+        <use href="/taste-your-chocolate-frog/assets/sprite-a10621af.svg#logo"></use>
+      </svg>
+    </a>
+
+    <ul class="desktop-right-part">
+      <li>
+        <a
+          href="tel:+380730000000"
+          aria-label="basket icon"
+          class="basket-link"
+        >
+          <svg class="mobile-menu-basket" width="24" height="24">
+            <use href="/taste-your-chocolate-frog/assets/sprite-a10621af.svg#basket"></use>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <label class="switch">
+          <input type="checkbox" />
+          <span class="slider"></span>
+        </label>
+      </li>
+    </ul>
+  </div>
+
+  <!--
+    =============
+    MOBILE MENU
+    =============
+  -->
+  <!-- Mobile menu burger -->
+  <div class="mobile-wrraper container">
+    <svg class="mobile-logo" width="83" height="18">
+      <use href="/taste-your-chocolate-frog/assets/sprite-a10621af.svg#logo"></use>
+    </svg>
+    <div class="mobile-burger-menu">
+      <ul class="mobile-right-part">
+        <li>
+          <svg class="mobile-menu-basket" width="24" height="24">
+            <use href="/taste-your-chocolate-frog/assets/sprite-a10621af.svg#basket"></use>
+          </svg>
+        </li>
+        <li>
+          <button
+            type="button"
+            class="menu-toggle-burger js-open-menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+            aria-label="mobile menu"
+          >
+            <svg class="mobile-menu-burger" width="32" height="32">
+              <use href="/taste-your-chocolate-frog/assets/sprite-a10621af.svg#burger"></use>
+            </svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <div class="menu-container js-menu-container" id="mobile-menu">
+      <button type="button" class="menu-toggle-close js-close-menu">
+        <svg class="modal-menu-close" width="16" height="16">
+          <use
+            class="svg-modal"
+            width="16"
+            height="16"
+            href="/taste-your-chocolate-frog/assets/sprite-a10621af.svg#cross-close-modal"
+          ></use>
+        </svg>
+      </button>
+
+      <ul class="mobile-menu">
+        <li><a class="link mobile-menu-item" href="./index.html">Home</a></li>
+        <li>
+          <a class="link mobile-menu-item" href="./favorites.html">Favorites</a>
+        </li>
+      </ul>
+      <!-- <svg class="" width="46px" height="20px">
+        <use class="svg-switch" href="../img/sprite.svg#switch"></use>
+        </svg> -->
+      <label class="switch">
+        <input type="checkbox" />
+        <span class="slider"></span>
+      </label>
+    </div>
+  </div>
+</header>
+
+    <section class="hero">
+  <div class="container hero-container">
+    <div class="hero-title">
+      <h1>
+        Learn to Cook
+        <span class="hero-title-accent">Tasty Treats'</span> Customizable
+        Masterclass
+      </h1>
+      <p class="hero-title-text">
+        TastyTreats - Customize Your Meal with Ingredient Options and
+        Step-by-Step Video Guides.
+      </p>
+      <button
+        class="hero-btn-order btn btn-outline"
+        type="button"
+        data-order-popup-open
+      >
+        Order now
+      </button>
+    </div>
+    <!-- Second block with swiper photo -->
+    <div class="hero-card swiper-hero">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- <div class="chief">
+        <img
+        class="chief-photo"
+        src="https://tasty-treats-backend.p.goit.global/HestonChan.webp"
+        alt="Chief"
+        />
+      </div>
+      <div class="dish">
+        <img
+        class="dish-photo"
+        src="https://tasty-treats-backend.p.goit.global/previewDish1.webp"
+        alt="dish"
+        />
+        <h2 class="dish-name">Grilled, smoky, delicious barbecue</h2>
+        <p class="dish-area">Spanish</p>
+      </div>
+      <div class="cuisine-preview">
+        <img
+        class="cuisine-preview-photo"
+        src="https://tasty-treats-backend.p.goit.global/imgDish1.webp"
+        alt="Preview"
+        />
+      </div> -->
+      </div>
+      <!-- Pagination -->
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>
+
+    <section class="recipes">
+  <h2 class="visually-hidden">Recipes</h2>
+  <div class="container">
+    <aside class="aside">
+  <div class="categories">
+  <button type="button" class="btn btn-outline-gray btn-all-categories">All categories</button>
+  <div class="categories-block">
+    <ul class="categories-list"></ul>
+  </div>
+</div>
+
+  <div class="popular-categories">
+  <h2 class="popular-recipes">Popular recipes</h2>
+  <ul class="popular-list pop-card">
+    <!-- <li class="popular-recipes-list">
+      <img
+        id="6462a8f74c3d0ddd28897fc1"
+        class="img-popular"
+        src="https://www.themealdb.com/images/media/meals/tqtywx1468317395.jpg"
+        alt="Chocolate Gateau"
+        width="64px"
+        height="64px"
+      />
+      <div class="popular-card">
+        <h3 class="popular-title">Chocolate Gateau</h3>
+        <p class="popular-text">
+          A French dessert consisting of layers of chocolate sponge cake and
+          chocolate ganache, typically topped with chocolate glaze and chocolate
+          decorations.
+        </p>
+      </div>
+    </li>
+
+    <li class="popular-recipes-list">
+      <img
+        id="6462a8f74c3d0ddd28897fbc"
+        class="img-popular"
+        src="https://www.themealdb.com/images/media/meals/sxxpst1468569714.jpg"
+        alt="Irish stew"
+      />
+      <div class="popular-card">
+        <h3 class="popular-title">Irish stew</h3>
+        <p class="popular-text">
+          A traditional Irish dish made with lamb, potatoes, carrots, onions,
+          and herbs, cooked in a broth or gravy.
+        </p>
+      </div>
+    </li>
+
+    <li class="popular-recipes-list">
+      <img
+        id="6462a8f74c3d0ddd28897fb8"
+        class="img-popular"
+        src="https://www.themealdb.com/images/media/meals/wvqpwt1468339226.jpg"
+        alt="Mediterranean Pasta Salad"
+      />
+      <div class="popular-card">
+        <h3 class="popular-title">Mediterranean Pasta Salad</h3>
+        <p class="popular-text">
+          A salad made with pasta, vegetables (such as tomatoes, cucumbers, and
+          olives), feta cheese, and a dressing made with olive oil and lemon
+          juice.
+        </p>
+      </div>
+    </li>
+
+    <li class="popular-recipes-list">
+      <img
+        id="6462a8f74c3d0ddd28898040"
+        class="img-popular"
+        src="https://www.themealdb.com/images/media/meals/tkxquw1628771028.jpg"
+        alt="Burek"
+      />
+      <div class="popular-card">
+        <h3 class="popular-title">Burek</h3>
+        <p class="popular-text">
+          Burek is a traditional Balkan pastry made with phyllo dough and a
+          savory filling, usually of meat, cheese, or vegetables. It's a popular
+          street food in the region and can be enjoyed as a snack or a meal.
+        </p>
+      </div>
+    </li> -->
+  </ul>
+</div>
+
+</aside>
+
+    <div class="cards">
+  <div class="filters">
+  <div class="filter-item search">
+    <label for="filter-search">Search</label>
+    <input
+      class="filter-search"
+      type="text"
+      name="filter-search"
+      id="filter-search"
+      autocomplete="off"
+      placeholder="Enter text"
+    />
+    <svg class="search-icon" width="18" height="18">
+      <use href="/taste-your-chocolate-frog/assets/sprite-a10621af.svg#search-dandruff"></use>
+    </svg>
+  </div>
+
+  <div class="filter-item time">
+    <label for="time-select">Time</label>
+    <select class="filter-select" name="time-select" id="time-select">
+      <option class="filter-select-option" value="0" selected disabled hidden>
+        0 min
+      </option>
+      <!--
+      <option class="filter-select-option" value="1">40 min</option>
+      <option class="filter-select-option" value="2">10 min</option>
+      -->
+    </select>
+  </div>
+
+  <div class="filter-item area">
+    <label for="area-select">Area</label>
+    <select class="filter-select" name="area-select" id="area-select">
+      <option class="filter-select-option" value="0" selected disabled hidden>
+        Region
+      </option>
+      <!--
+      <option class="filter-select-option" value="1">French</option>
+      <option class="filter-select-option" value="2">Italian</option>
+      -->
+    </select>
+  </div>
+
+  <div class="filter-item ingredients">
+    <label for="ingredients-select">Ingredients</label>
+    <select
+      class="filter-select"
+      name="ingredients-select"
+      id="ingredients-select"
+    >
+      <option class="filter-select-option" value="0" selected disabled hidden>
+        Product
+      </option>
+      <!--
+      <option class="filter-select-option" value="1">Tomato</option>
+      <option class="filter-select-option" value="2">Cucumber</option>
+    --></select>
+  </div>
+
+  <div class="reset-container">
+    <button type="button" class="reset-filters js-reset-filters">
+      <svg width="16" height="16">
+        <use href="/taste-your-chocolate-frog/assets/sprite-a10621af.svg#cross-close-modal"></use>
+      </svg>
+      Reset the filter
+    </button>
+  </div>
+</div>
+
+  <div class="cards-grid">
+  <p class="loader"></p>
+  <ul class="list-recipes js-resipe">
+    <!--
+    <li class="item-recipes">
+      <div class="wrap-recipes">
+        <button type="button" class="button-favorite-recipes">
+            <svg class="icon-favorite-recipes" width="22" height="22">
+                <use href="./img/sprite.svg#heart-favorite"></use>
+            </svg>
+        </button>
+        <img
+          class="img-recipes"
+          src="./img/test-img/test-img.jpg"
+          alt="dish"
+          width="335"
+          height="335"
+        />
+        <div class="thumb-desc-recipes">
+          <h3 class="title-recipes">bANANA pANCAKES</h3>
+          <p class="description-recipes">
+            Banana pancakes are a fluffy and sweet breakfast dish made with
+            mashed ripe bananas, eggs, f...
+          </p>
+          <div class="thumb-btn-rating">
+            <p class="rating-recipes">4.5</p>
+            <div class="wrap-stars-rating">
+              <svg class="icon-rating-recipes">
+                <use href="./img/sprite.svg#rating-star"></use>
+              </svg>
+              <svg class="icon-rating-recipes">
+                <use href="./img/sprite.svg#rating-star"></use>
+              </svg>
+              <svg class="icon-rating-recipes">
+                <use href="./img/sprite.svg#rating-star"></use>
+              </svg>
+              <svg class="icon-rating-recipes">
+                <use href="./img/sprite.svg#rating-star"></use>
+              </svg>
+              <svg class="icon-rating-recipes">
+                <use href="./img/sprite.svg#rating-star"></use>
+              </svg>
+            </div>
+
+            <button
+              type="button"
+              class="btn btn-primary button-recipes"
+              data-modal-popup-open
+            >
+              See recipe
+            </button>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li class="item-recipes">
+      <div class="wrap-recipes">
+        <button type="button" class="button-favorite-recipes">
+            <svg class="icon-favorite-recipes" width="22" height="22">
+                <use href="./img/sprite.svg#heart-favorite"></use>
+            </svg>
+        </button>
+        <img
+          class="img-recipes"
+          src="./img/test-img/test-img.jpg"
+          alt="dish"
+          width="335"
+          height="335"
+        />
+        <div class="thumb-desc-recipes">
+          <h3 class="title-recipes">bANANA pANCAKES</h3>
+          <p class="description-recipes">
+            Banana pancakes are a fluffy and sweet breakfast dish made with
+            mashed ripe bananas, eggs, f...
+          </p>
+          <div class="thumb-btn-rating">
+            <p class="rating-recipes">4.5</p>
+            <div class="wrap-stars-rating">
+              <svg class="icon-rating-recipes">
+                <use href="./img/sprite.svg#rating-star"></use>
+              </svg>
+              <svg class="icon-rating-recipes">
+                <use href="./img/sprite.svg#rating-star"></use>
+              </svg>
+              <svg class="icon-rating-recipes">
+                <use href="./img/sprite.svg#rating-star"></use>
+              </svg>
+              <svg class="icon-rating-recipes">
+                <use href="./img/sprite.svg#rating-star"></use>
+              </svg>
+              <svg class="icon-rating-recipes">
+                <use href="./img/sprite.svg#rating-star"></use>
+              </svg>
+            </div>
+
+            <button type="button" class="btn btn-primary button-recipes">
+              See recipe
+            </button>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li class="item-recipes">
+      <div class="wrap-recipes">
+        <button type="button" class="button-favorite-recipes">
+            <svg class="icon-favorite-recipes" width="22" height="22">
+                <use href="./img/sprite.svg#heart-favorite"></use>
+            </svg>
+        </button>
+        <img
+          class="img-recipes"
+          src="./img/test-img/test-img.jpg"
+          alt="dish"
+          width="335"
+          height="335"
+        />
+        <div class="thumb-desc-recipes">
+          <h3 class="title-recipes">bANANA pANCAKES</h3>
+          <p class="description-recipes">
+            Banana pancakes are a fluffy and sweet breakfast dish made with
+            mashed ripe bananas, eggs, f...
+          </p>
+          <div class="thumb-btn-rating">
+            <p class="rating-recipes">4.5</p>
+            <div class="wrap-stars-rating">
+              <svg class="icon-rating-recipes">
+                <use href="./img/sprite.svg#rating-star"></use>
+              </svg>
+              <svg class="icon-rating-recipes">
+                <use href="./img/sprite.svg#rating-star"></use>
+              </svg>
+              <svg class="icon-rating-recipes">
+                <use href="./img/sprite.svg#rating-star"></use>
+              </svg>
+              <svg class="icon-rating-recipes">
+                <use href="./img/sprite.svg#rating-star"></use>
+              </svg>
+              <svg class="icon-rating-recipes">
+                <use href="./img/sprite.svg#rating-star"></use>
+              </svg>
+            </div>
+
+            <button type="button" class="btn btn-primary button-recipes">
+              See recipe
+            </button>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li class="item-recipes">
+      <div class="wrap-recipes">
+        <button type="button" class="button-favorite-recipes">
+            <svg class="icon-favorite-recipes" width="22" height="22">
+                <use href="./img/sprite.svg#heart-favorite"></use>
+            </svg>
+        </button>
+        <img
+          class="img-recipes"
+          src="./img/test-img/test-img.jpg"
+          alt="dish"
+          width="335"
+          height="335"
+        />
+        <div class="thumb-desc-recipes">
+          <h3 class="title-recipes">bANANA pANCAKES</h3>
+          <p class="description-recipes">
+            Banana pancakes are a fluffy and sweet breakfast dish made with
+            mashed ripe bananas, eggs, f...
+          </p>
+          <div class="thumb-btn-rating">
+            <p class="rating-recipes">4.5</p>
+            <div class="wrap-stars-rating">
+              <svg class="icon-rating-recipes">
+                <use href="./img/sprite.svg#rating-star"></use>
+              </svg>
+              <svg class="icon-rating-recipes">
+                <use href="./img/sprite.svg#rating-star"></use>
+              </svg>
+              <svg class="icon-rating-recipes">
+                <use href="./img/sprite.svg#rating-star"></use>
+              </svg>
+              <svg class="icon-rating-recipes">
+                <use href="./img/sprite.svg#rating-star"></use>
+              </svg>
+              <svg class="icon-rating-recipes">
+                <use href="./img/sprite.svg#rating-star"></use>
+              </svg>
+            </div>
+
+            <button type="button" class="btn btn-primary button-recipes">
+              See recipe
+            </button>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li class="item-recipes">
+      <div class="wrap-recipes">
+       <button type="button" class="button-favorite-recipes">
+            <svg class="icon-favorite-recipes" width="22" height="22">
+                <use href="./img/sprite.svg#heart-favorite"></use>
+            </svg>
+        </button>
+        <img
+          class="img-recipes"
+          src="./img/test-img/test-img.jpg"
+          alt="dish"
+          width="335"
+          height="335"
+        />
+        <div class="thumb-desc-recipes">
+          <h3 class="title-recipes">bANANA pANCAKES</h3>
+          <p class="description-recipes">
+            Banana pancakes are a fluffy and sweet breakfast dish made with
+            mashed ripe bananas, eggs, f...
+          </p>
+          <div class="thumb-btn-rating">
+            <p class="rating-recipes">4.5</p>
+            <div class="wrap-stars-rating">
+              <svg class="icon-rating-recipes">
+                <use href="./img/sprite.svg#rating-star"></use>
+              </svg>
+              <svg class="icon-rating-recipes">
+                <use href="./img/sprite.svg#rating-star"></use>
+              </svg>
+              <svg class="icon-rating-recipes">
+                <use href="./img/sprite.svg#rating-star"></use>
+              </svg>
+              <svg class="icon-rating-recipes">
+                <use href="./img/sprite.svg#rating-star"></use>
+              </svg>
+              <svg class="icon-rating-recipes">
+                <use href="./img/sprite.svg#rating-star"></use>
+              </svg>
+            </div>
+
+            <button type="button" class="btn btn-primary button-recipes">
+              See recipe
+            </button>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li class="item-recipes">
+      <div class="wrap-recipes">
+        <button type="button" class="button-favorite-recipes">
+            <svg class="icon-favorite-recipes" width="22" height="22">
+                <use href="./img/sprite.svg#heart-favorite"></use>
+            </svg>
+        </button>
+        <img
+          class="img-recipes"
+          src="./img/test-img/test-img.jpg"
+          alt="dish"
+          width="335"
+          height="335"
+        />
+        <div class="thumb-desc-recipes">
+          <h3 class="title-recipes">bANANA pANCAKES</h3>
+          <p class="description-recipes">
+            Banana pancakes are a fluffy and sweet breakfast dish made with
+            mashed ripe bananas, eggs, f...
+          </p>
+          <div class="thumb-btn-rating">
+            <p class="rating-recipes">4.5</p>
+            <div class="wrap-stars-rating">
+              <svg class="icon-rating-recipes">
+                <use href="./img/sprite.svg#rating-star"></use>
+              </svg>
+              <svg class="icon-rating-recipes">
+                <use href="./img/sprite.svg#rating-star"></use>
+              </svg>
+              <svg class="icon-rating-recipes">
+                <use href="./img/sprite.svg#rating-star"></use>
+              </svg>
+              <svg class="icon-rating-recipes">
+                <use href="./img/sprite.svg#rating-star"></use>
+              </svg>
+              <svg class="icon-rating-recipes">
+                <use href="./img/sprite.svg#rating-star"></use>
+              </svg>
+            </div>
+
+            <button type="button" class="btn btn-primary button-recipes">
+              See recipe
+            </button>
+          </div>
+        </div>
+      </div>
+    </li>
+    -->
+  </ul>
+  <div class="pag-wrap js-pag-wrap">
+    <div class="btns-back">
+      <button type="button" class="pag-start-btn pag-btn">
+        <svg class="pag-arrow pag-arrow1 js-arrow">
+          <use href="/taste-your-chocolate-frog/assets/sprite-a10621af.svg#pagination-arrow"></use>
+        </svg>
+        <svg class="pag-arrow pag-arrow2 js-arrow">
+          <use class="arrow" href="/taste-your-chocolate-frog/assets/sprite-a10621af.svg#pagination-arrow"></use>
+        </svg>
+      </button>
+      <button type="button" class="pag-back-btn pag-btn">
+        <svg class="pag-back-arrow js-arrow">
+          <use href="/taste-your-chocolate-frog/assets/sprite-a10621af.svg#pagination-arrow"></use>
+        </svg>
+      </button>
+    </div>
+    <div class="btns-pages js-btns-pages">
+      <!-- <button type="button" class="pag-page-btn pag-btn">1</button>
+        <button type="button" class="pag-page-btn pag-btn">2</button>
+        <button type="button" class="pag-page-btn pag-btn">3</button>
+        <button type="button" class="pag-page-btn pag-btn">...</button> -->
+    </div>
+    <div class="btns-forward">
+      <button type="button" class="pag-forward-btn pag-btn">
+        <svg class="pag-back-arrow js-arrow">
+          <use href="/taste-your-chocolate-frog/assets/sprite-a10621af.svg#pagination-arrow"></use>
+        </svg>
+      </button>
+      <button type="button" class="pag-end-btn pag-btn">
+        <svg class="pag-arrow pag-arrow1 js-arrow">
+          <use href="/taste-your-chocolate-frog/assets/sprite-a10621af.svg#pagination-arrow"></use>
+        </svg>
+        <svg class="pag-arrow pag-arrow2 js-arrow">
+          <use class="arrow" href="/taste-your-chocolate-frog/assets/sprite-a10621af.svg#pagination-arrow"></use>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </div>
+</section>
+
+
+    <div class="modal-order is-hidden" data-order-popup>
+  <div class="inner-container">
+    <button class="close-btn" type="button" data-order-popup-close>
+      <svg class="order-cls-icon" width="20" height="20">
+        <use href="/taste-your-chocolate-frog/assets/sprite-a10621af.svg#icon-x"></use>
+      </svg>
+    </button>
+
+    <p class="title-order">Order now</p>
+
+    <form class="form-order">
+      <label class="field-order">
+        <span class="sp-order">Name</span>
+        <input type="text" name="name" class="input-order" />
+      </label>
+      <label class="field-order">
+        <span class="sp-order">Phone number</span>
+        <input type="tel" name="phoneNumber" class="input-order" />
+      </label>
+      <label class="field-order">
+        <span class="sp-order">Email</span>
+        <input type="email" name="email" class="input-order" />
+      </label>
+      <label class="field-order">
+        <span class="sp-order">Comment</span>
+        <textarea name="comment" class="textarea-order input-order"></textarea>
+      </label>
+      <button
+        type="submit"
+        name="submit"
+        class="btn btn-primary send-btn-order"
+        disabled
+      >
+        Send
+      </button>
+    </form>
+  </div>
+</div>
+
+    <div class="popup is-hidden" data-modal-popup>
+  <div class="container current-vrapper">
+    <!-- <button type="button" data-modal-popup-close class="close-button">
+      <svg class="close-window" width="20" height="20">
+        <use href="./img/sprite.svg#cross-close-modal"></use>
+      </svg>
+    </button> -->
+    <!-- <h2 class="current-recipe-name-tablet">BANANA PANCAKES</h2>
+    <img
+      class="current-recipe-img"
+      src="./img/pop-up/pop-up-recept-tab.jpg"
+      alt="pop-up-recept"
+    />
+    <h2 class="current-recipe-name">BANANA PANCAKES</h2>
+    <div class="current-information">
+      <ul class="current-type-dish-tab">
+        <li class="current-type-item">
+          <p class="type-item-text">#Breakfast</p>
+        </li>
+        <li class="current-type-item"><p class="type-item-text">#Desert</p></li>
+        <li class="current-type-item"><p class="type-item-text">#Sweet</p></li>
+      </ul>
+      <p class="current-rating">4.5</p>
+      <ul class="current-star">
+        <li class="current-star-color">
+          <svg class="star-icon" width="18" height="18">
+            <use href="./img/sprite.svg#rating-star"></use>
+          </svg>
+        </li>
+        <li class="current-star-color">
+          <svg class="star-icon" width="18" height="18">
+            <use href="./img/sprite.svg#rating-star"></use>
+          </svg>
+        </li>
+        <li class="current-star-color">
+          <svg class="star-icon" width="18" height="18">
+            <use href="./img/sprite.svg#rating-star"></use>
+          </svg>
+        </li>
+        <li class="current-star-color">
+          <svg class="star-icon" width="18" height="18">
+            <use href="./img/sprite.svg#rating-star"></use>
+          </svg>
+        </li>
+        <li class="current-star-color">
+          <svg class="star-icon" width="18" height="18">
+            <use href="./img/sprite.svg#rating-star"></use>
+          </svg>
+        </li>
+      </ul>
+      <p class="current-cucing-time">40 min</p>
+    </div>
+    <ul class="current-ingredients-list">
+      <li class="current-ingredients-item border">
+        <p class="current-ingredients-name">Banana</p>
+        <p class="current-ingredients-quantity">1 large</p>
+      </li>
+
+      <li class="current-ingredients-item border">
+        <p class="current-ingredients-name">Banana</p>
+        <p class="current-ingredients-quantity">1 large</p>
+      </li>
+      <li class="current-ingredients-item border">
+        <p class="current-ingredients-name">Banana</p>
+        <p class="current-ingredients-quantity">1 large</p>
+      </li>
+      <li class="current-ingredients-item border">
+        <p class="current-ingredients-name">Banana</p>
+        <p class="current-ingredients-quantity">1 large</p>
+      </li>
+      <li class="current-ingredients-item border">
+        <p class="current-ingredients-name">Banana</p>
+        <p class="current-ingredients-quantity">1 large</p>
+      </li>
+      <li class="current-ingredients-item border">
+        <p class="current-ingredients-name">Banana</p>
+        <p class="current-ingredients-quantity">1 large</p>
+      </li>
+    </ul>
+    <ul class="current-type-dish">
+      <li class="current-type-item">
+        <p class="type-item-text">#Breakfast</p>
+      </li>
+      <li class="current-type-item"><p class="type-item-text">#Desert</p></li>
+      <li class="current-type-item"><p class="type-item-text">#Sweet</p></li>
+    </ul>
+    <p class="current-recipe">
+      Mash the ripe banana in a medium mixing bowl. Add the egg and whisk
+      together until well combined. Add the flour, baking powder, cinnamon (if
+      using), and salt, and stir until just combined. Heat a non-stick skillet
+      or griddle over medium heat and add the vegetable oil or melted butter.
+      Scoop the batter onto the skillet or griddle using a 1/4 cup measure, and
+      cook for 2-3 minutes on each side, or until the pancakes are golden brown
+      and cooked through. Serve warm with your favorite toppings such as maple
+      syrup, sliced bananas, or whipped cream.
+    </p>
+    <div class="custumer-choice">
+      <a href="" class="btn btn-primary custumer-choice-text">Add to favorite</a
+      ><a href="" class="btn btn-outline custumer-choice-text">Give a rating</a>
+    </div> -->
+  </div>
+</div>
+
+
+    <!--<script defer src="./js/scroll-lock.js" crossorigin="anonymous"></script>-->
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/body-scroll-lock/3.1.5/bodyScrollLock.min.js"
+      integrity="sha512-HowizSDbQl7UPEAsPnvJHlQsnBmU2YMrv7KkTBulTLEGz9chfBoWYyZJL+MUO6p/yBuuMO/8jI7O29YRZ2uBlA=="
+      crossorigin="anonymous"
+    ></script>
+    
+  </body>
+</html>
