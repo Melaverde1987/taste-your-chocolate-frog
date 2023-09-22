@@ -67,7 +67,7 @@ function onClickFavorite(evt) {
     // Notify.success('Recipe added to favorites!');
 
     // Выводим текущее состояние массива
-    console.log(storedFavorites);
+    //console.log(storedFavorites);
   }
 }
 
@@ -79,7 +79,7 @@ function renderFavoriteRecipes() {
   //console.log(storedFavorites);
 
   // Отрисовываем каждую карточку
-  console.log('storedFavorites', storedFavorites);
+  //console.log('storedFavorites', storedFavorites);
 
   //const cardHTML = createMarkupGridCardLS(recipe);
   if (favoritesCardContainer) {

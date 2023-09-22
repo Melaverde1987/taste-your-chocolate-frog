@@ -69,7 +69,7 @@ async function cardsWithFiltersData(nameRecipe, currentlimit) {
     const filterRecipes = result.filter(({ title }) =>
       title.toLowerCase().includes(nameRecipe.toLowerCase())
     );
-    console.log(filterRecipes);
+    //console.log(filterRecipes);
 
     if (filterRecipes.length === 0) {
       elements.cards.innerHTML = defaultData();
@@ -79,7 +79,7 @@ async function cardsWithFiltersData(nameRecipe, currentlimit) {
     }
 
     const recipesOnPage = filterRecipes.splice(0, currentlimit);
-    console.log(currentlimit);
+    //console.log(currentlimit);
 
     // console.log(Math.ceil(filterRecipes.length/currentlimit));
 

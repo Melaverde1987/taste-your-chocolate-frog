@@ -17,7 +17,7 @@ async function heroData() {
     const result = await fetchEvents();
     elements.swiperWrapper.innerHTML = createMarkupEvents(result);
   } catch {
-    console.log('err');
+    //console.log('err');
     Notify.failure('Oops! Something went wrong! Try reloading the page!');
   }
   // Відмальовка HTML колекції
