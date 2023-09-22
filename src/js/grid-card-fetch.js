@@ -8,7 +8,10 @@ const elements = {
 let currentlimit = 6;
 let currentPage = 1;
 
-setCardsLimit();
+if (elements.cards) {
+  setCardsLimit();
+}
+//setCardsLimit();
 
 function setCardsLimit() {
   if (window.screen.width >= 768 && window.screen.width < 1200) {
