@@ -8,8 +8,11 @@ import { debounce } from 'debounce';
 import { createMarkupGridCard, defaultData } from './grid-card-fetch';
 import SlimSelect from 'slim-select';
 // import 'slim-select/dist/slimselect.css';
+import { quantityBtn } from './pagination';
 
 let currentlimit = 6;
+
+let arrNameRecipes = [];
 
 const elements = {
   cards: document.querySelector('.list-recipes'),
@@ -18,18 +21,20 @@ const elements = {
   selectTimeButton: document.querySelector('#time-select'),
   selectAreaButton: document.querySelector('#area-select'),
   selectIngredientsButton: document.querySelector('#ingredients-select'),
+
+  btnsPagesBox: document.querySelector('.js-btns-pages'),
 };
 
-if (elements.searchInput) {
-  elements.searchInput.addEventListener(
-    'input',
-    debounce(getQueryNameRecipes, 1000)
-  );
-}
+// if (elements.searchInput) {
+//   elements.searchInput.addEventListener(
+//     'input',
+//     debounce(getQueryNameRecipes, 700)
+//   );
+// }
 
 function getQueryNameRecipes(e) {
   const inpunValue = e.target.value.trim();
-  console.log(inpunValue);
+  // console.log(inpunValue);
   if (inpunValue === '') {
     elements.searchInput.innerHTML = '';
     elements.cards.innerHTML = defaultData(); // якщо написав і стер то вертається дефолтна розмітка
@@ -37,7 +42,7 @@ function getQueryNameRecipes(e) {
     Notify.info('Your query is empty. Please try again');
     return;
   }
-  console.dir(elements.resetButton);
+  // console.dir(elements.resetButton);
   elements.resetButton.classList.remove('js-reset-filters');
   cardsWithFiltersData(inpunValue, currentlimit);
 }
@@ -66,7 +71,7 @@ async function cardsWithFiltersData(nameRecipe, currentlimit) {
     const filterRecipes = result.filter(({ title }) =>
       title.toLowerCase().includes(nameRecipe.toLowerCase())
     );
-    console.log(filterRecipes);
+    // console.dir(filterRecipes);
 
     if (filterRecipes.length === 0) {
       elements.cards.innerHTML = defaultData();
@@ -74,28 +79,42 @@ async function cardsWithFiltersData(nameRecipe, currentlimit) {
       Notify.warning('Nothing was found for your request!');
       return;
     }
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    arrNameRecipes = filterRecipes;
+    // .splice(0, currentlimit)
+    // console.log(Math.ceil(arrNameRecipes.length / currentlimit));
 
-    const recipesOnPage = filterRecipes.splice(0, currentlimit);
-    console.log(currentlimit);
+    const arrResipesOnPage = [];
 
-    // console.log(Math.ceil(filterRecipes.length/currentlimit));
+    for (let i = 0; i <= Math.ceil(arrNameRecipes.length /currentlimit); i+=1){
+      arrResipesOnPage.push(arrNameRecipes.splice(0, 8));
+      // console.log(arrResipesOnPage);
+      // console.log(arrNameRecipes);
+    }; 
+//     // const recipesOnPage = arrNameRecipes.splice(0, 8);
+    // console.log(arrResipesOnPage);
+    // console.log(filterRecipes);
 
-    // при реалізації пагінації можна опрацьювати filterRecipes після splice
+   elements.btnsPagesBox.addEventListener('click',handlerBtnPage)
 
-    elements.cards.innerHTML = createMarkupGridCard(recipesOnPage);
+function handlerBtnPage(e){
+  elements.cards.innerHTML = createMarkupGridCard(arrResipesOnPage[Number(e.target.textContent)-1]);
+  // console.log(Number(e.target.textContent)-1);
+}
+
+    // при реалізації пагінації можна опрацювати filterRecipes після splice
+    quantityBtn(arrResipesOnPage.length);
+    elements.cards.innerHTML = createMarkupGridCard(arrResipesOnPage[0]);
+    return arrNameRecipes.length / currentlimit;
   } catch {
     Notify.failure('Oops! Something went wrong! Try reloading the page!');
   }
 }
 
-// selectClass.forEach(item => {
-// new SlimSelect({
-//   select: elements.allFilters,
-//   settings: {
-//     showSearch: false,
-//   },
-// });
-// });
+// функція для вираховуання кількості сторінок піся інпуту
+function getQuantPagesFilterName(arr, quantOnPage) {
+  return arr.length / quantOnPage;
+}
 
 /*
 ====================
@@ -111,7 +130,7 @@ if (elements.selectTimeButton) {
     selectTime.push(startTime);
     startTime += step;
   }
-  console.log(selectTime);
+  // console.log(selectTime);
   elements.selectTimeButton.insertAdjacentHTML(
     'beforeend',
     createMarkupSelectTime(selectTime)
@@ -203,3 +222,5 @@ function createMarkupSelectIngredients(arr) {
     )
     .join('');
 }
+
+export { getQueryNameRecipes };

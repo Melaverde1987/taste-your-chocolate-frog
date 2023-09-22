@@ -1,8 +1,12 @@
 import { fetchCards } from './API/grid-cards-api';
-import { setCardsLimitResizer } from './grid-card-fetch';
+import { createMarkupGridCard } from './grid-card-fetch';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import {getQueryNameRecipes} from './filters-fetch';
+import { debounce } from 'debounce';
 
 const elements = {
+  searchInput: document.querySelector('.filter-search'),
+
   btnsPagesBox: document.querySelector('.js-btns-pages'),
   pagWrap: document.querySelector('.js-pag-wrap'),
   btnsBack: document.querySelector('.btns-back'),
@@ -10,12 +14,11 @@ const elements = {
   btnFin: document.querySelector('.pag-forward-btn'),
 };
 
-const pages = 7; //кількість сторінок
+let pages = 7; //кількість сторінок
 let quantMobbtn = 3; // кількість кнопок сторінок в моб варіанті
 
 let currentPage = 1; //поточна сторінка
-let currentlimit; // рецептів на сторінці
-// let totalPages; // кількість рецептів
+let currentlimit = 6; // рецептів на сторінці
 
 setCardsLimitTest();
 
@@ -31,6 +34,12 @@ function setCardsLimitTest() {
   }
   setCardsLimitResizerTest();
 }
+
+
+getTotalPages(currentPage, currentlimit).then(resp => {
+  pages = resp;
+  return pages;
+});
 
 setCardsLimitResizerTest();
 
@@ -57,6 +66,11 @@ function setCardsLimitResizerTest() {
 
 elements.btnsPagesBox.addEventListener('click', handlerBattonPag);
 elements.pagWrap.addEventListener('click', handlerBattonArrow);
+
+// ================================================
+
+
+
 
 quantityBtn(pages);
 
@@ -113,7 +127,7 @@ function handlerBattonPag(e) {
   if (e.target) {
     e.target.classList.add('btn-active');
     currentPage = Number(e.target.textContent);
-    console.dir(Number(e.target.textContent));
+    // console.dir(Number(e.target.textContent));
 
     // зміна розмітки
     defaultDataTest(currentPage, currentlimit);
@@ -126,156 +140,178 @@ const cards = document.querySelector('.list-recipes');
 async function defaultDataTest(currentPage, currentlimit) {
   try {
     const result = await fetchCards(currentPage, currentlimit);
-    cards.innerHTML = createMarkupGridCardPag(result.results);
-    // pages = result.totalPages;
+//  ===========================================================
+
+if (elements.searchInput) {
+  elements.searchInput.addEventListener(
+    'input',
+    debounce(getQueryNameRecipes, 1300)
+  );
+  
+}else
+
+// ==============================================================
+    cards.innerHTML = createMarkupGridCard(result.results);
+  
   } catch {
     Notify.failure('Oops! Something went wrong! Try reloading the page!');
   }
 }
 
-function createMarkupGridCardPag(arr) {
-  return arr
-    .map(({ _id, title, description, rating, thumb }) => {
-      const roundRating = Math.round(rating);
-      const ratingNumber = rating.toFixed(1);
-      return `<li class="item-recipes">
-            <div class="wrap-recipes">
-              <button type="button" class="button-favorite-recipes" name="${_id}">
-                  <svg class="icon-favorite-recipes" width="22" height="22">
-                    <use href="./sprite.svg#heart-favorite"></use>
-                  </svg>
-              </button>
-              <img
-                class="img-recipes"
-                src="${thumb}"
-                alt="${title}"
-                width="335"
-                height="335"
-              />
-              <div class="thumb-desc-recipes">
-                <h3 class="title-recipes">${title}</h3>
-                <p class="description-recipes">${description}</p>
-                <div class="thumb-btn-rating">
-                  <p class="rating-recipes">${ratingNumber}</p>
-                  <div class="wrap-stars-rating">
-                    ${markupRatingStars(roundRating)}
-                  </div>        
-                  <button
-                    type="button"
-                    class="btn btn-primary button-recipes"
-                    data-modal-popup-open
-                    id="${_id}"
-                  >
-                    See recipe
-                  </button>
-                </div>
-              </div>
-            </div>
-          </li>`;
-    })
-    .join('');
-}
-
-function markupRatingStars(roundRating) {
-  switch (roundRating) {
-    case 1:
-      return `<svg class="icon-rating-recipes star">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>`;
-    case 2:
-      return `<svg class="icon-rating-recipes star">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes star">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>`;
-    case 3:
-      return `<svg class="icon-rating-recipes star">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes star">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes star">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>`;
-    case 4:
-      return `<svg class="icon-rating-recipes star">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes star">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes star">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes star">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>`;
-    case 5:
-      return `<svg class="icon-rating-recipes star">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes star">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes star">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes star">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes star">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>`;
-    default:
-      return `<svg class="icon-rating-recipes star">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>`;
+async function getTotalPages(currentPage, currentlimit) {
+  try {
+    const result = await fetchCards(currentPage, currentlimit);
+    // cards.innerHTML = createMarkupGridCard(result.results);
+    const backPages = result.totalPages;
+    return backPages;
+  } catch {
+    Notify.failure('Oops! Something went wrong! Try reloading the page!');
   }
 }
+
+// function createMarkupGridCardPag(arr) {
+//   return arr
+//     .map(({ _id, title, description, rating, thumb }) => {
+//       const roundRating = Math.round(rating);
+//       const ratingNumber = rating.toFixed(1);
+//       return `<li class="item-recipes">
+//             <div class="wrap-recipes">
+//               <button type="button" class="button-favorite-recipes" name="${_id}">
+//                   <svg class="icon-favorite-recipes" width="22" height="22">
+//                     <use href="./sprite.svg#heart-favorite"></use>
+//                   </svg>
+//               </button>
+//               <img
+//                 class="img-recipes"
+//                 src="${thumb}"
+//                 alt="${title}"
+//                 width="335"
+//                 height="335"
+//               />
+//               <div class="thumb-desc-recipes">
+//                 <h3 class="title-recipes">${title}</h3>
+//                 <p class="description-recipes">${description}</p>
+//                 <div class="thumb-btn-rating">
+//                   <p class="rating-recipes">${ratingNumber}</p>
+//                   <div class="wrap-stars-rating">
+//                     ${markupRatingStars(roundRating)}
+//                   </div>        
+//                   <button
+//                     type="button"
+//                     class="btn btn-primary button-recipes"
+//                     data-modal-popup-open
+//                     id="${_id}"
+//                   >
+//                     See recipe
+//                   </button>
+//                 </div>
+//               </div>
+//             </div>
+//           </li>`;
+//     })
+//     .join('');
+// }
+
+// function markupRatingStars(roundRating) {
+//   switch (roundRating) {
+//     case 1:
+//       return `<svg class="icon-rating-recipes star">
+//       <use href="./sprite.svg#rating-star"></use>
+//     </svg>
+//     <svg class="icon-rating-recipes">
+//       <use href="./sprite.svg#rating-star"></use>
+//     </svg>
+//     <svg class="icon-rating-recipes">
+//       <use href="./sprite.svg#rating-star"></use>
+//     </svg>
+//     <svg class="icon-rating-recipes">
+//       <use href="./sprite.svg#rating-star"></use>
+//     </svg>
+//     <svg class="icon-rating-recipes">
+//       <use href="./sprite.svg#rating-star"></use>
+//     </svg>`;
+//     case 2:
+//       return `<svg class="icon-rating-recipes star">
+//       <use href="./sprite.svg#rating-star"></use>
+//     </svg>
+//     <svg class="icon-rating-recipes star">
+//       <use href="./sprite.svg#rating-star"></use>
+//     </svg>
+//     <svg class="icon-rating-recipes">
+//       <use href="./sprite.svg#rating-star"></use>
+//     </svg>
+//     <svg class="icon-rating-recipes">
+//       <use href="./sprite.svg#rating-star"></use>
+//     </svg>
+//     <svg class="icon-rating-recipes">
+//       <use href="./sprite.svg#rating-star"></use>
+//     </svg>`;
+//     case 3:
+//       return `<svg class="icon-rating-recipes star">
+//       <use href="./sprite.svg#rating-star"></use>
+//     </svg>
+//     <svg class="icon-rating-recipes star">
+//       <use href="./sprite.svg#rating-star"></use>
+//     </svg>
+//     <svg class="icon-rating-recipes star">
+//       <use href="./sprite.svg#rating-star"></use>
+//     </svg>
+//     <svg class="icon-rating-recipes">
+//       <use href="./sprite.svg#rating-star"></use>
+//     </svg>
+//     <svg class="icon-rating-recipes">
+//       <use href="./sprite.svg#rating-star"></use>
+//     </svg>`;
+//     case 4:
+//       return `<svg class="icon-rating-recipes star">
+//       <use href="./sprite.svg#rating-star"></use>
+//     </svg>
+//     <svg class="icon-rating-recipes star">
+//       <use href="./sprite.svg#rating-star"></use>
+//     </svg>
+//     <svg class="icon-rating-recipes star">
+//       <use href="./sprite.svg#rating-star"></use>
+//     </svg>
+//     <svg class="icon-rating-recipes star">
+//       <use href="./sprite.svg#rating-star"></use>
+//     </svg>
+//     <svg class="icon-rating-recipes">
+//       <use href="./sprite.svg#rating-star"></use>
+//     </svg>`;
+//     case 5:
+//       return `<svg class="icon-rating-recipes star">
+//       <use href="./sprite.svg#rating-star"></use>
+//     </svg>
+//     <svg class="icon-rating-recipes star">
+//       <use href="./sprite.svg#rating-star"></use>
+//     </svg>
+//     <svg class="icon-rating-recipes star">
+//       <use href="./sprite.svg#rating-star"></use>
+//     </svg>
+//     <svg class="icon-rating-recipes star">
+//       <use href="./sprite.svg#rating-star"></use>
+//     </svg>
+//     <svg class="icon-rating-recipes star">
+//       <use href="./sprite.svg#rating-star"></use>
+//     </svg>`;
+//     default:
+//       return `<svg class="icon-rating-recipes star">
+//       <use href="./sprite.svg#rating-star"></use>
+//     </svg>
+//     <svg class="icon-rating-recipes">
+//       <use href="./sprite.svg#rating-star"></use>
+//     </svg>
+//     <svg class="icon-rating-recipes">
+//       <use href="./sprite.svg#rating-star"></use>
+//     </svg>
+//     <svg class="icon-rating-recipes">
+//       <use href="./sprite.svg#rating-star"></use>
+//     </svg>
+//     <svg class="icon-rating-recipes">
+//       <use href="./sprite.svg#rating-star"></use>
+//     </svg>`;
+//   }
+// }
 
 function handlerBattonArrow(e) {
   if (e.target.classList.contains('pag-end-btn')) {
@@ -311,38 +347,34 @@ function handlerBattonArrow(e) {
       }
     }
   }
- // =========================================================================
+  // =========================================================================
 
- if (e.target.classList.contains('pag-back-btn')) {
-  const currentActiveBtn = document.querySelector('.btn-active');
-  if (Number(currentActiveBtn.textContent) - 1 >= 1) {
-    currentActiveBtn.previousSibling.classList.add('btn-active');
+  if (e.target.classList.contains('pag-back-btn')) {
+    const currentActiveBtn = document.querySelector('.btn-active');
+    if (Number(currentActiveBtn.textContent) - 1 >= 1) {
+      currentActiveBtn.previousSibling.classList.add('btn-active');
 
-    currentActiveBtn.classList.remove('btn-active');
-    currentActiveBtn.previousSibling.classList.add('btn-active');
-    currentActiveBtn.classList.remove('btn-active');
-    const choosePage = Number(currentActiveBtn.textContent) - 1;
-    defaultDataTest(choosePage, currentlimit);
+      currentActiveBtn.classList.remove('btn-active');
+      currentActiveBtn.previousSibling.classList.add('btn-active');
+      currentActiveBtn.classList.remove('btn-active');
+      const choosePage = Number(currentActiveBtn.textContent) - 1;
+      defaultDataTest(choosePage, currentlimit);
 
-    console.log(elements.btnsPagesBox.firstChild.textContent);
-    console.log(currentActiveBtn.previousSibling.textContent);
-    if (Number(elements.btnsPagesBox.firstChild.textContent)-1 > 0) {
-      if (
-        Number(elements.btnsPagesBox.firstChild.textContent) ===
-        Number(currentActiveBtn.previousSibling.textContent)
-      ) {
-        elements.btnsPagesBox.innerHTML = btnPageMarkupBack();
+        if (Number(elements.btnsPagesBox.firstChild.textContent) - 1 > 0) {
+        if (
+          Number(elements.btnsPagesBox.firstChild.textContent) ===
+          Number(currentActiveBtn.previousSibling.textContent)
+        ) {
+          elements.btnsPagesBox.innerHTML = btnPageMarkupBack();
+        }
       }
     }
   }
-}
 }
 // ============================================================================
 
 function btnPageMarkupBack() {
   const currentActiveBtn = document.querySelector('.btn-active');
-
-  console.log(currentActiveBtn);
 
   const arrBtn = [];
 
@@ -361,15 +393,9 @@ function btnPageMarkupBack() {
       `<button type="button" class="pag-page-btn pag-btn">${i}</button>`
     );
   }
-  console.log(arrBtn);
+  
   return arrBtn.join('');
-};
-
-
-
-
-
-
+}
 
 function btnPageMarkupFront() {
   const currentActiveBtn = document.querySelector('.btn-active');
@@ -394,7 +420,6 @@ function btnPageMarkupFront() {
     }
   }
   return arrBtn.join('');
- 
 }
 
 function markupEndBattons(quantityPages) {
@@ -417,3 +442,6 @@ function markupEndBattons(quantityPages) {
   const endSetPages = arrBtn.join('');
   return endSetPages;
 }
+
+
+export{quantityBtn, markupBtnPagination};
