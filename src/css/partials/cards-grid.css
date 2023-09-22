@@ -245,7 +245,8 @@
   transform: rotate(180deg);
 }
 
-.js-arrow {
+.js-arrow,
+.icon-favorite-recipes {
   pointer-events: none;
 }
 
