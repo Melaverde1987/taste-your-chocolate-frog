@@ -1,32 +1,32 @@
 /**
   |============================
-  | Simple spiner
+  | Simple spinner
   |============================
 **/
-.spiner {
+/* .spinner {
   animation: rotate 1s infinite;
   height: 50px;
   width: 50px;
 }
 
-.spiner:before,
-.spiner:after {
+.spinner:before,
+.spinner:after {
   border-radius: 50%;
   content: '';
   display: block;
   height: 20px;
   width: 20px;
 }
-.spiner:before {
+.spinner:before {
   animation: ball1 1s infinite;
-  background-color: #fff;
+  background-color: #000;
   box-shadow: 30px 0 0 #9bb537;
   margin-bottom: 10px;
 }
-.spiner:after {
+.spinner:after {
   animation: ball2 1s infinite;
   background-color: #9bb537;
-  box-shadow: 30px 0 0 #fff;
+  box-shadow: 30px 0 0 #000;
 }
 
 @keyframes rotate {
@@ -58,58 +58,62 @@
 
 @keyframes ball2 {
   0% {
-    box-shadow: 30px 0 0 #fff;
+    box-shadow: 30px 0 0 #000;
   }
   50% {
-    box-shadow: 0 0 0 #fff;
+    box-shadow: 0 0 0 #000;
     margin-top: -20px;
     transform: translate(15px, 15px);
   }
   100% {
-    box-shadow: 30px 0 0 #fff;
+    box-shadow: 30px 0 0 #000;
     margin-top: 0;
+  }
+} */
+
+/**
+  |============================
+  | Loading with fill line spinner
+  |============================
+**/
+.spinner {
+  font-size: 48px;
+  color: rgba(5, 5, 5, 0.2);
+  display: inline-block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  position: relative;
+}
+.spinner:after {
+  content: 'Loading';
+  position: relative;
+  z-index: 5;
+}
+.spinner:before {
+  content: '';
+  height: 6px;
+  border: 1px solid;
+  border-radius: 10px;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  background: linear-gradient(#9bb537 100%, transparent 0) no-repeat;
+  background-size: 0% auto;
+  animation: 10s lineGrow linear infinite;
+}
+
+@keyframes lineGrow {
+  to {
+    background-size: 100% auto;
   }
 }
 
 /**
   |============================
-  | Loading with fill line spiner
+  | Loading full fill spinner
   |============================
 **/
-/* .spiner{
-      font-size: 48px;
-      color: #FFF;
-      display: inline-block;
-      font-family: Arial, Helvetica, sans-serif;
-      font-weight: 400;
-      position: relative;
-    }
-    .spiner:after{
-      content: 'Loading';
-      position: relative;
-      z-index: 5;
-    }
-    .spiner:before{
-      content: '';
-      height: 6px;
-      border: 1px solid;
-      border-radius: 10px;
-      width: 100%;
-      position: absolute;
-      bottom: 0px;
-      background: linear-gradient(#FF3D00 100%, transparent 0) no-repeat;
-      background-size: 0% auto;
-      animation: 10s lineGrow linear infinite;
-    }
-
-    @keyframes lineGrow {to {  background-size: 100% auto}} */
-
-/**
-  |============================
-  | Loading full fill spiner
-  |============================
-**/
-/* .spiner {
+/* .spinner {
   font-size: 48px;
   display: inline-block;
   font-family: Arial, Helvetica, sans-serif;
@@ -118,7 +122,7 @@
   letter-spacing: 2px;
   position: relative;
 }
-.spiner::after {
+.spinner::after {
   content: 'Loading';
   position: absolute;
   left: 0;
@@ -145,7 +149,7 @@
   | Plate with fried egg spinner
   |============================
 **/
-/* .spiner {
+/* .spinner {
   position: relative;
   width: 120px;
   height: 14px;
@@ -157,7 +161,7 @@
   z-index: 10;
   perspective: 300px;
 }
-.spiner::before {
+.spinner::before {
   content: '';
   position: absolute;
   left: calc(100% - 2px);
@@ -173,7 +177,7 @@
   background-size: 50px 10px, 4px 8px, 24px 4px;
   background-position: right center, 17px center, 0px center;
 }
-.spiner::after {
+.spinner::after {
   content: '';
   position: absolute;
   left: 50%;
