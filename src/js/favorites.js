@@ -2,10 +2,12 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { createMarkupGridCard } from './grid-card-fetch';
 
 const listRecipe = document.querySelector('.list-recipes');
-const btnFavorite = document.querySelector('.button-favorite-recipes');
+const btnFavorite = document.querySelectorAll('.button-favorite-recipes');
 const svgFavorite = document.querySelector('.icon-favorite-recipes');
 const favoritesContainer = document.getElementById('favorites-container');
-const favoritesCardContainer = document.querySelector('.cards-grid-favorites');
+const favoritesCardContainer = document.querySelector(
+  '.list-recipes-favorites'
+);
 
 // Инициализируем массив избранных рецептов при загрузке страницы
 const storedFavorites = [];
@@ -15,11 +17,9 @@ if (listRecipe) {
 }
 
 function onClickFavorite(evt) {
-  if (evt.target) {
-    evt.target.children[0].classList.toggle('icon-favorite-recipes-active');
-  }
-
   if (evt.target.classList.contains('button-favorite-recipes')) {
+    evt.target.classList.toggle('icon-favorite-recipes-active');
+    evt.target.children[0].classList.toggle('active');
     const name = evt.target.getAttribute('name');
 
     const svgHeart = evt.target;
@@ -94,7 +94,7 @@ function createMarkupGridCardLS(arr) {
       return `<li class="item-recipes">
             <div class="wrap-recipes">
               <button type="button" class="button-favorite-recipes" name="${_id}">
-                  <svg class="icon-favorite-recipes" width="22" height="22">
+                  <svg class="icon-favorite-recipes active" width="22" height="22">
                     <use href="./sprite.svg#heart-favorite"></use>
                   </svg>
               </button>
@@ -109,9 +109,17 @@ function createMarkupGridCardLS(arr) {
                 <h3 class="title-recipes">${title}</h3>
                 <p class="description-recipes">${description}</p>
                 <div class="thumb-btn-rating">
-                  <p class="rating-recipes">2</p>
+                  <p class="rating-recipes">4.${getRandomInt(9)}</p>
                   <div class="wrap-stars-rating">
-                    1
+                    <svg class="icon-rating-recipes star">
+                      <use href="./sprite.svg#rating-star"></use>
+                    </svg>
+                    <svg class="icon-rating-recipes star">
+                      <use href="./sprite.svg#rating-star"></use>
+                    </svg>
+                    <svg class="icon-rating-recipes star">
+                      <use href="./sprite.svg#rating-star"></use>
+                    </svg>
                   </div>        
                   <button
                     type="button"
@@ -127,4 +135,8 @@ function createMarkupGridCardLS(arr) {
           </li>`;
     })
     .join('');
+}
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
 }
