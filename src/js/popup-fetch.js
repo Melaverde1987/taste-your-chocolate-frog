@@ -7,16 +7,21 @@ const cardsGrid = document.querySelector('.cards-grid');
 const popup = document.querySelector('[data-modal-popup]');
 const btnOpen = document.querySelectorAll('[data-modal-popup-open]');
 const btnClose = document.querySelectorAll('[data-modal-popup-close]');
+const body = document.querySelector('body');
 
-cardsGrid.addEventListener('click', popupData);
+if (cardsGrid) {
+  cardsGrid.addEventListener('click', popupData);
+}
 
 async function popupData(evt) {
   if (evt.target.classList.contains('button-recipes')) {
     const { id } = evt.target;
+    body.style.overflow = 'hidden';
 
     popup.addEventListener('click', evt => {
       if (evt.target.classList.contains('close-button')) {
         popup.classList.add('is-hidden');
+        body.style.overflow = '';
       }
       if (evt.target === popup) {
         popup.classList.add('is-hidden');
