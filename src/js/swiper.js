@@ -8,7 +8,7 @@ import '../css/partials/hero-swiper.css';
 const swiper = new Swiper('.swiper-hero', {
   // Optional parameters
   direction: 'horizontal',
-  loop: false,
+  loop: true,
   slidesPerGroup: 1,
   modules: [Pagination],
   spaceBetween: 20,
