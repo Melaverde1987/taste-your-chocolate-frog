@@ -23,6 +23,14 @@ async function popupData(evt) {
         popup.classList.add('is-hidden');
         body.style.overflow = '';
       }
+      if (evt.target === popup) {
+        popup.classList.add('is-hidden');
+      }
+    });
+    document.addEventListener('keydown', e => {
+      if (e.code == 'Escape') {
+        popup.classList.add('is-hidden');
+      }
     });
 
     try {
@@ -88,7 +96,7 @@ async function popupData(evt) {
  </p>
  <div class="custumer-choice">
    <a href="" class="btn btn-primary custumer-choice-text">Add to favorite</a
-   ><a href="" class="btn btn-outline custumer-choice-text">Give a rating</a></div>
+   ></div>
  </div>`;
   }
 }
