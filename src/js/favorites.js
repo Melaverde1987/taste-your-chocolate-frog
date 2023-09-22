@@ -5,20 +5,23 @@ const listRecipe = document.querySelector('.list-recipes');
 const btnFavorite = document.querySelector('.button-favorite-recipes');
 const svgFavorite = document.querySelector('.icon-favorite-recipes');
 const favoritesContainer = document.getElementById('favorites-container');
+const favoritesCardContainer = document.querySelector('.list-recipes-favorites');
 
 // Инициализируем массив избранных рецептов при загрузке страницы
 const storedFavorites = [];
 
-listRecipe.addEventListener('click', onClickFavorite);
+if (listRecipe) {
+  listRecipe.addEventListener('click', onClickFavorite);
+}
 
 function onClickFavorite(evt) {
   if (evt.target) {
     evt.target.children[0].classList.toggle('icon-favorite-recipes-active');
   }
-  
-   if (evt.target.classList.contains('button-favorite-recipes')) {
+
+  if (evt.target.classList.contains('button-favorite-recipes')) {
     const name = evt.target.getAttribute('name');
-   
+
     const svgHeart = evt.target;
     svgHeart.classList.toggle('filled-heart');
 
@@ -70,22 +73,24 @@ function onClickFavorite(evt) {
 
 renderFavoriteRecipes();
 function renderFavoriteRecipes() {
-  
   const storedFavorites =
     JSON.parse(localStorage.getItem('favoriteRecipes')) || [];
-  
-  console.log(storedFavorites);
+
+  //console.log(storedFavorites);
+
   // Отрисовываем каждую карточку
-  storedFavorites.forEach(recipe => { 
-    const cardHTML = createMarkupGridCardLS(recipe);
-    favoritesContainer.innerHTML = cardHTML;
-   });
+  console.log('storedFavorites', storedFavorites);
+
+  //const cardHTML = createMarkupGridCardLS(recipe);
+  if (favoritesCardContainer) {
+    favoritesCardContainer.innerHTML = createMarkupGridCardLS(storedFavorites);
+  }
+  //favoritesContainer.innerHTML = cardHTML;
 }
 
 function createMarkupGridCardLS(arr) {
-  return arr.map(({ _id, title, description, rating, thumb }) => {
-      const roundRating = Math.round(rating);
-      const ratingNumber = rating.toFixed(1);
+  return arr
+    .map(({ _id, title, description, thumb }) => {
       return `<li class="item-recipes">
             <div class="wrap-recipes">
               <button type="button" class="button-favorite-recipes" name="${_id}">
@@ -104,9 +109,9 @@ function createMarkupGridCardLS(arr) {
                 <h3 class="title-recipes">${title}</h3>
                 <p class="description-recipes">${description}</p>
                 <div class="thumb-btn-rating">
-                  <p class="rating-recipes">${ratingNumber}</p>
+                  <p class="rating-recipes">2</p>
                   <div class="wrap-stars-rating">
-                    ${markupRatingStarsLS(roundRating)}
+                    1
                   </div>        
                   <button
                     type="button"
@@ -122,105 +127,4 @@ function createMarkupGridCardLS(arr) {
           </li>`;
     })
     .join('');
-}
-
-function markupRatingStarsLS(roundRating) {
-  switch (roundRating) {
-    case 1:
-      return `<svg class="icon-rating-recipes star">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>`;
-    case 2:
-      return `<svg class="icon-rating-recipes star">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes star">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>`;
-    case 3:
-      return `<svg class="icon-rating-recipes star">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes star">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes star">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>`;
-    case 4:
-      return `<svg class="icon-rating-recipes star">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes star">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes star">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes star">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>`;
-    case 5:
-      return `<svg class="icon-rating-recipes star">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes star">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes star">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes star">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes star">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>`;
-    default:
-      return `<svg class="icon-rating-recipes star">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>
-    <svg class="icon-rating-recipes">
-      <use href="./sprite.svg#rating-star"></use>
-    </svg>`;
-  }
 }
