@@ -29,7 +29,7 @@ if (elements.searchInput) {
 
 function getQueryNameRecipes(e) {
   const inpunValue = e.target.value.trim();
-  console.log(inpunValue);
+  //console.log(inpunValue);
   if (inpunValue === '') {
     elements.searchInput.innerHTML = '';
     elements.cards.innerHTML = defaultData(); // якщо написав і стер то вертається дефолтна розмітка
@@ -37,7 +37,7 @@ function getQueryNameRecipes(e) {
     Notify.info('Your query is empty. Please try again');
     return;
   }
-  console.dir(elements.resetButton);
+  //console.dir(elements.resetButton);
   elements.resetButton.classList.remove('js-reset-filters');
   cardsWithFiltersData(inpunValue, currentlimit);
 }
@@ -111,8 +111,11 @@ if (elements.selectTimeButton) {
     selectTime.push(startTime);
     startTime += step;
   }
-  console.log(selectTime);
-  elements.selectTimeButton.innerHTML = createMarkupSelectTime(selectTime);
+  //console.log(selectTime);
+  elements.selectTimeButton.insertAdjacentHTML(
+    'beforeend',
+    createMarkupSelectTime(selectTime)
+  );
   new SlimSelect({
     select: elements.selectTimeButton,
     settings: {
@@ -142,7 +145,10 @@ if (elements.selectAreaButton) {
 async function selectAreaData() {
   try {
     const result = await fetchAreas();
-    elements.selectAreaButton.innerHTML = createMarkupSelectArea(result);
+    elements.selectAreaButton.insertAdjacentHTML(
+      'beforeend',
+      createMarkupSelectArea(result)
+    );
     new SlimSelect({
       select: elements.selectAreaButton,
       settings: {
@@ -174,8 +180,10 @@ if (elements.selectIngredientsButton) {
 async function selectIngredientsData() {
   try {
     const result = await fetchIngredients();
-    elements.selectIngredientsButton.innerHTML =
-      createMarkupSelectIngredients(result);
+    elements.selectIngredientsButton.insertAdjacentHTML(
+      'beforeend',
+      createMarkupSelectIngredients(result)
+    );
     new SlimSelect({
       select: elements.selectIngredientsButton,
       settings: {
