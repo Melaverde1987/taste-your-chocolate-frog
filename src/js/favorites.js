@@ -8,6 +8,7 @@ const favoritesContainer = document.getElementById('favorites-container');
 const favoritesCardContainer = document.querySelector(
   '.list-recipes-favorites'
 );
+const favoritesDefault = document.querySelector('.default-is-hidden');
 
 // Инициализируем массив избранных рецептов при загрузке страницы
 const storedFavorites = [];
@@ -89,6 +90,7 @@ function renderFavoriteRecipes() {
 }
 
 function createMarkupGridCardLS(arr) {
+  favoritesDefault.style.display = 'none';
   return arr
     .map(({ _id, title, description, thumb }) => {
       return `<li class="item-recipes">
