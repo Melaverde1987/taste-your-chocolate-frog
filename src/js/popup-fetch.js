@@ -9,7 +9,9 @@ const btnOpen = document.querySelectorAll('[data-modal-popup-open]');
 const btnClose = document.querySelectorAll('[data-modal-popup-close]');
 const body = document.querySelector('body');
 
-cardsGrid.addEventListener('click', popupData);
+if (cardsGrid) {
+  cardsGrid.addEventListener('click', popupData);
+}
 
 async function popupData(evt) {
   if (evt.target.classList.contains('button-recipes')) {
