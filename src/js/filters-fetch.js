@@ -10,6 +10,7 @@ import SlimSelect from 'slim-select';
 // import 'slim-select/dist/slimselect.css';
 
 let currentlimit = 6;
+const loader = document.querySelector('.loader');
 
 const elements = {
   cards: document.querySelector('.list-recipes'),
@@ -28,6 +29,7 @@ if (elements.searchInput) {
 }
 
 function getQueryNameRecipes(e) {
+  loader.classList.remove('hidden');
   const inpunValue = e.target.value.trim();
   //console.log(inpunValue);
   if (inpunValue === '') {
@@ -62,6 +64,7 @@ async function cardsWithFiltersData(nameRecipe, currentlimit) {
       currentlimit = 9;
     }
     const result = await fetchCardsWithFilters(nameRecipe);
+    loader.classList.add('hidden');
 
     const filterRecipes = result.filter(({ title }) =>
       title.toLowerCase().includes(nameRecipe.toLowerCase())

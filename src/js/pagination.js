@@ -2,6 +2,7 @@ import { fetchCards } from './API/grid-cards-api';
 import { setCardsLimitResizer } from './grid-card-fetch';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
+const loader = document.querySelector('.loader');
 const elements = {
   btnsPagesBox: document.querySelector('.js-btns-pages'),
   pagWrap: document.querySelector('.js-pag-wrap'),
@@ -104,6 +105,7 @@ function handlerBattonPag(e) {
   if (e.target.nodeName !== 'BUTTON') {
     return;
   }
+  loader.classList.remove('hidden');
   const currentActiveBtn = document.querySelector('.btn-active');
 
   if (currentActiveBtn) {
@@ -127,6 +129,7 @@ async function defaultDataTest(currentPage, currentlimit) {
   try {
     const result = await fetchCards(currentPage, currentlimit);
     cards.innerHTML = createMarkupGridCardPag(result.results);
+    loader.classList.add('hidden');
     // pages = result.totalPages;
   } catch {
     Notify.failure('Oops! Something went wrong! Try reloading the page!');
@@ -279,6 +282,7 @@ function markupRatingStars(roundRating) {
 
 function handlerBattonArrow(e) {
   if (e.target.classList.contains('pag-end-btn')) {
+    loader.classList.remove('hidden');
     elements.btnsPagesBox.innerHTML = markupEndBattons(pages);
     const currentActiveBtn = document.querySelector('.btn-active');
     const choosePage = currentActiveBtn.textContent;

@@ -1,6 +1,8 @@
 import { fetchCards } from './API/grid-cards-api';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
+const loader = document.querySelector('.loader');
+
 const elements = {
   cards: document.querySelector('.list-recipes'),
 };
@@ -43,6 +45,7 @@ async function defaultData() {
   try {
     const result = await fetchCards(currentPage, currentlimit);
     elements.cards.innerHTML = createMarkupGridCard(result.results);
+    loader.classList.add('hidden');
   } catch {
     Notify.failure('Oops! Something went wrong! Try reloading the page!');
   }
