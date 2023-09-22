@@ -14,4 +14,4 @@ const fetchCategories = async () => {
   return response.data;
 };
 
-export { fetchCategories};
+export { fetchCategories };

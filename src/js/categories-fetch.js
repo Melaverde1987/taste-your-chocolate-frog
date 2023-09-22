@@ -25,7 +25,6 @@ const CATEGORIES_ENDPOINT = '/categories';
 
 // }
 
-
 function createMarkupCategories(data) {
   return data
     .map(
@@ -42,8 +41,6 @@ categoriesAll.addEventListener('click', onSearchCategory);
 
 let recipes = [];
 
-
-
 categoriesData();
 async function categoriesData() {
   try {
@@ -53,7 +50,6 @@ async function categoriesData() {
   } catch {
     Notify.failure('Oops! Something went wrong! Try reloading the page!');
   }
-
 }
 
 async function onAllRecipesClick(evt) {
@@ -77,7 +73,7 @@ async function getDataArr() {
   if (recipes[0]) {
     data = [];
   } else {
-    const res = await fetchCards(currentlimit);
+    const res = await fetchCards(1, currentlimit);
     data = res.results;
   }
   return data;
